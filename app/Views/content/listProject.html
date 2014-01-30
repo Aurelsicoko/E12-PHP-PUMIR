@@ -1,0 +1,11 @@
+<?php foreach ($liste as $key => $projet) : ?>
+	Title <?php echo $projet->title; ?><br>
+	Desc: <?php echo $projet->description; ?><br>
+	<?php
+		$photos = unserialize($projet->photos);
+		foreach ($photos as $key => $photo) : 
+	?>
+	<img src="<?php echo $photo; ?>" width="200px">
+	<?php endforeach; ?>
+	<hr>
+<?php endforeach; ?>
