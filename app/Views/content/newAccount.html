@@ -1,0 +1,21 @@
+<a href="#">retour</a>
+
+<h3>Create account</h3>
+
+<div>
+<form action="user/new" method="POST">
+	Firstname: <input type="text" name="firstname" placeholder="Your firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>"><br>
+	Lastname: <input type="text" name="lastname" placeholder="Your lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>"><br>
+	Email: <input type="email" name="email" placeholder="Your email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>"><br>
+	Country: 
+	<select name="country">
+		<option value=""></option>
+		<option value="FRANCE" <?php if (isset($_POST['country']) AND $_POST['country'] == "FRANCE") echo "selected"; ?>>FRANCE</option>
+	</select><br>
+	City: <input type="text" name="city" placeholder="Your city" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>"><br>
+	Password: <input type="password" name="password" placeholder="Your password"><br>
+	Confirm Passsword: <input type="password" name="confirm" placeholder="Confirm the password"><br>
+	<input type="submit" value="Create">
+
+</form>
+</div>
