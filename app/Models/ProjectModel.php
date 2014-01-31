@@ -21,6 +21,16 @@ private $mapper;
 	public function liste ($params) {
 		return $this->mapper->find('id_user = "'.$params['id'].'"');
 	}
+
+	public function view ($params) {
+		return $this->mapper->load('id = "'.$params['id'].'" AND id_user = "'.$params['id_user'].'"');
+	}
+
+	public function destroy ($params) {
+		$res = $this->mapper->load('id = "'.$params['id'].'" AND id_user = "'.$params['id_user'].'"');
+		$this->mapper->erase('id = "'.$params['id'].'" AND id_user = "'.$params['id_user'].'"');
+		return $res;
+	}
 }
 
 ?>

@@ -25,10 +25,8 @@ private $mapper;
 	    }
 	}
 
-	public function edit () {
-		$f3 = $this->f3;
-		$this->mapper->load('id = "'.$f3->get('SESSION.id').'"');
-    	$this->mapper->copyTo('POST');
+	public function edit ($params) {
+		return $this->mapper->load('id = "'.$params['id'].'"');
 	}
 
 	public function update () {

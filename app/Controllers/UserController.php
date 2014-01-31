@@ -40,8 +40,8 @@ class UserController extends Controller{
   }
 
   public function edit ($f3) {
-    $this->model->edit();
-    
+    $res = $this->model->edit(array('id' => $f3->get('SESSION.id')));
+    $f3->set('user', $res);
     $this->content = 'editAccount';
   }
 

@@ -1,0 +1,9 @@
+<a href="#">retour</a> <a href="project/edit/<?php echo $project->id; ?>">edit</a><br>
+Title <?php echo $project->title; ?><br>
+Desc: <?php echo $project->description; ?><br>
+<?php
+	$photos = unserialize($project->photos);
+	foreach ($photos as $key => $photo) : 
+?>
+<img src="<?php echo $photo; ?>" width="200px">
+<?php endforeach; ?>

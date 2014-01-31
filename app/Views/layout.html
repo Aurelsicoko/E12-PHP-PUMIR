@@ -13,10 +13,11 @@
     <?php if ( !isset($_SESSION['user']) ): ?>
       <a href="login">Login</a>
     <?php else: ?>
-      <a href="logout">Logout</a> <a href="user/edit">Edit</a> <a href="user/delete">Delete</a> <a href="project/new">add Project</a> <a href="project/list">list Project</a>
+      <a href="logout">Logout</a> <a href="user/edit">Profil</a> <a href="project/list">list Project</a>
     <?php endif ?>
     
   </div>
+  <hr>
   <div>
     <?php
       require($content);

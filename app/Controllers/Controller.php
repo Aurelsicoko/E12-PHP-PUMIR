@@ -13,6 +13,7 @@ protected $content;
   }
   
   public function afterroute($f3){
+    
     $f3->set('content', 'app/Views/content/'.$this->content.'.html');
     if($f3->get('AJAX')){
       echo View::instance()->render($this->tpl['async']);

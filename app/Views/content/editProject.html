@@ -1,0 +1,17 @@
+<a href="#">retour</a>
+
+<h3>Edit account</h3>
+
+<div>
+	Delete project <a href="project/delete/<?php echo $project->id; ?>">[X]</a>  <br><br>
+	<form action="project/edit/" method="POST" enctype="multipart/form-data">
+		Nom: <input type="text" name="title" placeholder="Project name" value="<?php echo $project->title; ?>"><br>
+		Description: 
+		<textarea rows="4" cols="50" name="description"><?php echo $project->description; ?></textarea><br>
+		Photo1: <input type="file" name="photos[]"><br>
+		Photo2: <input type="file" name="photos[]"><br>
+		Video: <input type="text" name="name" placeholder="Lien youtube"><?php echo $project->video; ?><br>
+		<input type="submit" value="send">
+	</form>
+
+</div>
