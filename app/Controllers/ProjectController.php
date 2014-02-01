@@ -45,12 +45,6 @@ class ProjectController extends Controller {
 		$this->content = 'viewProject';
 	}
 
-	public function edit ($f3) {
-		$res = $this->model->view(array('id' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.id')));
-		$f3->set('project', $res);
-		$this->content = 'editProject';
-	}
-
 	public function destroy ($f3) {
 		$res = $this->model->destroy(array('id' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.id')));
 		$photos = unserialize($res->photos);
