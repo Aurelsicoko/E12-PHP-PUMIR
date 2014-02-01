@@ -13,6 +13,24 @@
 	?>
 	<img src="<?php echo $photo; ?>" width="200px">
 	<?php endforeach; ?>
+	<br><br>
+	<?php
+		$user_vote = unserialize($project->user_vote);
+		$admin_vote = unserialize($project->admin_vote);
+		if ($user_vote['vote'] == 0) {
+			$originality = $admin_vote['originality'];
+			$difficulty = $admin_vote['difficulty'];
+			$style = $admin_vote['style'];
+		}else{
+			$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+			$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+			$style = ($user_vote['style']+$admin_vote['style'])/2;
+		}
+	?>
+	Vote:<br> 
+	Originality: <?php echo $originality; ?><br>
+	Difficulty: <?php echo $difficulty; ?><br>
+	Style: <?php echo $style; ?>
 	<hr>
 	<?php endforeach; ?>
 </div>

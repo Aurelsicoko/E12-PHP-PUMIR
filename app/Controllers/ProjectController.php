@@ -26,8 +26,10 @@ class ProjectController extends Controller {
 
 		$begin = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
 		$last = mktime (0,0,0, date("n"), date("j")+14, date("Y") );
+		$user_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
+		$admin_vote = serialize(array('originality' => 5, 'difficulty' => 5, 'style' => 5, 'vote' => 1));
 
-		$this->model->create(array('photos' => serialize($f3->get('photos')), 'begin' => $begin, 'last' => $last, 'id' => $f3->get('SESSION.id') ));
+		$this->model->create(array('photos' => serialize($f3->get('photos')), 'begin' => $begin, 'last' => $last, 'id' => $f3->get('SESSION.id'), 'user_vote' => $user_vote, 'admin_vote' => $admin_vote ));
 		$date = new DateTime();
 		echo 'Projet Ajouté';
 		$this->content = 'newProject';
@@ -41,7 +43,11 @@ class ProjectController extends Controller {
 
 	public function view ($f3) {
 		$res = $this->model->view(array('id' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.id')));
-		$f3->set('project', $res);
+		$f3->set('project', $res[0]);
+		$vote = count($res[1]);
+		if ($vote == 1) {
+			$f3->set('vote', $res[1][0]);
+		}
 		$this->content = 'viewProject';
 	}
 
@@ -52,6 +58,11 @@ class ProjectController extends Controller {
 			if( file_exists ( $photo)) unlink( $photo ) ;
 		}
 		$f3->reroute('/project/list');
+	}
+
+	public function vote ($f3) {
+		$this->model->vote(array('id' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.id')));
+		$f3->reroute('/project/view/'.$f3->get('PARAMS.id'));
 	}
 
 }

@@ -9,7 +9,7 @@ private $mapper;
 	}
 
 	public function login ($params) {
-		return $this->mapper->load('email = "'.$params['email'].'" AND password = "'.$params['password'].'"');
+		return $this->mapper->find('email = "'.$params['email'].'" AND password = "'.$params['password'].'"');
 	}
 
 	public function create () {
@@ -38,7 +38,7 @@ private $mapper;
 	        $this->mapper->password = $infos->password;
 	        $this->mapper->save();
 	      }else{
-	        $this->mapper->save();
+	        $this->mapper->update();
 	      }
 	      return true;
 	    }else{
