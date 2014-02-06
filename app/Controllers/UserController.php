@@ -1,31 +1,21 @@
 <?php
 class UserController extends Controller{
 
+  public function beforeroute ($f3) {
+    $id = $f3->get('SESSION.id');
+    if (!isset($id) AND $f3->get('PARAMS.action') != 'newAccount'){
+      $f3->reroute('/login');
+    }
+    return;
+  }
+
   public function __construct(){
     parent::__construct();
     $this->tpl=array('sync'=>'layout.html');
   }
-  
-  public function loginPage ($f3) {
-    $this->content = 'login';
-  }
-
-  public function login ($f3) {
-    $res = $this->model->login(array('email' => $f3->get('POST.email'), 'password' => $f3->get('POST.password')));
-    if (count($res) == 1) {
-      $f3->set('SESSION.user', $res->firstname.' '.$res->lastname);
-      $f3->set('SESSION.id', $res->id);
-    }
-    $f3->reroute('/');
-  }
-
-  public function logout ($f3) {
-    $f3->clear('SESSION');
-    $f3->reroute('/');
-  }
 
   public function newAccount ($f3) {
-    $this->content =  'newAccount';
+    $this->content = 'new';
   }
 
   public function create ($f3) {
@@ -35,14 +25,13 @@ class UserController extends Controller{
     }else{
       echo 'Fail creat profil';
     }
-    $this->content =  'newAccount';
-
+    $this->content =  'new';
   }
 
   public function edit ($f3) {
     $res = $this->model->edit(array('id' => $f3->get('SESSION.id')));
     $f3->set('user', $res);
-    $this->content = 'editAccount';
+    $this->content = 'edit';
   }
 
   public function update ($f3) {
@@ -52,11 +41,11 @@ class UserController extends Controller{
     }else{
       echo 'Fail update';
     }
-    $this->content = 'editAccount';
+    $this->content = 'edit';
   }
 
   public function delete ($f3) {
-    $this->content = 'destroyAccount';
+    $this->content = 'destroy';
   }
 
   public function destroy ($f3) {
@@ -64,10 +53,6 @@ class UserController extends Controller{
     $f3->clear('SESSION');
     $f3->reroute('/');
   }
-  
-  
-  
-  
   
 }
 ?>

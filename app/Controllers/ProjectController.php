@@ -2,6 +2,13 @@
 
 class ProjectController extends Controller {
 
+	public function beforeroute ($f3) {
+		$id = $f3->get('SESSION.id');
+		if (!isset($id)){
+			$f3->reroute('/login');
+		}
+		return;
+	}
 
 	public function __construct(){
 	    parent::__construct();
@@ -9,7 +16,7 @@ class ProjectController extends Controller {
 	}
 
 	public function newProject ($f3) {
-		$this->content = 'newProject';
+		$this->content = 'new';
 	}
 
 	public function create ($f3) {
@@ -32,13 +39,13 @@ class ProjectController extends Controller {
 		$this->model->create(array('photos' => serialize($f3->get('photos')), 'begin' => $begin, 'last' => $last, 'id' => $f3->get('SESSION.id'), 'user_vote' => $user_vote, 'admin_vote' => $admin_vote ));
 		$date = new DateTime();
 		echo 'Projet Ajouté';
-		$this->content = 'newProject';
+		$this->content = 'new';
 	}
 
 	public function liste ($f3) {
 		$res = $this->model->liste(array('id' => $f3->get('SESSION.id')));
 		$f3->set('liste', $res);
-		$this->content = 'listProject';
+		$this->content = 'index';
 	}
 
 	public function view ($f3) {
@@ -48,7 +55,7 @@ class ProjectController extends Controller {
 		if ($vote == 1) {
 			$f3->set('vote', $res[1][0]);
 		}
-		$this->content = 'viewProject';
+		$this->content = 'show';
 	}
 
 	public function destroy ($f3) {
@@ -57,7 +64,7 @@ class ProjectController extends Controller {
 		foreach ($photos as $key => $photo) {
 			if( file_exists ( $photo)) unlink( $photo ) ;
 		}
-		$f3->reroute('/project/list');
+		$f3->reroute('/project');
 	}
 
 	public function vote ($f3) {

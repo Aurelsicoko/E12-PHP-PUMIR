@@ -10,16 +10,17 @@
 <body>
   <div>
     Menu: 
-    <?php //if ( !isset($_SESSION['user']) ): ?>
-      <!--  <a href="login">Login</a> -->
-    <?php //else: ?>
-      <!-- <a href="logout">Logout</a> --> <a href="user/edit">Profil</a> <a href="project/list">list Project</a>
-    <?php //endif ?>
+    <?php if ( !isset($_SESSION['user']) ): ?>
+      <a href="login">Login</a>
+    <?php else: ?>
+      <a href="logout">Logout</a> <a href="user/edit">Profil</a> <a href="project">list Project</a>
+    <?php endif ?>
     
   </div>
   <hr>
   <div>
     <?php
+      // echo $content;
       require($content);
     ?>
 </div>

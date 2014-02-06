@@ -8,10 +8,6 @@ private $mapper;
 		$this->mapper=$this->getMapper('users');
 	}
 
-	public function login ($params) {
-		return $this->mapper->find('email = "'.$params['email'].'" AND password = "'.$params['password'].'"');
-	}
-
 	public function create () {
 		$f3 = $this->f3;
 		$this->mapper->copyFrom('POST');
