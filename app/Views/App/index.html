@@ -32,11 +32,7 @@ By: <?php echo $lego->firstname.' '.$lego->lastname; ?><br>
 		$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
 		$style = ($user_vote['style']+$admin_vote['style'])/2;
 	?>
-	Vote:<br> 
-	Originality: <?php echo $originality; ?><br>
-	Difficulty: <?php echo $difficulty; ?><br>
-	Style: <?php echo $style; ?> <br>
-	Average: <?php echo ($originality+$difficulty+$style)/3; ?><br><br>
+	Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br><br>
 <?php endforeach; ?>
 <br>
 </p>

@@ -19,7 +19,9 @@ class AppController extends Controller {
 	public function singleProject ($f3) {
 		$this->content = 'project/single';
 		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
+		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => 1));
 		$f3->set('project', $project);
+		$f3->set('vote', $vote);
 	}
 
 	public function submitProject ($f3) {
@@ -30,6 +32,11 @@ class AppController extends Controller {
 		$this->content = 'user/user';
 		$user = $this->model->getUser(array('id' => 1));
 		$f3->set('user', $user);
+	}
+
+	public function voteProject ($f3) {
+		$this->model->vote(array('id_user' => 1, 'id_project' => $f3->get('PARAMS.id')));
+		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
 	}
 
 	public function createProject ($f3) {

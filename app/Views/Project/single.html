@@ -7,4 +7,66 @@ Desc: <?php echo $project->description; ?><br>
 <img src="<?php echo $photo; ?>" width="200px">
 <?php endforeach; ?>
 <br>
-By: <?php echo $project->firstname.' '.$project->lastname; ?>
+By: <?php echo $project->firstname.' '.$project->lastname; ?><br><br>
+<?php
+	$user_vote = unserialize($project->user_vote);
+	$admin_vote = unserialize($project->admin_vote);
+	$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+	$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+	$style = ($user_vote['style']+$admin_vote['style'])/2;
+?>
+Vote:<br> 
+Originality: <?php echo $originality; ?><br>
+Difficulty: <?php echo $difficulty; ?><br>
+Style: <?php echo $style; ?> <br>
+Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br><br>
+<?php if (!$vote) : ?>
+	<form method="POST" action="project/vote/<?php echo $project->id ?>">
+	Originality : 
+	<select name="originality">
+		<option value="0" >0</option>
+		<option value="1" >1</option>
+		<option value="2" >2</option>
+		<option value="3" >3</option>
+		<option value="4" >4</option>
+		<option value="5" >5</option>
+		<option value="6" >6</option>
+		<option value="7" >7</option>
+		<option value="8" >8</option>
+		<option value="9" >9</option>
+		<option value="10" >10</option>
+	</select>
+	<br>
+	Difficulty : 
+	<select name="difficulty">
+		<option value="0" >0</option>
+		<option value="1" >1</option>
+		<option value="2" >2</option>
+		<option value="3" >3</option>
+		<option value="4" >4</option>
+		<option value="5" >5</option>
+		<option value="6" >6</option>
+		<option value="7" >7</option>
+		<option value="8" >8</option>
+		<option value="9" >9</option>
+		<option value="10" >10</option>
+	</select>
+	<br>
+	Style : 
+	<select name="style">
+		<option value="0" >0</option>
+		<option value="1" >1</option>
+		<option value="2" >2</option>
+		<option value="3" >3</option>
+		<option value="4" >4</option>
+		<option value="5" >5</option>
+		<option value="6" >6</option>
+		<option value="7" >7</option>
+		<option value="8" >8</option>
+		<option value="9" >9</option>
+		<option value="10" >10</option>
+	</select>
+	<br>
+	<input type="submit" value="vote">
+</form>
+<?php endif; ?>
