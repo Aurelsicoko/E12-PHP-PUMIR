@@ -1,11 +1,42 @@
 <h1>Home page</h1>
+<?php if ($lego) : ?>
+<?php $photos = unserialize($lego->photos); ?>
+<img src="<?php echo $photos[0]; ?>"><br>
+<a href="project/<?php echo $lego->id; ?>"><?php echo $lego->title; ?></a>
+<br>
+By: <?php echo $lego->firstname.' '.$lego->lastname; ?><br>
+<?php
+		$user_vote = unserialize($lego->user_vote);
+		$admin_vote = unserialize($lego->admin_vote);
+		$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+		$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+		$style = ($user_vote['style']+$admin_vote['style'])/2;
+	?>
+	Vote:<br> 
+	Originality: <?php echo $originality; ?><br>
+	Difficulty: <?php echo $difficulty; ?><br>
+	Style: <?php echo $style; ?> <br><br>
+<hr>
+<?php endif; ?>
 <p>
 <?php foreach ($projects as $key => $project) : ?>
 	<?php $photos = unserialize($project->photos); ?>
 	<img src="<?php echo $photos[0]; ?>"><br>
 	<a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a>
 	<br>
-	By: <?php echo $project->firstname.' '.$project->lastname; ?><br><br>
+	By: <?php echo $project->firstname.' '.$project->lastname; ?><br>
+	<?php
+		$user_vote = unserialize($project->user_vote);
+		$admin_vote = unserialize($project->admin_vote);
+		$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+		$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+		$style = ($user_vote['style']+$admin_vote['style'])/2;
+	?>
+	Vote:<br> 
+	Originality: <?php echo $originality; ?><br>
+	Difficulty: <?php echo $difficulty; ?><br>
+	Style: <?php echo $style; ?> <br>
+	Average: <?php echo ($originality+$difficulty+$style)/3; ?><br><br>
 <?php endforeach; ?>
 <br>
 </p>

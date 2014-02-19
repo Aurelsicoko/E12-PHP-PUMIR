@@ -9,8 +9,11 @@ class AppController extends Controller {
 
 	public function home ($f3) {
 		$this->content = 'app/index';
-		$projects = $this->model->getProjects();
+		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
+		$projects = $this->model->getProjects(array('date' => $date));
+		$lego = $this->model->getLego(array('date' => $date));
 		$f3->set('projects', $projects);
+		$f3->set('lego', $lego);
 	}
 
 	public function singleProject ($f3) {
@@ -41,7 +44,8 @@ class AppController extends Controller {
 			}
 		))
 		$user_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
-		$this->model->createProject(array('photos' => serialize($f3->get('photos')), 'id' => 1, 'user_vote' => $user_vote));
+		$admin_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
+		$this->model->createProject(array('photos' => serialize($f3->get('photos')), 'id' => 1, 'user_vote' => $user_vote, 'admin_vote' => $admin_vote));
 		$f3->reroute('/');
 	}
 
