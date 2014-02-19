@@ -1,0 +1,10 @@
+Title <?php echo $project->title; ?><br>
+Desc: <?php echo $project->description; ?><br>
+<?php
+	$photos = unserialize($project->photos);
+	foreach ($photos as $key => $photo) : 
+?>
+<img src="<?php echo $photo; ?>" width="200px">
+<?php endforeach; ?>
+<br>
+By: <?php echo $project->firstname.' '.$project->lastname; ?>

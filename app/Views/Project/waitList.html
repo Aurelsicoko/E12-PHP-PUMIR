@@ -1,0 +1,5 @@
+<?php foreach ($projects as $key => $project) : ?>
+	<a href="admin/project/waitList/<?php echo $project->id; ?>"><?php echo $project->title; ?></a>
+	<br>
+	By: <?php echo $project->firstname.' '.$project->lastname; ?><br>
+<?php endforeach; ?>

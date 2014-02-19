@@ -27,15 +27,3 @@ $('input[name="name"]').on('keyup',function(){
 		$('.users').html(data);
 	})
 });
-
-
-
-
-
-
-
-
-
-
-
-

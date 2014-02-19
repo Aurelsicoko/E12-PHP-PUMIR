@@ -1,8 +1,11 @@
 <h1>Home page</h1>
 <p>
-<?php
-	if (isset($_SESSION['user'])) {
-		echo $_SESSION['user'];
-	}
-?>
+<?php foreach ($projects as $key => $project) : ?>
+	<?php $photos = unserialize($project->photos); ?>
+	<img src="<?php echo $photos[0]; ?>"><br>
+	<a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a>
+	<br>
+	By: <?php echo $project->firstname.' '.$project->lastname; ?><br><br>
+<?php endforeach; ?>
+<br>
 </p>
