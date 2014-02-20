@@ -35,7 +35,13 @@ class AppController extends Controller {
 	}
 
 	public function voteProject ($f3) {
-		$this->model->vote(array('id_user' => 1, 'id_project' => $f3->get('PARAMS.id')));
+		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
+		$user_vote = unserialize($project->user_vote);
+		$user_vote["originality"] = (($user_vote["originality"]*$user_vote["vote"])+$f3->get('POST.originality'))/($user_vote["vote"]+1);
+		$user_vote["difficulty"] = (($user_vote["difficulty"]*$user_vote["vote"])+$f3->get('POST.difficulty'))/($user_vote["vote"]+1);
+		$user_vote["style"] = (($user_vote["style"]*$user_vote["vote"])+$f3->get('POST.style'))/($user_vote["vote"]+1);
+		$this->model->voteProject(array("id_project" => $f3->get('PARAMS.id'), 'user_vote' => $user_vote));
+		$this->model->addVote(array('id_user' => 1, 'id_project' => $f3->get('PARAMS.id')));
 		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
 	}
 

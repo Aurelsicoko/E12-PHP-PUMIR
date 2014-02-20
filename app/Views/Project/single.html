@@ -16,11 +16,12 @@ By: <?php echo $project->firstname.' '.$project->lastname; ?><br><br>
 	$style = ($user_vote['style']+$admin_vote['style'])/2;
 ?>
 Vote:<br> 
-Originality: <?php echo $originality; ?><br>
-Difficulty: <?php echo $difficulty; ?><br>
-Style: <?php echo $style; ?> <br>
-Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br><br>
-<?php if (!$vote) : ?>
+Originality: <?php echo number_format($originality, 2, ',', ''); ?><br>
+Difficulty: <?php echo number_format($difficulty, 2, ',', ''); ?><br>
+Style: <?php echo number_format($style, 2, ',', ''); ?> <br>
+Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br>
+nb de votant: <?php echo $user_vote["vote"]+$admin_vote["vote"]; ?><br><br>
+<?php // if (!$vote) : ?>
 	<form method="POST" action="project/vote/<?php echo $project->id ?>">
 	Originality : 
 	<select name="originality">
@@ -69,4 +70,4 @@ Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', '
 	<br>
 	<input type="submit" value="vote">
 </form>
-<?php endif; ?>
+<?php // endif; ?>
