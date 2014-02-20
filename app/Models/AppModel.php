@@ -39,12 +39,12 @@ private $mapper;
 	}
 
 	public function voteProject ($params) {
-		$this->mapper->load(array('id = ? AND block = 0', $params["id_project"]));
+		$mapper = $this->getMapper('projects');
+		$mapper->load(array('id = ? AND block = 0', $params["id_project"]));
 		$user_vote = unserialize($this->mapper->user_vote);
-		print_r($user_vote);
 		$user_vote = serialize(array('originality' => $params['user_vote']['originality'], 'difficulty' => $params['user_vote']['difficulty'], 'style' => $params['user_vote']['style'], 'vote' => $user_vote['vote']+1));
-		$this->mapper->user_vote = $user_vote;
-		$this->mapper->update();
+		$mapper->user_vote = $user_vote;
+		$mapper->update();
 	}
 
 	public function createProject ($params) {
