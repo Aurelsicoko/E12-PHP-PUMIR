@@ -30,6 +30,11 @@ private $mapper;
 		return $mapper->load(array("id = ? AND block = 0", $params['id']));
 	}
 
+	public function login ($params) {
+		$mapper = $this->getMapper('users');
+		return $mapper->load(array('email = ? AND password = ?', $params['email'], $params['password']));
+	}
+
 	public function addVote ($params) {
 		$mapper = $this->getMapper('vote');
 		$mapper->copyFrom('POST');

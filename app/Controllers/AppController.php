@@ -79,6 +79,24 @@ class AppController extends Controller {
 		$f3->set('project', $project);
 	}
 
+	public function newSession ($f3){
+		$this->content = 'session/new';
+	}
+
+	public function createSession ($f3) {
+		$user = $this->model->login(array('email' => $f3->get('POST.email'), 'password' => $f3->get('POST.password')));
+		$f3->set('SESSION.authenticated', true);
+		$f3->set('SESSION.user', array(	'id' => $user->id, 
+										'firstname' => $user->firstname, 
+										'lastname' => $user->lastname,
+										'email' => $user->email,
+										'admin' => $user->admin,
+										'country' => $user->country,
+										'city' => $user->city,
+										'picture' => $user->picture ));
+		$f3->reroute('/');
+	}
+
 }
 
 ?>
