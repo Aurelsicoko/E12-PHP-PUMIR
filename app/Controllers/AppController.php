@@ -10,7 +10,7 @@ class AppController extends Controller {
 	// INDEX
 	public function home ($f3) {
 		$this->content = 'app/index';
-		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
+		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+13, date("Y") );
 		$projects = $this->model->getProjects(array('date' => $date));
 		$lego = $this->model->getLego(array('date' => $date));
 		$f3->set('projects', $projects);
@@ -114,6 +114,24 @@ class AppController extends Controller {
 		$f3->set('SESSION.authenticated', false);
 		$f3->set('SESSION.user', NULL);
     	$f3->reroute('/');
+	}
+
+	public function CRON ($f3) {
+		$lego = array(0, 0);
+		$date = mktime (0,0,0, date("n"), date("j")+14, date("Y") );
+		$todayProjects = $this->model->todayProjects(array('date' => $date));
+		for ($i = 0 ; $i<count($todayProjects) ; $i++) {
+			$user_vote = unserialize($todayProjects[$i]->user_vote);
+			$user_vote["originality"] = (($user_vote["originality"]*$user_vote["vote"])+$f3->get('POST.originality'))/($user_vote["vote"]+1);
+			$user_vote["difficulty"] = (($user_vote["difficulty"]*$user_vote["vote"])+$f3->get('POST.difficulty'))/($user_vote["vote"]+1);
+			$user_vote["style"] = (($user_vote["style"]*$user_vote["vote"])+$f3->get('POST.style'))/($user_vote["vote"]+1);
+			$average = ($user_vote["originality"]+$user_vote["difficulty"]+$user_vote["style"])/3;
+			if ($average > $lego[0]) {
+				$lego[0] = $average;
+				$lego[1] = $todayProjects[$i]->id;
+			}
+		}
+		echo $lego[1];
 	}
 
 }
