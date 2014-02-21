@@ -30,17 +30,6 @@ class AppController extends Controller {
 		$this->content = 'project/submit';
 	}
 
-	public function voteProject ($f3) {
-		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
-		$user_vote = unserialize($project->user_vote);
-		$user_vote["originality"] = (($user_vote["originality"]*$user_vote["vote"])+$f3->get('POST.originality'))/($user_vote["vote"]+1);
-		$user_vote["difficulty"] = (($user_vote["difficulty"]*$user_vote["vote"])+$f3->get('POST.difficulty'))/($user_vote["vote"]+1);
-		$user_vote["style"] = (($user_vote["style"]*$user_vote["vote"])+$f3->get('POST.style'))/($user_vote["vote"]+1);
-		$this->model->voteProject(array("id_project" => $f3->get('PARAMS.id'), 'user_vote' => $user_vote));
-		$this->model->addVote(array('id_user' => $f3->get('SESSION.user')['id'], 'id_project' => $f3->get('PARAMS.id')));
-		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
-	}
-
 	public function createProject ($f3) {
 		$f3->set('photos', array());
 		if (Web::instance()->receive(
@@ -58,10 +47,27 @@ class AppController extends Controller {
 		$f3->reroute('/');
 	}
 
+	public function voteProject ($f3) {
+		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
+		$user_vote = unserialize($project->user_vote);
+		$user_vote["originality"] = (($user_vote["originality"]*$user_vote["vote"])+$f3->get('POST.originality'))/($user_vote["vote"]+1);
+		$user_vote["difficulty"] = (($user_vote["difficulty"]*$user_vote["vote"])+$f3->get('POST.difficulty'))/($user_vote["vote"]+1);
+		$user_vote["style"] = (($user_vote["style"]*$user_vote["vote"])+$f3->get('POST.style'))/($user_vote["vote"]+1);
+		$this->model->voteProject(array("id_project" => $f3->get('PARAMS.id'), 'user_vote' => $user_vote));
+		$this->model->addVote(array('id_user' => $f3->get('SESSION.user')['id'], 'id_project' => $f3->get('PARAMS.id')));
+		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
+	}
+
 	public function waitListProject ($f3) {
 		$this->content = 'project/waitList';
 		$projects = $this->model->waitListProject();
 		$f3->set('projects', $projects);
+	}
+
+	public function adminPreview ($f3) {
+		$this->content = 'project/singleAdmin';
+		$project = $this->model->adminPreview(array('id' => $f3->get('PARAMS.id')));
+		$f3->set('project', $project);
 	}
 
 	public function validationProject ($f3) {
@@ -69,10 +75,9 @@ class AppController extends Controller {
 		$f3->reroute('/admin/project/waitList');
 	}
 
-	public function adminPreview ($f3) {
-		$this->content = 'project/singleAdmin';
-		$project = $this->model->adminPreview(array('id' => $f3->get('PARAMS.id')));
-		$f3->set('project', $project);
+	public function refuseProject ($f3) {
+		$this->model->refuseProject(array('id' => $f3->get('PARAMS.id')));
+		$f3->reroute('/admin/project/waitList');
 	}
 
 	// USERS

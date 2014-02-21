@@ -8,4 +8,5 @@ Desc: <?php echo $project->description; ?><br>
 <?php endforeach; ?>
 <br>
 By: <?php echo $project->firstname.' '.$project->lastname; ?><br><br>
-<a href="admin/project/validation/<?php echo $project->id; ?>">Valide this project</a>
+<a href="admin/project/validation/<?php echo $project->id; ?>">Valide this project</a><br>
+<a href="admin/project/refuse/<?php echo $project->id; ?>">Refuse this project</a>

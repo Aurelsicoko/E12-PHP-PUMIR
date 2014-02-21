@@ -78,6 +78,13 @@ private $mapper;
 	public function adminPreview ($params) {
 		return $this->mapper->load(array("id = ? AND block = 1", $params['id']));
 	}
+
+	public function refuseProject ($params) {
+		$mapper = $this->getMapper('projects');
+		$mapper->load(array('id = ? AND block = 1', $params['id']));
+		$mapper->block = -1;
+		$mapper->update();
+	}
 }
 ?>
 
