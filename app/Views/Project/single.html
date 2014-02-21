@@ -21,7 +21,7 @@ Difficulty: <?php echo number_format($difficulty, 2, ',', ''); ?><br>
 Style: <?php echo number_format($style, 2, ',', ''); ?> <br>
 Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br>
 nb de votant: <?php echo $user_vote["vote"]+$admin_vote["vote"]; ?><br><br>
-<?php // if (!$vote) : ?>
+<?php if (!$vote AND isset($_SESSION['authenticated']) AND $_SESSION['authenticated']) : ?>
 	<form method="POST" action="project/vote/<?php echo $project->id ?>">
 	Originality : 
 	<select name="originality">
@@ -70,4 +70,4 @@ nb de votant: <?php echo $user_vote["vote"]+$admin_vote["vote"]; ?><br><br>
 	<br>
 	<input type="submit" value="vote">
 </form>
-<?php // endif; ?>
+<?php endif; ?>

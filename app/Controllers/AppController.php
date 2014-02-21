@@ -7,6 +7,7 @@ class AppController extends Controller {
 		$this->tpl=array('sync'=>'layout.html');
 	}
 
+	// INDEX
 	public function home ($f3) {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
@@ -16,22 +17,17 @@ class AppController extends Controller {
 		$f3->set('lego', $lego);
 	}
 
+	// PROJECTS
 	public function singleProject ($f3) {
 		$this->content = 'project/single';
 		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
-		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => 1));
+		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.user')['id']));
 		$f3->set('project', $project);
 		$f3->set('vote', $vote);
 	}
 
 	public function submitProject ($f3) {
 		$this->content = 'project/submit';
-	}
-
-	public function singleUser ($f3) {
-		$this->content = 'user/user';
-		$user = $this->model->getUser(array('id' => 1));
-		$f3->set('user', $user);
 	}
 
 	public function voteProject ($f3) {
@@ -41,7 +37,7 @@ class AppController extends Controller {
 		$user_vote["difficulty"] = (($user_vote["difficulty"]*$user_vote["vote"])+$f3->get('POST.difficulty'))/($user_vote["vote"]+1);
 		$user_vote["style"] = (($user_vote["style"]*$user_vote["vote"])+$f3->get('POST.style'))/($user_vote["vote"]+1);
 		$this->model->voteProject(array("id_project" => $f3->get('PARAMS.id'), 'user_vote' => $user_vote));
-		$this->model->addVote(array('id_user' => 1, 'id_project' => $f3->get('PARAMS.id')));
+		$this->model->addVote(array('id_user' => $f3->get('SESSION.user')['id'], 'id_project' => $f3->get('PARAMS.id')));
 		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
 	}
 
@@ -58,7 +54,7 @@ class AppController extends Controller {
 		))
 		$user_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
 		$admin_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
-		$this->model->createProject(array('photos' => serialize($f3->get('photos')), 'id' => 1, 'user_vote' => $user_vote, 'admin_vote' => $admin_vote));
+		$this->model->createProject(array('photos' => serialize($f3->get('photos')), 'id' => $f3->get('SESSION.user')['id'], 'user_vote' => $user_vote, 'admin_vote' => $admin_vote));
 		$f3->reroute('/');
 	}
 
@@ -79,22 +75,40 @@ class AppController extends Controller {
 		$f3->set('project', $project);
 	}
 
+	// USERS
+	public function singleUser ($f3) {
+		$this->content = 'user/user';
+		$user = $this->model->getUser(array('id' => $f3->get('SESSION.user')['id']));
+		$f3->set('user', $user);
+	}
+
+	// SESSION
 	public function newSession ($f3){
 		$this->content = 'session/new';
 	}
 
 	public function createSession ($f3) {
 		$user = $this->model->login(array('email' => $f3->get('POST.email'), 'password' => $f3->get('POST.password')));
-		$f3->set('SESSION.authenticated', true);
-		$f3->set('SESSION.user', array(	'id' => $user->id, 
-										'firstname' => $user->firstname, 
-										'lastname' => $user->lastname,
-										'email' => $user->email,
-										'admin' => $user->admin,
-										'country' => $user->country,
-										'city' => $user->city,
-										'picture' => $user->picture ));
-		$f3->reroute('/');
+		if ($user) {
+			$f3->set('SESSION.authenticated', true);
+			$f3->set('SESSION.user', array(	'id' => $user->id, 
+											'firstname' => $user->firstname, 
+											'lastname' => $user->lastname,
+											'email' => $user->email,
+											'admin' => $user->admin,
+											'country' => $user->country,
+											'city' => $user->city,
+											'picture' => $user->picture ));
+			$f3->reroute('/');
+		}else{
+			$f3->reroute('/login');
+		}
+	}
+
+	public function destroySession ($f3) {
+		$f3->set('SESSION.authenticated', false);
+		$f3->set('SESSION.user', NULL);
+    	$f3->reroute('/');
 	}
 
 }
