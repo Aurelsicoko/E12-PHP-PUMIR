@@ -90,6 +90,13 @@ private $mapper;
 		$mapper = $this->getMapper('projects');
 		return $mapper->find(array('lastDay = ? AND block = 0', $params['date']));	
 	}
+
+	public function setLego ($params) {
+		$mapper = $this->getMapper('projects');
+		$mapper->load(array('id = ? AND block = 0', $params['id']));	
+		$mapper->lego = 1;
+		$mapper->update();
+	}
 }
 ?>
 
