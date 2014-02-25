@@ -1,0 +1,22 @@
+<?php if(isset($GET['callback'])): echo $GET['callback'].'('; endif;?>
+{
+"header":[
+<?php if(isset($header)): ?>
+{
+"code":<?php echo $header['code']?>,
+"status":"<?php echo $header['status']?>",
+"text":"<?php echo $header['text']?>"
+}
+<?php endif; ?>
+],
+"body":[
+<?php if(isset($datas)):?>
+<?php foreach($datas as $data):?>
+{
+"title":"<?php echo $data->title ?>"
+},
+<?php endforeach;?>
+<?php endif;?>
+]
+}
+<?php if(isset($GET['callback'])): echo ')'; endif; ?>
