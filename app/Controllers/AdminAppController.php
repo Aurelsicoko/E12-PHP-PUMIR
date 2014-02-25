@@ -42,7 +42,7 @@ class AdminAppController extends Controller {
 	}
 
 	public function adminPreview ($f3) {
-		$this->content = 'project/singleAdmin';
+		$this->content = 'admin/preview';
 		$project = $this->model->adminPreview(array('id' => $f3->get('PARAMS.id')));
 		$f3->set('project', $project);
 	}
