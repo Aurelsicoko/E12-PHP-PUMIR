@@ -4,9 +4,10 @@ class AdminAppController extends Controller {
 
 	public function __construct(){
 		parent::__construct();
-		$this->tpl=array('sync'=>'layout.html');
+		$this->tpl=array('sync'=>'adminLayout.html');
 	}
 
+	// Policie
 	public function beforeroute ($f3) {
 		if ($f3->get('SESSION.authenticated') !== true OR $f3->get('SESSION.user.admin') !== 1) {
 			$f3->reroute('/signup');
@@ -35,7 +36,7 @@ class AdminAppController extends Controller {
 
 	// PROJECT
 	public function waitListProject ($f3) {
-		$this->content = 'project/waitList';
+		$this->content = 'admin/moderation';
 		$projects = $this->model->waitListProject();
 		$f3->set('projects', $projects);
 	}

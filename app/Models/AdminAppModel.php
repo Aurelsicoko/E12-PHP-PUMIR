@@ -17,7 +17,7 @@ private $mapper;
 		$mapper->load(array('id = ?', $params["id"]));
 		$mapper->block = 0;
 		$mapper->beginDay = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
-		$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+14, date("Y") );
+		$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$mapper->update();
 	}
 

@@ -1,0 +1,47 @@
+
+  <div id="page-wrapper">
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h1>Projets</h1>
+      </div>
+      <div class="col-lg-12">
+        <ol class="breadcrumb">
+          <li><a href="index.html"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+          <li class="active"><i class="fa fa-desktop"></i> Projets</li>
+        </ol>
+      </div>
+    </div><!-- /.row -->
+
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Modération des projets</h2>
+        <div class="table-responsive">
+          <table class="table table-bordered table-hover table-striped tablesorter">
+            <thead>
+              <tr>
+                <th>Nom <i class="fa fa-sort"></i></th>
+                <th>Auteur <i class="fa fa-sort"></i></th>
+                <th>Date <i class="fa fa-sort"></i></th>
+                <th>Action <i class="fa fa-sort"></i></th>
+              </tr>
+            </thead>
+            <tbody>
+
+              <?php foreach ($projects as $key => $project) : ?>
+                <tr>
+                <td><?php echo $project->title; ?></td>
+                <td><?php echo $project->firstname.' '.$project->lastname; ?></td>
+                <td>09 Février 2013</td>
+                <td><a <a href="admin/project/waitList/<?php echo $project->id; ?>" type="button" class="btn btn-primary btn-xs">Voir</a> <button type="button" class="btn btn-success btn-xs">Accepter</button> <button type="button" class="btn btn-danger btn-xs">Refuser</button></td>
+                <tr>
+              <?php endforeach; ?>
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div><!-- /.row -->
+    </div><!-- /.row -->
+
+  </div><!-- /#page-wrapper -->
