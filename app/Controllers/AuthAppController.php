@@ -61,6 +61,26 @@ class AuthAppController extends Controller {
     	$f3->reroute('/');
 	}
 
+	public function payment ($f3) {
+		Stripe::setApiKey("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ");
+
+		// Get the credit card details submitted by the form
+		$token = $_POST['stripeToken'];
+
+		// Create the charge on Stripe's servers - this will charge the user's card
+		try {
+		$charge = Stripe_Charge::create(array(
+		  "amount" => 2000, // amount in cents, again
+		  "currency" => "eur",
+		  "card" => $token,
+		  "description" => "payinguser@example.com")
+		);
+		
+		} catch(Stripe_CardError $e) {
+		  // The card has been declined
+		}
+	}
+
 }
 
 ?>
