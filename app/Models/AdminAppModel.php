@@ -38,6 +38,11 @@ private $mapper;
 		$mapper->lego = 1;
 		$mapper->update();
 	}
+
+	public function todayProjects ($params) {
+ 		$mapper = $this->getMapper('projects');
+ 		return $mapper->find(array('lastDay = ? AND block = 0', $params['date']));	
+ 	}
 }
 ?>
 

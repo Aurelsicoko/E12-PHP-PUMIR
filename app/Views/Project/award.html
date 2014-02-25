@@ -1,0 +1,15 @@
+<?php foreach ($projects as $key => $project) : ?>
+	<?php $photos = unserialize($project->photos); ?>
+	<img src="<?php echo $photos[0]; ?>"><br>
+	<a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a>
+	<br>
+	By: <?php echo $project->firstname.' '.$project->lastname; ?><br>
+	<?php
+		$user_vote = unserialize($project->user_vote);
+		$admin_vote = unserialize($project->admin_vote);
+		$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+		$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+		$style = ($user_vote['style']+$admin_vote['style'])/2;
+	?>
+	Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br><br>
+<?php endforeach; ?>

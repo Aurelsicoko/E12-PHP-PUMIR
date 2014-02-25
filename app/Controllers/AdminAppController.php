@@ -11,7 +11,6 @@ class AdminAppController extends Controller {
 		if ($f3->get('SESSION.authenticated') !== true OR $f3->get('SESSION.user.admin') !== 1) {
 			$f3->reroute('/signup');
 		}
-		echo $f3->get('SESSION.user.admin');
 	}
 
 	// CRON

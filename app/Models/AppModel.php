@@ -12,6 +12,10 @@ private $mapper;
 		return $this->mapper->find(array("beginDay <= ? AND lastDay >= ? AND block = 0", $params["date"], $params["date"]));
 	}
 
+	public function getAward () {
+		return $this->mapper->find(array("lego = 1"));
+	}
+
 	public function getProject ($params) {
 		return $this->mapper->load(array("id = ? AND block = 0", $params['id']));
 	}

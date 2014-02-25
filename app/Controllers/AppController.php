@@ -10,7 +10,7 @@ class AppController extends Controller {
 	// INDEX
 	public function home ($f3) {
 		$this->content = 'app/index';
-		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
+		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+13, date("Y") );
 		$projects = $this->model->getProjects(array('date' => $date));
 		$date = mktime (0,0,0, date("n"), date("j")+14, date("Y") );
 		$lego = $this->model->getLego(array('date' => $date));
@@ -25,6 +25,12 @@ class AppController extends Controller {
 		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.user')['id']));
 		$f3->set('project', $project);
 		$f3->set('vote', $vote);
+	}
+
+	public function award ($f3) {
+		$this->content = 'project/award';
+		$projects = $this->model->getAward();
+		$f3->set('projects', $projects);
 	}
 
 	// SESSION
