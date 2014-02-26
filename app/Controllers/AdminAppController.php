@@ -16,7 +16,7 @@ class AdminAppController extends Controller {
 
 	// CRON
 	public function CRON ($f3) {
-		$lego = array(0, 0);
+		$lego = array(-0.1, 0);
 		$date = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$todayProjects = $this->model->todayProjects(array('date' => $date));
 		for ($i = 0 ; $i<count($todayProjects) ; $i++) {
