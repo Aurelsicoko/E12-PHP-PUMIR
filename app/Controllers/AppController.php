@@ -10,9 +10,9 @@ class AppController extends Controller {
 	// INDEX
 	public function home ($f3) {
 		$this->content = 'app/index';
-		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+14, date("Y") );
+		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+3, date("Y") );
 		$projects = $this->model->getProjects(array('date' => $date));
-		$date = mktime (0,0,0, date("n"), date("j")+14, date("Y") );
+		$date = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$lego = $this->model->getLego(array('date' => $date));
 		$f3->set('projects', $projects);
 		$f3->set('lego', $lego);

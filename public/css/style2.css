@@ -1,0 +1,223 @@
+/*===========================fonts===========================*/
+@import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+/*===========================body===========================*/
+body{
+	background-color: #26272c;
+}
+/*===========================header===========================*/
+header{
+	height: 56px;
+	background-repeat: repeat;
+	background-image: url('../../public/images/header_lego.jpg');
+	line-height: 56px;
+}
+header>img{
+	float: left;
+	margin-left: 51px;
+}
+header>div{
+	background-color: rgba(0, 0, 0, 0.1);
+	padding: 0 10px;
+}
+.float-right{
+	float: right;
+}
+
+/*===========================footer===========================*/
+body footer{
+	background-color: #272821;
+	padding: 25px 20px;
+}
+footer a{
+	margin-left: 20px;
+}
+footer>p{
+	float: right;
+	color: #fFF;
+}
+footer a:link {color: #fff;}
+footer a:visited {color: #fff;}
+footer a:hover {color: #fff;}
+footer a:active {color: #fff;}
+
+/*===========================main===========================*/
+#container>div:first-child{
+	background-image: url('../../public/images/fond_homme_lego.jpg');
+}
+.w860{
+	width: 960px;
+	margin: 0 auto;
+	margin-top: 15px;
+}
+.center{
+	text-align: center;
+}
+body>#container .note{
+	padding: 0;
+}
+html body .note{
+	margin-left: -4px;
+	height: 194px;
+	background-color: #f2f2f2; 
+}
+.note p{
+	font-family: 'Montserrat', sans-serif;
+	font-weight: bold;
+	font-size: 2em;
+	margin-top: 10px;
+}
+
+.note>div{
+	line-height: 45px;
+	width: 100%;
+	height: 45px;
+}
+#average{
+	background:none;
+	height: 270px;
+	position: relative;
+}
+#average>div:first-child{
+	height: 194px;
+	color: #FFF;
+	background-color: #FFF;
+}
+#average>div:first-child>div{
+	height: 41px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #474758),
+	color-stop(1, #474758)
+	);
+	background-image: -o-linear-gradient(bottom, #bd0107 0%, #810104 100%);
+	background-image: -moz-linear-gradient(bottom, #bd0107 0%, #810104 100%);
+	background-image: -webkit-linear-gradient(bottom, #bd0107 0%, #810104 100%);
+	background-image: -ms-linear-gradient(bottom, #bd0107 0%, #810104 100%);
+	background-image: linear-gradient(to bottom, #bd0107 0%, #810104 100%);
+}
+#average a{
+	position: absolute;
+	bottom: 0;
+	margin-left: -55px;
+	color: #fff; 
+	padding-top: 1px;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #474758),
+	color-stop(1, #474758)
+	);
+	background-image: -o-linear-gradient(bottom, #85859C 0%, #474758 100%);
+	background-image: -moz-linear-gradient(bottom, #85859C 0%, #474758 100%);
+	background-image: -webkit-linear-gradient(bottom, #85859C 0%, #474758 100%);
+	background-image: -ms-linear-gradient(bottom, #85859C 0%, #474758 100%);
+	background-image: linear-gradient(to bottom, #85859C 0%, #474758 100%);
+	vertical-align: bottom;
+	background-color: green;
+}
+.pad-content{
+	padding-top: 25px;
+	padding-bottom: 50px;
+}
+svg{
+	margin-top: 13px;
+}
+/*--------------------autre-----------------------*/
+.border-bottom{
+	border-bottom: 4px solid #490507;
+}
+.titre_partie{
+	margin-bottom: 25px;
+}
+/*===========================titre et police ===========================*/
+body [class*="titre"],body footer{
+	font-family: 'Montserrat', sans-serif;
+}
+
+body [class*="black"]{
+	color: #000;
+}
+
+body [class*="white"]{
+	color: #FFF;
+}
+html body .titre-1{
+	font-size: 1em;
+}
+html body .titre-2{
+	font-size: 1.2em;
+}
+html body .titre-3{
+	font-size: 1.1em;
+	font-weight: bold;
+}
+html body .titre-4{
+	font-weight: bold;
+	font-size: 0.8em;
+}
+html body .titre-5{
+	font-size: 0.8em;
+	color: #666;
+}
+html body .underline{
+	text-decoration: underline;
+}
+/*========================bouttons==========================*/
+.button-1{
+	line-height: 16px;
+	width: 110px;
+	height: 40px;
+}
+
+
+
+
+
+
+
+
+/*.drop-shadow {
+   position:relative;
+ width:420px;
+  height: 300px;
+  background :#e3e3e3;
+  color : rgba(0,0,0,.4);
+  text-align : center;
+  line-height : 150px;
+  margin : 0 auto;
+  color : rgba(0,0,0,.5);
+  font-family : Tahoma; 
+  text-shadow : 0 1px 0 #fff;
+}
+
+
+.drop-shadow:before,
+.drop-shadow:after {
+   content:"";
+   position:absolute;
+   z-index:-1;
+   bottom:15px;
+   left:10px;
+   width:50%;
+   height:20%;
+   max-width:300px;
+   -webkit-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   -moz-box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   box-shadow:0 15px 10px rgba(0, 0, 0, 0.7);
+   -webkit-transform:rotate(-3deg);
+   -moz-transform:rotate(-3deg);
+   -o-transform:rotate(-3deg);
+   transform:rotate(-3deg);
+}
+
+.drop-shadow:after{
+   right:10px;
+   left:auto;
+   -webkit-transform:rotate(3deg);
+   -moz-transform:rotate(3deg);
+   -o-transform:rotate(3deg);
+   transform:rotate(3deg);
+ }*/
