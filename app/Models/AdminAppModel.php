@@ -12,6 +12,21 @@ private $mapper;
 		return $this->mapper->find(array("block = 1"));
 	}
 
+	public function getUser($params) {
+		$mapper = $this->getMapper('users');
+		return $mapper->find(array("id = ? AND admin = 0 ", $params['id']));
+	}
+
+	public function getUsers() {
+		$mapper = $this->getMapper('users');
+		return $mapper->find(array("admin = 0"));
+	}
+
+	public function getUserProjects($params) {
+		$mapper = $this->getMapper('projects');
+		return $mapper->find(array("id_user = ?", $params['id']));
+	}
+
 	public function validationProject ($params) {
 		$mapper = $this->getMapper('projects');
 		$mapper->load(array('id = ?', $params["id"]));
@@ -23,6 +38,11 @@ private $mapper;
 
 	public function adminPreview ($params) {
 		return $this->mapper->load(array("id = ? AND block = 1", $params['id']));
+	}
+
+	public function voteProject ($params) {
+		$mapper = $this->getMapper('vote');
+		return $mapper->find(array("id_project = ?", $params['id']));
 	}
 
 	public function refuseProject ($params) {

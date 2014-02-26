@@ -44,7 +44,9 @@ class AdminAppController extends Controller {
 	public function adminPreview ($f3) {
 		$this->content = 'admin/preview';
 		$project = $this->model->adminPreview(array('id' => $f3->get('PARAMS.id')));
+		$votes = $this->model->voteProject(array('id' => $f3->get('PARAMS.id')));
 		$f3->set('project', $project);
+		$f3->set('votes', $votes);
 	}
 
 	public function validationProject ($f3) {
@@ -56,6 +58,27 @@ class AdminAppController extends Controller {
 		$this->model->refuseProject(array('id' => $f3->get('PARAMS.id')));
 		$f3->reroute('/admin/project/waitList');
 	}
+
+	// USER
+	public function getUser ($f3) {
+		$this->content = 'admin/user';
+		$users = $this->model->getUser(array('id' => $f3->get('PARAMS.id')));
+		$projects = $this->model->getUserProjects(array('id' => $f3->get('PARAMS.id')));
+		$f3->set('users', $users);
+		$f3->set('projects', $projects);
+	}
+
+	public function getUsers ($f3) {
+		$this->content = 'admin/users';
+		$users = $this->model->getUsers();
+		$f3->set('users', $users);
+	}
+
+	// DASHBOARD
+	public function dashboard() {
+		$this->content = 'admin/dashboard';
+	}
+
 }
 
 ?>
