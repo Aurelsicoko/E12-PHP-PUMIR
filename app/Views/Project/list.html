@@ -1,0 +1,33 @@
+ <table class="table table-bordered table-hover table-striped tablesorter">
+    <thead>
+      <tr>
+        <th>Nom <i class="fa fa-sort"></i></th>
+        <th>Auteur <i class="fa fa-sort"></i></th>
+        <th>Date <i class="fa fa-sort"></i></th>
+        <th>Action <i class="fa fa-sort"></i></th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <?php foreach ($projects as $key => $project) : ?>
+        <tr>
+        <td><?php echo $project->title; ?></td>
+        <td><?php echo $project->firstname.' '.$project->lastname; ?></td>
+        <td>09 Février 2013</td>
+        <td>
+          <form action="payment" method="POST">
+            <input type="hidden" name="projectId" value="<?php echo $project->id; ?>">
+            <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_K8Ipt5hlOkL0j2vqmzUK73EL"
+              data-amount="2000"
+              data-name="Demo Site"
+              data-description="2 widgets ($20.00)"
+              data-image="/128x128.png">
+            </script>
+          </form>
+        <tr>
+      <?php endforeach; ?>
+
+    </tbody>
+  </table>

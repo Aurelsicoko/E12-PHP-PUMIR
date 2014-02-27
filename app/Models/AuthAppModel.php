@@ -12,6 +12,10 @@ private $mapper;
 		return $this->mapper->load(array("id = ? AND block = 0", $params['id']));
 	}
 
+	public function getProjects ($params) {
+		return $this->mapper->find(array("block = 10 AND id_user = ?", $params['id']));
+	}
+
 	public function getUser ($params) {
 		$mapper = $this->getMapper('users');
 		return $mapper->load(array("id = ? AND block = 0", $params['id']));
@@ -42,6 +46,15 @@ private $mapper;
   		$mapper->user_vote = $params['user_vote'];
   		$mapper->admin_vote = $params['admin_vote'];
 		$mapper->save();
+	}
+
+	public function validationProject ($params) {
+		$mapper = $this->getMapper('projects');
+		$mapper->load(array('id = ?', $params["id"]));
+		$mapper->block = 0;
+		$mapper->beginDay = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
+		$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
+		$mapper->update();
 	}
 }
 ?>

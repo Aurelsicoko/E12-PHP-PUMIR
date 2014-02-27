@@ -58,7 +58,7 @@
 							<rect y="11.438" width="33.083" height="6.458"/>
 						</g>
 					</svg>
-					<p><?php echo $originality; ?></p>
+					<p><?php echo $originality*2; ?></p>
 				</div>
 				<div class="col-md-3 col-sm-3 note" >
 					<div class="center titre-4">DIFFICULTY</div>
@@ -72,7 +72,7 @@
 							<rect y="11.438" width="33.083" height="6.458"/>
 						</g>
 					</svg>
-					<p><?php echo $difficulty; ?></p>
+					<p><?php echo $difficulty*2; ?></p>
 				</div>
 				<div class="col-md-3 col-sm-3 note">
 					<div class="center titre-4">AESTHETIC</div>
@@ -86,7 +86,7 @@
 							<rect y="11.438" width="33.083" height="6.458"/>
 						</g>
 					</svg>
-					<p><?php echo $style; ?></p>
+					<p><?php echo $style*2; ?></p>
 				</div>
 				<div class="col-md-3 col-sm-3 note center titre-4" id="average">
 					<div>
@@ -101,7 +101,7 @@
 								<rect y="11.438" width="33.083" height="6.458"/>
 							</g>
 						</svg>
-						<p class="color2"><?php echo str_replace(',','.',number_format(($originality+$difficulty+$style)/3, 2, ',', '')); ?></p>
+						<p class="color2"><?php echo str_replace(',','.',number_format(($originality+$difficulty+$style)/3, 2, ',', ''))*2; ?></p>
 					</div>
 					<a class=" button-1 titre-1-white" href="project/<?php echo $lego->id; ?>">SEE THE FULL PROJECT</a>
 				</div>
@@ -109,36 +109,36 @@
 		</div>
 	</div>
 	<?php endif; ?>
+</div>
+<div class="paddingSep container">
+	<div class="row center titre_partie">
+		<p class=" titre-2-white ">NEXT NOMINEES ...</p>
+		<img alt="" src="public/images/fleche_bas.png" class="espacementVertical"/>
 	</div>
-	<div class="paddingSep container">
-		<div class="row center titre_partie">
-			<p class=" titre-2-white ">NEXT NOMINEES ...</p>
-			<img alt="" src="public/images/fleche_bas.png" class="espacementVertical"/>
-		</div>
-		<div class="row center">
-			<div class='col-md-4 col-md-offset-4 center titre'>
-			    <select name='location' id="select" class="cursorP capitale">
-			        <option value=''>.. FOR TOMMOROw</option>
-			        <option value='choix1'>CHOIX 1</option>
-			        <option value='choix2'>CHOIX 2</option>
-			        <option value='choix3'>CHOIX 3</option>
-			    </select>
-			</div>			
-		</div>
-		<div class="row gallerieJ">
-			<?php foreach ($projects as $key => $project) : ?>
-			<?php $photos = unserialize($project->photos); ?>
-			<div class="col-md-4 col-sm-6">
-				<div class="imageT">
-					<img alt="" src="<?php echo $photos[0]; ?>" />
-					<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
-				</div>
-				<div class="descProjet">
-					<p class="titre-5-black-bold capitale"><a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
-					<h4 class="titre-5 color1 ">BY <a class="underline" href="/"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
-				</div>
+	<div class="row center">
+		<div class='col-md-4 col-md-offset-4 center titre'>
+		    <select name='location' id="select" class="cursorP capitale">
+		        <option value=''>.. FOR TOMMOROw</option>
+		        <option value='choix1'>CHOIX 1</option>
+		        <option value='choix2'>CHOIX 2</option>
+		        <option value='choix3'>CHOIX 3</option>
+		    </select>
+		</div>			
+	</div>
+	<div class="row gallerieJ">
+		<?php foreach ($projects as $key => $project) : ?>
+		<?php $photos = unserialize($project->photos); ?>
+		<div class="col-md-4 col-sm-6">
+			<div class="imageT">
+				<img alt="" src="<?php echo $photos[0]; ?>" />
+				<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
 			</div>
-			<?php endforeach; ?>
+			<div class="descProjet">
+				<p class="titre-5-black-bold capitale"><a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
+				<h4 class="titre-5 color1 ">BY <a class="underline" href="/"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
+			</div>
 		</div>
-		<img src="public/images/chargement_infini.png" alt="chargemet_infini" class="marginAuto padding20">
+		<?php endforeach; ?>
 	</div>
+	<img src="public/images/chargement_infini.png" alt="chargemet_infini" class="marginAuto padding20">
+</div>

@@ -30,9 +30,9 @@ private $mapper;
 	public function validationProject ($params) {
 		$mapper = $this->getMapper('projects');
 		$mapper->load(array('id = ?', $params["id"]));
-		$mapper->block = 0;
-		$mapper->beginDay = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
-		$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
+		$mapper->block = 10;
+		//$mapper->beginDay = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
+		//$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$mapper->update();
 	}
 

@@ -61,6 +61,12 @@ class AuthAppController extends Controller {
     	$f3->reroute('/');
 	}
 
+	public function listMyProject ($f3) {
+		$this->content = 'project/list';
+		$projects = $this->model->getProjects(array('id' => $f3->get('SESSION.user')['id']));
+		$f3->set('projects', $projects);
+	}
+
 	public function payment ($f3) {
 		Stripe::setApiKey("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ");
 
@@ -75,7 +81,8 @@ class AuthAppController extends Controller {
 		  "card" => $token,
 		  "description" => "payinguser@example.com")
 		);
-		
+		$this->model->validationProject(array('id' => $f3->get('POST.projectId')));
+		$f3->reroute('/')
 		} catch(Stripe_CardError $e) {
 		  // The card has been declined
 		}
