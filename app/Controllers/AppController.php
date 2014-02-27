@@ -63,9 +63,26 @@ class AppController extends Controller {
 
 	public function createUser ($f3){
 		if ($f3->get('POST.password') == $f3->get('POST.confirm')) {
-
+			$date = new DateTime();
+	    	$code = md5($date->getTimestamp().$f3->get('POST.email'));
+			$user = $this->model->createUser(array('code' => $code));
 		}
 		$f3->reroute('/');
+	}
+
+	public function confirmation ($f3) {
+		$this->content = 'user/confirmation';
+		$f3->set('code', $f3->get('PARAMS.code'));
+	}
+
+	public function validationAccount ($f3) {
+		$user = $this->model->getUserByCode(array('code' => $f3->get('POST.code'), 'password' => $f3->get('POST.password')));
+		if ($user) {
+			$this->model->validationAccount(array('id' => $user->id));
+			$f3->reroute('/login');
+		}else{
+			$f3->reroute('/');
+		}
 	}
 
 	// FACEBOOK

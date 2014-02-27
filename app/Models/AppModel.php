@@ -33,6 +33,25 @@ private $mapper;
 		$mapper = $this->getMapper('users');
 		return $mapper->load(array('email = ? AND password = ?', $params['email'], $params['password']));
 	}
+
+	public function getUserByCode ($params) {
+		$mapper = $this->getMapper('users');
+		return $mapper->load(array("password = ? AND code= ? AND block = 1", $params['password'], $params['code']));
+	}
+
+	public function	createUser ($params) {
+		$mapper=$this->getMapper('users');
+		$mapper->copyFrom('POST');
+	    $mapper->code = $params['code'];
+	  	$mapper->save();
+	}
+
+	public function validationAccount ($params) {
+		$mapper = $this->getMapper('users');
+		$mapper->load(array('id = ?', $params["id"]));
+		$mapper->block = 0;
+		$mapper->update();
+	}
 	
 }
 ?>

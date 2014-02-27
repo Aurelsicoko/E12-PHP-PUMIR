@@ -82,7 +82,7 @@ class AuthAppController extends Controller {
 		  "description" => "payinguser@example.com")
 		);
 		$this->model->validationProject(array('id' => $f3->get('POST.projectId')));
-		$f3->reroute('/')
+		$f3->reroute('/');
 		} catch(Stripe_CardError $e) {
 		  // The card has been declined
 		}
