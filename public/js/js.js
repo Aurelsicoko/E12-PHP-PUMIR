@@ -12,3 +12,19 @@
   );
    
 })();
+
+$(document).ready(initialiser);
+
+function initialiser() {
+
+   $(".partage>a").on('mouseover',function(){
+    this.className = "";
+    this.className= "bgcolor0";
+   });
+
+    $(".partage>a").on('mouseout',function(){
+      stop();
+      this.className = "";
+      this.className= "bgcolor2";
+    });
+}

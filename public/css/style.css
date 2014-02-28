@@ -20,6 +20,7 @@ header{
 #login>img{
 	padding-right: 6px; 
 }
+
 .float-right{
 	float: right;
 }
@@ -186,6 +187,7 @@ body .bgcolor4{
 body .bgcolor5{
 	background-color: #03884e;
 }
+
 /*===========================curseur===========================*/
 .cursorP{
 	cursor:pointer;
@@ -301,7 +303,7 @@ html body [class*="bold"]
 	margin-top: -8px;
 }
 
-.imageT>img{
+.imageT>img:first-child{
 	-webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
          -ms-transition: all 0.5s ease;
@@ -311,11 +313,12 @@ html body [class*="bold"]
 	opacity: 1;
 	width: 100%;
 }
-.imageT>img:hover{
+.altPicPr>img:first-child:hover{
 	background-color: #000;
 	opacity: 0.5;
 	width: 100%;
 }
+
 
 
 
@@ -569,19 +572,30 @@ a[data-tooltip][data-placement="top"]::after {
 	padding: 0;
 }
 #rate>a{
-	height: 50px;
-	line-height: 23px;
+	height: 40px;
+	line-height: 37px;
 }
 .partage{
 	padding-top:20px; 
 }
 .partage a,.partage p{
-	line-height: 50px;
+	-webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+         -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+             transition: all 0.5s ease;
+	line-height: 40px;
 	margin-left: -4px;
 	vertical-align: bottom;
 	display: inline-block;
-	height: 50px;
-	width: 50px;
+	height: 40px;
+	width: 40px;
+}
+.partage a>img{
+	margin-top: -3px;
+}
+body .partage p{
+	width: 80px;
 }
 
 #formulaire_rate{

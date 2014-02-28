@@ -24,7 +24,8 @@ class AppController extends Controller {
 		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.user')['id']));
 		$f3->set('project', $project);
 		$f3->set('vote', $vote);
-		if ($project->lego === 1) {
+		if ($project->lego == 1) {
+			echo $project->lego;
 			$this->content = 'project/lego';
 		}else{
 			$this->content = 'project/single';
