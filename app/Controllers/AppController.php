@@ -20,11 +20,15 @@ class AppController extends Controller {
 
 	// PROJECTS
 	public function singleProject ($f3) {
-		$this->content = 'project/single';
 		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
 		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.user')['id']));
 		$f3->set('project', $project);
 		$f3->set('vote', $vote);
+		if ($project->lego === 1) {
+			$this->content = 'project/lego';
+		}else{
+			$this->content = 'project/single';
+		}
 	}
 
 	public function award ($f3) {

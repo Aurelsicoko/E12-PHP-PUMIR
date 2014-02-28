@@ -20,7 +20,7 @@ header{
 .float-right{
 	float: right;
 }
-#test{
+.width100{
 	width: 100%;
 }
 
@@ -44,6 +44,7 @@ footer a:active {color: #fff;}
 
 /*===========================main===========================*/
 #bgContent{
+	padding-bottom: 30px;
 	position: relative;
 	z-index: 0;
 	background-image: url('../../public/images/fond_homme_lego.jpg');
@@ -85,9 +86,7 @@ html body .note{
 #average p{
 	margin-top: 2px;
 }
-.note{
-	margin-top: 20px;
-}
+
 .note>div{
 	line-height: 45px;
 	width: 100%;
@@ -95,7 +94,6 @@ html body .note{
 }
 #average{
 	background:none;
-	height: 270px;
 	position: relative;
 }
 #average>div:first-child{
@@ -200,6 +198,9 @@ html body [class*="titre-4"]{
 html body [class*="titre-5"]{
 	font-size: 0.8em;
 }
+html body [class*="titre-6"]{
+	font-size: 0.9em;
+}
 html body .underline{
 	text-decoration: underline;
 }
@@ -214,7 +215,7 @@ html body [class*="bold"]
 	height: 40px;
 	width: 100%;
 	display: block;
-	margin-top: 10px;
+	margin-top: 20px;
 	color: #fff;
 	padding-top: 1px;
 	background-image: -webkit-gradient(
@@ -326,4 +327,29 @@ select {
 
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     select {padding-right:18px}
+}
+
+.rounded{
+	height: 50px;
+	width: 50px;
+	-webkit-border-radius: 25px;
+	-moz-border-radius: 25px;
+	border-radius: 25px;
+}
+.raters>img:nth-child(n+3){
+	margin-left: 1.87em;
+}
+.raters>img{
+	margin-top: 1em;
+}
+.raters>p{
+	position: relative;
+	top: 8px;
+}
+
+.padding-1{
+	padding: 10px 0px;
+}
+.padding-0{
+	padding-bottom:5px;
 }
