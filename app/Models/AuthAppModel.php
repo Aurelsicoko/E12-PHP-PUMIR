@@ -13,7 +13,7 @@ private $mapper;
 	}
 
 	public function getProjects ($params) {
-		return $this->mapper->find(array("block = 10 AND id_user = ?", $params['id']));
+		return $this->mapper->find(array("id_user = ?", $params['id']));
 	}
 
 	public function getUser ($params) {

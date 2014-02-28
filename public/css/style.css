@@ -17,8 +17,14 @@ header{
 #login{
 	background-color: rgba(0, 0, 0, 0.08);
 }
+#login>img{
+	padding-right: 6px; 
+}
 .float-right{
 	float: right;
+}
+.float-left{
+	float: left;
 }
 .width100{
 	width: 100%;
@@ -125,6 +131,10 @@ svg{
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+body .espacementVertical2{
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
 .paddingSep{
 	padding-top: 58px;
 }
@@ -157,6 +167,24 @@ body .color2{
 }
 body .color3{
 	color: #1fa071;
+}
+body .bgcolor0{
+	background-color: #444;
+}
+body .bgcolor1{
+	background-color: #FFF;
+}
+body .bgcolor2{
+	background-color: #D2D2D2;
+}
+body .bgcolor3{
+	background-color: #a22012;
+}
+body .bgcolor4{
+	background-color: #c08d04;
+}
+body .bgcolor5{
+	background-color: #03884e;
 }
 /*===========================curseur===========================*/
 .cursorP{
@@ -210,10 +238,9 @@ html body [class*="bold"]
 }
 /*========================bouttons==========================*/
 .button-1{
-	border-bottom: 4px solid #0d5d2b;
+	border-bottom: 4px solid #288312;
 	line-height: 16px;
 	height: 40px;
-	width: 100%;
 	display: block;
 	margin-top: 20px;
 	color: #fff;
@@ -222,15 +249,30 @@ html body [class*="bold"]
 	linear,
 	left top,
 	left bottom,
-	color-stop(0, #007D10),
-	color-stop(1, #007D10)
+	color-stop(0, #00B717),
+	color-stop(1, #00B717)
 	);
-	background-image: -o-linear-gradient(bottom, #128d40 0%, #007D10 100%);
-	background-image: -moz-linear-gradient(bottom, #128d40 0%, #007D10 100%);
-	background-image: -webkit-linear-gradient(bottom, #128d40 0%, #007D10 100%);
-	background-image: -ms-linear-gradient(bottom, #128d40 0%, #007D10 100%);
-	background-image: linear-gradient(to bottom, #128d40 0%, #007D10 100%);
+	background-image: -o-linear-gradient(bottom, #18C057 0%, #00B717 100%);
+	background-image: -moz-linear-gradient(bottom, #18C057 0%, #00B717 100%);
+	background-image: -webkit-linear-gradient(bottom, #18C057 0%, #00B717 100%);
+	background-image: -ms-linear-gradient(bottom, #18C057 0%, #00B717 100%);
+	background-image: linear-gradient(to bottom, #18C057 0%, #00B717 100%);
 	vertical-align: bottom;
+}
+.button-1:hover{
+	border-bottom: 4px solid #32A316;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #00DD1C),
+	color-stop(1, #00DD1C)
+	);
+	background-image: -o-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
+	background-image: -moz-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
+	background-image: -webkit-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
+	background-image: -ms-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
+	background-image: linear-gradient(to bottom, #1CE166 0%, #00DD1C 100%);
 }
 /*=========================gallerieJ=======================*/
 
@@ -259,7 +301,19 @@ html body [class*="bold"]
 	margin-top: -8px;
 }
 
-.imageT>img:first-child{
+.imageT>img{
+	-webkit-transition: all 0.5s ease;
+        -moz-transition: all 0.5s ease;
+         -ms-transition: all 0.5s ease;
+          -o-transition: all 0.5s ease;
+             transition: all 0.5s ease;all
+	background-color: #000;
+	opacity: 1;
+	width: 100%;
+}
+.imageT>img:hover{
+	background-color: #000;
+	opacity: 0.5;
 	width: 100%;
 }
 
@@ -336,11 +390,33 @@ select {
 	-moz-border-radius: 25px;
 	border-radius: 25px;
 }
-.raters>img:nth-child(n+3){
+.roundedMiddle{
+	border: 8px solid #FFF;
+	overflow: hidden;
+	height: 130px;
+	width: 130px;
+	-webkit-border-radius: 65px;
+	-moz-border-radius: 65px;
+	border-radius: 65px;
+}
+
+.roundedBig{
+	border: 7px solid #DBDBDB;
+	overflow: hidden;
+	height: 160px;
+	width: 160px;
+	-webkit-border-radius: 80px;
+	-moz-border-radius: 80px;
+	border-radius: 80px;
+}
+.raters a:nth-child(n+3){
 	margin-left: 1.87em;
 }
-.raters>img{
+.raters img{
 	margin-top: 1em;
+}
+.raters img:hover{
+	border: 3px solid #d3d3d3;
 }
 .raters>p{
 	position: relative;
@@ -352,4 +428,168 @@ select {
 }
 .padding-0{
 	padding-bottom:5px;
+}
+.inline-block{
+	display: inline-block;
+}
+#addProject{
+	width: 230px;
+	height: 65px;
+	line-height: 65px;
+}
+
+.projetUser{
+	margin-top: 20px;
+	height: 130px;
+}
+.imageProjet{
+	position: relative;
+	z-index: 3;
+	left: 16px;
+	-moz-box-shadow: 1px 0px 4px 0px #656565;
+	-webkit-box-shadow: 1px 0px 4px 0px #656565;
+	-o-box-shadow: 1px 0px 4px 0px #656565;
+	box-shadow: 1px 0px 4px 0px #656565;
+	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=90, Strength=2);
+}
+.etatProjet{
+	z-index: 1;
+	top: 10px;
+	left: -16px;
+	position: relative;
+	height: 110px;
+	overflow: hidden;
+	padding-left: 50px;
+}
+.etatProjet:hover{
+	background-color: #A2A2A2;
+}
+.etatProjet>p:first-of-type{
+	margin-top: 32px;
+}
+.suppr{
+	height: 100%;
+	background-color:#864444;
+	line-height: 100%;
+	width: 45px;
+}
+.suppr:hover{
+	background-color: #bc1c1c;
+}
+.suppr>img{
+	position: relative;
+	top: 44%;
+	left: 40%;
+}
+.infoProjet{
+	text-align: center;
+	line-height: 60px;
+	position: relative;
+	top: 26px;
+	left: -40px;
+	height: 60px;
+	width: 270px;
+}
+
+.age{
+	margin-top:14px;
+	margin-bottom :8px
+}
+
+#photoProfil>p{
+	opacity: 0;
+	height: 150px;
+	padding-top: 66px;
+	position: relative;
+	top: -150px;
+}
+#photoProfil>p:hover{
+	opacity: 1;
+	height: 150px;
+	padding-top: 66px;
+	position: relative;
+	top: -150px;
+}
+
+
+
+a[data-tooltip] {
+  position: relative;
+}
+a[data-tooltip]::before,
+a[data-tooltip]::after {
+  position: absolute;
+  display: none;
+  opacity: 0.85;
+}
+a[data-tooltip]::before {
+  /*
+   * using data-tooltip instead of title so we 
+   * don't have the real tooltip overlapping
+   */
+  content: attr(data-tooltip);
+  font-family: 'Montserrat', sans-serif;
+  background: #000;
+  color: #fff;
+  font-size: 12px;
+  padding: 5px;
+  border-radius: 5px;
+  /* we don't want the text to wrap */
+  white-space: nowrap;
+  text-decoration: none;
+}
+a[data-tooltip]::after {
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  content: '';
+}
+
+a[data-tooltip]:hover::before,
+a[data-tooltip]:hover::after {
+  display: block;
+}
+
+
+/* top tooltip */
+a[data-tooltip][data-placement="top"]::before {
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 10px;
+}
+a[data-tooltip][data-placement="top"]::after {
+  border-top-color: #000;
+  border-bottom: none;
+  bottom: 100%;
+  left: 10px;
+  margin-bottom: 4px;
+}
+
+#rate{
+	padding: 0;
+}
+#rate>a{
+	height: 50px;
+	line-height: 23px;
+}
+.partage{
+	padding-top:20px; 
+}
+.partage a,.partage p{
+	line-height: 50px;
+	margin-left: -4px;
+	vertical-align: bottom;
+	display: inline-block;
+	height: 50px;
+	width: 50px;
+}
+
+#formulaire_rate{
+	display: block;
+	position: absolute;
+	z-index: 150;
+	margin: auto;
+	width: 80%;
+	height: 400px;
+	background-color: #197;
 }

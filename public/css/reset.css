@@ -4,3 +4,4 @@ a:link {color: #666;}
 a:visited {color: #666;}
 a:hover {color: #666;}
 a:active {color: #666;}
+a:hover{text-decoration: none;}

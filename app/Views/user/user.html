@@ -1,1 +1,79 @@
-Name: <?php echo $user->firstname.' '.$user->lastname ?>
+<div id="bgContent" >
+	<div class="container paddingSep">
+		<div class="row center titre_partie">
+			<div class="col-md-12">
+				<p class=" titre-2-black ">YOUR PROFILE</p>
+				<img alt="" src="public/images/fleche_bas_noire.png"/>
+				<div class="roundedBig marginAuto espacementVertical2" id="photoProfil">
+					<img src="public/images/img_user.jpg" alt="" class="width100">
+					<p class="bgcolor0 titre white"> CHANGE YOUR PIC</p>
+				</div>
+				<h3 class="titre-2-bold-black"><?php echo $user->firstname.' '.$user->lastname; ?></h3>
+				<p class="titre-4 age">34 Years old</p>
+				<p class="titre black"><?php echo $user->city; ?> - <?php echo $user->country; ?></p>
+				<img alt="" src="public/images/mini_fleche_bas.png" class="espacementVertical"/>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="paddingSep container">
+	<div class="row center titre_partie">
+		<p class="titre-2-white">MY PROJECTS</p>
+		<img alt="" src="public/images/fleche_bas.png" />
+		<a id="addProject" class="button-1 titre-1-white marginAuto" href="submit">ADD A PROJECT</a>
+	</div>
+	<div class="row">
+
+		<?php foreach ($projects as $key => $project) : ?>
+
+		<div class="col-md-8 col-md-offset-2 projetUser">
+			<div class="roundedMiddle float-left imageProjet">
+				<img src="public/images/img_user.jpg" alt="" class="width100">
+			</div>
+			<div class="bgcolor2 etatProjet titre">
+				<a alt="supprimer" href="#" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
+				<div class="infoProjet bgcolor3 float-right white">
+					BEING VALIDATED
+				</div>
+				<p class="capitale bold"><?php echo $project->title; ?></p>
+				<p>-</p>
+				<p>Posted 12/09/2014</p>
+			</div>
+		</div>
+
+		<?php endforeach; ?>
+	</div>
+	<!-- 
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 projetUser">
+			<div class="roundedMiddle float-left imageProjet">
+				<img src="public/images/img_user.jpg" alt="" class="width100">
+			</div>
+			<div class="bgcolor2 etatProjet titre">
+				<a alt="supprimer" href="#" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
+				<div class="infoProjet bgcolor4 float-right white">
+					PENDING SUBMISSION
+				</div>
+				<p class="capitale bold">THE TIGER</p>
+				<p>-</p>
+				<p>Posted 12/09/2014</p>
+			</div>
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 projetUser">
+			<div class="roundedMiddle float-left imageProjet">
+				<img src="public/images/img_user.jpg" alt="" class="width100">
+			</div>
+			<div class="bgcolor2 etatProjet titre">
+				<a alt="supprimer" href="#" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
+				<div class="infoProjet bgcolor5 float-right white">
+					SUBMITED AND COMPLETED !
+				</div>
+				<p class="capitale bold">THE TIGER</p>
+				<p>-</p>
+				<p>Posted 12/09/2014</p>
+			</div>
+		</div>
+	</div> -->
+</div>	
