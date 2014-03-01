@@ -8,15 +8,21 @@
 				<div class="titre-4-bold center">
 				  <div>
 				    <label for="ORIGINALITY">ORIGINALITY</label>
-				    <input id="ORIGINALITY" type="text" />
+				    <input id="ORIGINALITY" type="text" pattern="[0-5]{1}" required/>
 				  </div>
 				  <div>
 				    <label for="DIFFICULTY">DIFFICULTY</label>
-				    <input id="DIFFICULTY" type="text" />
+				    <input id="DIFFICULTY" type="text"  pattern="[0-5]{1}" required/>
 				  </div>
 				  <div>
 				    <label for="AESTHETIC">AESTHETIC</label>
-				    <input id="AESTHETIC" type="text" />
+				    <input id="AESTHETIC" type="text"  pattern="[0-5]{1}" required/>
+				  </div>
+				  <div>
+				  	<p class="color2 inline-block">AVERAGE</p>
+				  	<div id="averageNoting" class="inline-block">
+				  		<p>_</p>
+				  	</div>
 				  </div>
 					<input class="button-1" type="submit" value="Submit">
 				</div>

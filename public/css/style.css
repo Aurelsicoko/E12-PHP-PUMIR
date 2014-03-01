@@ -618,7 +618,7 @@ body .partage p{
 	left: 15px;
 }
 #formRate>div{
-	height: 350px;
+	height: 400px;
 	width: 350px;
 	margin-left: -175px;
 }
@@ -641,17 +641,16 @@ body .partage p{
 }
 
 .champs>div input {
+	height: 45px;
 	width: 280px;
+	margin-top:15px; 
 	border: 2px solid #E1E2DE;
   transition: .1s all linear;
-}
-.champs>div input {
-	margin-top:10px; 
 }
 
 .champs>div label {
   position: absolute;
-  left: 25px;
+  left: 15px;
   top: 28px;
   font-size: 12px;
   color: #aaa;
@@ -659,11 +658,12 @@ body .partage p{
   cursor: text;
 }
 .champs>div.active input {
-  padding-left: 15px;
+  padding-left: 3px;
+  text-align: left;
 }
 
 .champs>div.active label {
-  top: -1px;
+  top: 1px;
 }
 
 button,
@@ -677,34 +677,45 @@ textarea {
   outline: 0;
 }
 
-input[type='text'] {
+input[type='text'],#averageNoting {
 	border: 2px solid #CBCCC4;
-  padding: 10px 10px 12px 20px;
+  text-align: center;
   background-color: #fff;
 }
 #formRate form>div{
 	text-align: right;
 }
-#formRate label{
-	padding-right: 10px;
+#formRate input, #averageNoting{
+	margin-left: 10px;
 }
 #formRate form>div{
 	margin: auto;
 	width: 155px;
 }
 
-#formRate input{
+#formRate input, #averageNoting{
 	width: 55px;
 	height: 35px;
 }
-
-#formRate input[type="submit"]{
-	width: 143px;
+input[type="text"]:valid{
+	border: 2px solid #26C422;
 }
-#formRate input, #formRate input[type="submit"]{
+input[type="text"]:invalid{
+	border: 2px solid #CF1616;
+}
+input[type="text"]:focus{
+	border: 2px solid #CBCCC4;
+}
+#formRate input[type="submit"]{
+	width: 145px;
+}
+#formRate input, #formRate input[type="submit"], #averageNoting{
 	margin-top: 15px;
 }
-
+#averageNoting{
+	background-color: #ccc;
+	line-height: 30px;
+}
 
 .rightInput{
 	padding-left: 70px;

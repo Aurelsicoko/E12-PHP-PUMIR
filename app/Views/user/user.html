@@ -7,15 +7,15 @@
 				<div class="champs police2 center float-left leftInput">
 					<div>
 						<label for="FIRSTNAME">YOUR FIRSTNAME</label>
-						<input id="FIRSTNAME" type="text" />
+						<input autocomplete="off" id="FIRSTNAME" type="text" pattern="[a-zA-Z]+" required/>
 					</div>
 					<div>
 						<label for="LASTNAME">YOUR LASTNAME</label>
-						<input id="LASTNAME" type="text" />
+						<input autocomplete="off" id="LASTNAME" type="text" pattern="[a-zA-Z]+" required/>
 					</div>
 					<div>
 						<label for="MAIL">YOUR E-MAIL</label>
-						<input id="MAIL" type="text" />
+						<input autocomplete="off" id="MAIL" type="text" pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,253}[a-zA-Z0-9])?)*$"required/>
 					</div>
 					<select name='location' class="cursorP capitale pays">
 				        <option value="France" selected="selected">France </option>
@@ -354,22 +354,21 @@
 					</select>
 				  <div>
 				    <label for="CITY">YOUR CITY</label>
-				    <input id="CITY" type="text" />
+				    <input autocomplete="off" id="CITY" type="text" pattern="[a-zA-Z]+" required/>
 				  </div>
 				</div>
 				<div class="champs police2 center float-right rightInput">
 
 				  <div>
 				    <label for="PASSWORD">NEW PASSWORD</label>
-				    <input id="PASSWORD" type="text" />
+				    <input autocomplete="off" id="PASSWORD" type="password" pattern"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*" required/>
 				  </div>
 				  <div>
 				    <label for="d6">CONFIRM THE NEW PASSORD</label>
-				    <input id="d6" type="text" />
+				    <input autocomplete="off" id="d6" type="password" pattern"^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*" required/>
 				  </div>
 				  <p class="titre-black float-left padding-1 descdec">Your description</p>
-				  <textarea rows="9" cols="33" class="titre-5">Description of the project
-					</textarea>
+				  <textarea rows="9" cols="33" class="titre-5">Description of the project</textarea>
 				<input class="button-1" type="submit" value="Submit">
 				</div>
 			</form>

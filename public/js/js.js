@@ -61,4 +61,23 @@ function initialiser() {
           box.addClass('hidden');
         });
     });
+
+    $('#formRate input').on('input',function(){
+      var avg = 0;
+      if($('#formRate input[type="text"]:valid').length==3)
+      {
+        $('#formRate input[type="text"]:valid')
+        .each(function(){
+          avg += parseFloat(this.value);
+          console.log(avg+"!!!");
+        });
+        if(!isNaN(avg)){
+          $('#averageNoting>p').text(Math.round(avg/3*10)/10);
+        }else{
+          $('#averageNoting>p').text('_');
+        }
+      }else{
+        $('#averageNoting>p').text('_')
+      }
+    });
 }
