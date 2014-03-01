@@ -41,9 +41,14 @@ private $mapper;
 
 	public function	createUser ($params) {
 		$mapper=$this->getMapper('users');
-		$mapper->copyFrom('POST');
-	    $mapper->code = $params['code'];
-	  	$mapper->save();
+		$result = $mapper->find(array("email = ?", $params['email']));
+			
+		// If this user doesn't exist
+		if(count($result) == 0){
+			$mapper->copyFrom('POST');
+		    $mapper->code = $params['code'];
+		  	$mapper->save();
+		}
 	}
 
 	public function validationAccount ($params) {
