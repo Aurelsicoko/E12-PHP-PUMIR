@@ -54,7 +54,9 @@ class AppController extends Controller {
 											'admin' => $user->admin,
 											'country' => $user->country,
 											'city' => $user->city,
-											'picture' => $user->picture ));
+											'picture' => $user->picture 
+										)
+					);
 			$f3->reroute('/');
 		}else{
 			$f3->reroute('/login');
@@ -70,9 +72,12 @@ class AppController extends Controller {
 		if ($f3->get('POST.password') == $f3->get('POST.confirm')) {
 			$date = new DateTime();
 	    	$code = md5($date->getTimestamp().$f3->get('POST.email'));
-			$user = $this->model->createUser(array('code' => $code));
+			$user = $this->model->createUser(array('code' => $code, 'email' => $f3->get('POST.email')));
+
+			$this->content = 'user/success';
 		}
-		$f3->reroute('/');
+
+		$this->content = 'Mot de passe invalide';
 	}
 
 	public function confirmation ($f3) {
@@ -91,7 +96,79 @@ class AppController extends Controller {
 	}
 
 	// FACEBOOK
-	public function facebookConnect () {
+	public function facebookConnect($f3){
+		require_once 'api/facebook.php';
+
+		$facebook = new Facebook(array(
+		  'appId'  => '351348715006194',
+		  'secret' => '8f8b1a6fc1c1c2f9f2396952d61e611c',
+		  'allowSignedRequest' => false,
+          'cookie' => true
+		));
+
+		$user = $facebook->getUser();
+		
+		$params = array(
+		  'scope' => 'email',
+		);
+
+		if($user){
+			try{
+				/* GET user profile information */
+				$user_profile = $facebook->api('/me','GET');
+
+				$firstname = $user_profile['first_name'];
+				$lastname = $user_profile['last_name'];
+				$email = $user_profile['email'];
+
+				/* GET country of user */
+				$client  = @$_SERVER['HTTP_CLIENT_IP'];
+			    $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
+			    $remote  = $_SERVER['REMOTE_ADDR'];
+			    $result  = "Unknown";
+
+			    if(filter_var($client, FILTER_VALIDATE_IP)){
+			        $ip = $client;
+			    }
+			    elseif(filter_var($forward, FILTER_VALIDATE_IP)){
+			        $ip = $forward;
+			    }
+			    else{
+			        $ip = $remote;
+			    }
+
+			    $ip_data = @json_decode(file_get_contents("http://www.geoplugin.net/json.gp?ip=".$ip));
+
+			    if($ip_data && $ip_data->geoplugin_countryName != null){
+			        $result = $ip_data->geoplugin_countryName;
+			    }
+
+			    $country = $result;
+			    $city = null;
+
+			    // Hack model's createUser function as we submit a form
+			    $f3->set('POST.firstname', $firstname);
+			    $f3->set('POST.lastname', $lastname);
+			    $f3->set('POST.email', $email);
+			    $f3->set('POST.country', $country);
+			    $f3->set('POST.city', $city);
+			    $f3->set('POST.password', 'facebook');
+			    $f3->set('POST.confirm', 'facebook');
+
+			    $date = new DateTime();
+		    	$code = md5($date->getTimestamp().$f3->get('POST.email'));
+				$user = $this->model->createUser(array('code' => $code, 'email' => $email));
+
+				$this->createSession($f3);
+			}
+			catch(FacebookApiException $e){
+				$f3->reroute($facebook->getLoginUrl($params));
+			}   
+		}
+		else{
+			$f3->reroute($facebook->getLoginUrl($params));
+		}
+
 	}
 
 }
