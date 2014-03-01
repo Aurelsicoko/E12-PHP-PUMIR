@@ -1,5 +1,6 @@
 /*===========================fonts===========================*/
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url('http://fonts.googleapis.com/css?family=Roboto');
 /*===========================body===========================*/
 body{
 	background-color: #26272c;
@@ -200,6 +201,9 @@ html body .capitale{
 
 body [class*="titre"],body footer{
 	font-family: 'Montserrat', sans-serif;
+}
+body [class*="police2"],body footer{
+	font-family:"Roboto",sans-serif;
 }
 .lineHeightBase{
 	line-height: 20px;
@@ -425,6 +429,9 @@ select {
 	position: relative;
 	top: 8px;
 }
+.padding-2{
+	padding: 20px 0px;
+}
 
 .padding-1{
 	padding: 10px 0px;
@@ -598,12 +605,129 @@ body .partage p{
 	width: 80px;
 }
 
-#formulaire_rate{
-	display: block;
+
+#formProfil>div{
+	height: 470px;
+	width: 800px;
 	position: absolute;
-	z-index: 150;
-	margin: auto;
-	width: 80%;
-	height: 400px;
-	background-color: #197;
+	top:70px;
+	left: 50%;
+	margin-left: -400px;
+	z-index: 200;
+	background-color: #eee;
+}
+
+#formProfil>div>img{
+	position: relative;
+	top: -15px;
+	left: 15px;
+}
+
+.champs {
+	margin-top: 30px;
+  	border-bottom: 1px solid $b;
+  	background: #eee;
+}
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0;
+  outline: 0;
+}
+
+
+input[type='text'] {
+  width: 220px;
+  padding: 10px 10px 12px 60px;
+  background-color: #fff;
+}
+
+.champs>div {
+  position: relative;
+  width: 300px;
+}
+
+.champs>div input {
+	width: 280px;
+	border: 2px solid #E1E2DE;
+  transition: .1s all linear;
+}
+.champs>div input {
+	margin-top:10px; 
+}
+
+.champs>div label {
+  position: absolute;
+  left: 25px;
+  top: 28px;
+  font-size: 12px;
+  color: #aaa;
+  transition: .1s all linear;
+  cursor: text;
+}
+.champs>div.active input {
+  padding-left: 15px;
+}
+
+.champs>div.active label {
+  top: -1px;
+}
+.rightInput{
+	padding-left: 70px;
+	width: 370px;
+	margin-right: 30px;
+}
+.leftInput{
+	padding-left: 30px;
+}
+#formProfil>div>h5{
+	margin-top: 35px;
+}
+
+.pays {
+	margin-bottom: 10px;
+	position: relative;
+	top: 10px;
+    padding:3px;
+    height:43px;
+    width:280px;
+    background: url("../../public/images/fleche_bas_dropdown.png") no-repeat top right #F8F8F8;
+    border-bottom: 4px solid #ACADBD;
+    outline:none;
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+}
+.descdec{
+	margin-left: 12px;
+}
+
+#formProfil { 
+	transition: all 0.25s linear;
+    background:rgba(0,0,0,0.8); 
+    position:fixed; 
+    width:100%; 
+    height:100%; 
+    -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=80)"; /*--Transparence sous IE 8--*/
+    left:0; 
+    top:0; 
+    z-index:10;
+}
+
+.hidden {
+  display: none;
+}
+
+.visuallyhidden {
+  opacity: 0;
+}
+
+input[type="submit"]{
+	margin-left: 12px;
+	width: 274px;
 }

@@ -27,4 +27,37 @@ function initialiser() {
       this.className = "";
       this.className= "bgcolor2";
     });
+
+    $('input').each(function() {
+
+    $(this).on('focus', function() {
+      $(this).parent('.champs>div').addClass('active');
+    });
+
+    $(this).on('blur', function() {
+      if ($(this).val().length == 0) {
+        $(this).parent('.champs>div').removeClass('active');
+      }
+    });
+
+    if ($(this).val() != '') $(this).parent('.champs>div').addClass('active');
+
+  });
+    
+
+    var box = $('#formProfil');
+
+    $('#urprofil>img').on('click', function () {
+      box.removeClass('hidden');
+      setTimeout(function () {
+        box.removeClass('visuallyhidden');
+      }, 20);
+    });
+
+    $('#formProfil>div>img').on('click',function(){
+        box.addClass('visuallyhidden');        
+        box.one('transitionend', function(e) {
+          box.addClass('hidden');
+        });
+    });
 }
