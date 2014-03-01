@@ -520,7 +520,7 @@ select {
 	top: -150px;
 }
 
-
+/*-------------------TOOLTIP--------------------------*/
 
 a[data-tooltip] {
   position: relative;
@@ -581,6 +581,8 @@ a[data-tooltip][data-placement="top"]::after {
 	height: 40px;
 	line-height: 37px;
 }
+
+/*======================MODULE DE PARTAGE===================*/
 .partage{
 	padding-top:20px; 
 }
@@ -601,46 +603,36 @@ a[data-tooltip][data-placement="top"]::after {
 body .partage p{
 	width: 80px;
 }
+/*==================================FORMULAIRE==============================*/
 
-#formProfil>div{
-	height: 470px;
-	width: 800px;
+.formPop>div{
 	position: absolute;
 	top:70px;
 	left: 50%;
-	margin-left: -400px;
 	z-index: 200;
 	background-color: #eee;
 }
-
-#formProfil>div>img{
+.formPop>div>img{
 	position: relative;
 	top: -15px;
 	left: 15px;
 }
+#formRate>div{
+	height: 350px;
+	width: 350px;
+	margin-left: -175px;
+}
+#formProfil>div{
+	height: 470px;
+	width: 800px;
+	margin-left: -400px;
+}
+
 
 .champs {
 	margin-top: 30px;
   	border-bottom: 1px solid $b;
   	background: #eee;
-}
-
-button,
-input,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  vertical-align: baseline;
-  border: 0;
-  outline: 0;
-}
-
-
-input[type='text'] {
-  width: 220px;
-  padding: 10px 10px 12px 60px;
-  background-color: #fff;
 }
 
 .champs>div {
@@ -673,6 +665,47 @@ input[type='text'] {
 .champs>div.active label {
   top: -1px;
 }
+
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  vertical-align: baseline;
+  border: 0;
+  outline: 0;
+}
+
+input[type='text'] {
+	border: 2px solid #CBCCC4;
+  padding: 10px 10px 12px 20px;
+  background-color: #fff;
+}
+#formRate form>div{
+	text-align: right;
+}
+#formRate label{
+	padding-right: 10px;
+}
+#formRate form>div{
+	margin: auto;
+	width: 155px;
+}
+
+#formRate input{
+	width: 55px;
+	height: 35px;
+}
+
+#formRate input[type="submit"]{
+	width: 143px;
+}
+#formRate input, #formRate input[type="submit"]{
+	margin-top: 15px;
+}
+
+
 .rightInput{
 	padding-left: 70px;
 	width: 370px;
@@ -681,7 +714,7 @@ input[type='text'] {
 .leftInput{
 	padding-left: 30px;
 }
-#formProfil>div>h5{
+.formPop>div>h5{
 	margin-top: 35px;
 }
 
@@ -703,7 +736,7 @@ input[type='text'] {
 	margin-left: 12px;
 }
 
-#formProfil { 
+.formPop { 
 	transition: all 0.25s linear;
     background:rgba(0,0,0,0.8); 
     position:fixed; 

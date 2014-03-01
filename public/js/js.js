@@ -45,16 +45,17 @@ function initialiser() {
   });
     
 
-    var box = $('#formProfil');
+    var box = $('.formPop');
 
-    $('#urprofil>img').on('click', function () {
+    $('.openPop').on('click', function (event) {
+      event.preventDefault();
       box.removeClass('hidden');
       setTimeout(function () {
         box.removeClass('visuallyhidden');
       }, 20);
     });
 
-    $('#formProfil>div>img').on('click',function(){
+    $('.formPop>div>img').on('click',function(){
         box.addClass('visuallyhidden');        
         box.one('transitionend', function(e) {
           box.addClass('hidden');

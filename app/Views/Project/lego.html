@@ -1,3 +1,29 @@
+<div class="container">
+	<div id="formRate" class="hidden visuallyhidden box formPop">
+		<div>
+			<img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
+			<h5 class="titre-3 black center ">RATE THE PROJECT</h5>
+			<p class="center titre-5 padding-1 color1">Chose a number between 0 an 5 included (for example 3.6) to rate the differents criterias of this project. Your rate will be add to the average</p>
+			<form name="input" action="html_form_action.asp" method="get">
+				<div class="titre-4-bold center">
+				  <div>
+				    <label for="ORIGINALITY">ORIGINALITY</label>
+				    <input id="ORIGINALITY" type="text" />
+				  </div>
+				  <div>
+				    <label for="DIFFICULTY">DIFFICULTY</label>
+				    <input id="DIFFICULTY" type="text" />
+				  </div>
+				  <div>
+				    <label for="AESTHETIC">AESTHETIC</label>
+				    <input id="AESTHETIC" type="text" />
+				  </div>
+					<input class="button-1" type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 <div id="bgContent" >
 	<?php $photos = unserialize($project->photos); ?>
 	<?php
@@ -126,7 +152,7 @@
 						<a href="#" class="bgcolor2"><img src="public/images/google_plus.png" alt=""></a>
 					</div>
 					<div class="col-md-3" id="rate">
-						<a class=" button-1 titre-5-white center" href="/">RATE IT !</a>
+						<a class="button-1 titre-5-white center openPop" id="rateit" href="/">RATE IT !</a>
 					</div>
 				</div>
 			</div>
