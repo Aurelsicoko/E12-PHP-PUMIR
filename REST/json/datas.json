@@ -1,20 +1,27 @@
 <?php if(isset($GET['callback'])): echo $GET['callback'].'('; endif;?>
 {
-"header":[
+"header":
+[
 <?php if(isset($header)): ?>
-{
-"code":<?php echo $header['code']?>,
-"status":"<?php echo $header['status']?>",
-"text":"<?php echo $header['text']?>"
-}
+	{
+	"code":<?php echo $header['code']?>,
+	"status":"<?php echo $header['status']?>",
+	"text":"<?php echo $header['text']?>"
+	}
 <?php endif; ?>
 ],
-"body":[
+"body":
+[
 <?php if(isset($datas)):?>
 <?php foreach($datas as $data):?>
-{
-"title":"<?php echo $data->title ?>"
-},
+	{
+	"title":"<?php echo $data->title ?>",
+	"description":"<?php echo $data->description ?>",
+	"beginDay":"<?php echo $data->beginDay ?>",
+	"lastDay":"<?php echo $data->lastDay ?>",
+	"photos": { <?php $photos=unserialize($data->photos);  for($i=0;$i<count($photos);$i++){ echo $i.' : "'.$photos[$i].'"'; if($i>0){echo ',';} } ?>
+	}
+	},
 <?php endforeach;?>
 <?php endif;?>
 ]
