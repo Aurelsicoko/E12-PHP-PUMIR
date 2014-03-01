@@ -48,12 +48,12 @@ class AuthAppController extends Controller {
 
 
 	// USERS
-	public function singleUser ($f3) {
+	public function singleUser($f3) {
 		$this->content = 'user/user';
-		$user = $this->model->getUser(array('id' => $f3->get('SESSION.user')['id']));
+		$users = $this->model->getUser(array('id' => $f3->get('SESSION.user')['id']));
 		$projects = $this->model->getProjects(array('id' => $f3->get('SESSION.user')['id']));
 		$f3->set('projects', $projects);
-		$f3->set('user', $user);
+		$f3->set('users', $users);
 	}
 
 	// SESSION
@@ -63,7 +63,7 @@ class AuthAppController extends Controller {
     	$f3->reroute('/');
 	}
 
-	public function payment ($f3) {
+	public function payment ($f3){
 		Stripe::setApiKey("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ");
 
 		// Get the credit card details submitted by the form
