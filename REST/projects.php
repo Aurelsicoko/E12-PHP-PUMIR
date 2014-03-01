@@ -2,7 +2,7 @@
 
 namespace REST;
 
-class award extends \REST\api{
+class projects extends \REST\api{
   
 private $dB;
 
@@ -13,7 +13,7 @@ private $dB;
   
   function get($f3){
     $mapper=new \DB\SQL\Mapper($this->dB, 'projects');
-    $f3->set('datas',$mapper->find(array('lego = 1')));
+    $f3->set('datas',$mapper->find());
     $this->tpl='datas.json';
   }
   
