@@ -10,7 +10,7 @@ class AdminAppController extends Controller {
 	// Policie
 	public function beforeroute ($f3) {
 		if ($f3->get('SESSION.authenticated') !== true OR $f3->get('SESSION.user.admin') !== 1) {
-			$f3->reroute('/signup');
+			$f3->reroute('/');
 		}
 	}
 

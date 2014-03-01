@@ -16,9 +16,9 @@ private $mapper;
 		return $this->mapper->find(array("id_user = ?", $params['id']));
 	}
 
-	public function getUser ($params) {
+	public function getUser($params) {
 		$mapper = $this->getMapper('users');
-		return $mapper->load(array("id = ? AND block = 0", $params['id']));
+		return $mapper->find(array("id = ? && block = 0", $params['id']));
 	}
 
 	public function addVote ($params) {

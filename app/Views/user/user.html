@@ -386,8 +386,19 @@
 					<img src="public/images/img_user.jpg" alt="" class="width100">
 					<p class="bgcolor0 titre white"> CHANGE YOUR PIC</p>
 				</div>
-				<h3 class="titre-2-bold-black"><?php echo $user->firstname.' '.$user->lastname; ?></h3>
-				<p class="titre black"><?php echo $user->city; ?> - <?php echo $user->country; ?></p>
+				<?php 
+					if(count($users) > 0){ 
+				?>
+				<h3 class="titre-2-bold-black"><?php echo $users[0]->firstname.' '.$users[0]->lastname; ?></h3>
+				<p class="titre black"><?php echo $users[0]->city; ?> - <?php echo $users[0]->country; ?></p>
+				<?php 
+					}
+					else{ 
+				?>
+				<h3 class="titre-2-bold-black">Non disponible</h3>
+				<?php 
+				} 
+				?>
 				<img alt="" src="public/images/mini_fleche_bas.png" class="espacementVertical"/>
 			</div>
 		</div>
