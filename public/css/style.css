@@ -34,7 +34,6 @@ header{
 
 /*===========================footer===========================*/
 body footer{
-	margin-top: 45px;
 	background-color: #3b3b45;
 	padding: 15px 20px;
 }
@@ -200,7 +199,7 @@ html body .capitale{
 }
 
 body [class*="titre"],body footer{
-	font-family: 'Montserrat', sans-serif;
+	font-family: 'Montserrat',sans-serif;
 }
 body [class*="police2"],body footer{
 	font-family:"Roboto",sans-serif;
@@ -598,13 +597,10 @@ a[data-tooltip][data-placement="top"]::after {
 	height: 40px;
 	width: 40px;
 }
-.partage a>img{
-	margin-top: -3px;
-}
+
 body .partage p{
 	width: 80px;
 }
-
 
 #formProfil>div{
 	height: 470px;
