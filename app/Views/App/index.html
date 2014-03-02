@@ -135,6 +135,7 @@
 				<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
 			</div>
 			<div class="descProjet">
+				<?php print_r($project); ?>
 				<p class="titre-5-black-bold capitale"><a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
 				<h4 class="titre-5 color1 ">BY <a class="underline" href="./user/<?php echo $project->id_user; ?>"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
 			</div>
