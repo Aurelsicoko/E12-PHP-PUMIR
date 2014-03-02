@@ -21,6 +21,11 @@ private $mapper;
 		return $mapper->find(array("id = ? && block = 0", $params['id']));
 	}
 
+	public function getIfUserVote($params){
+		$mapper = $this->getMapper('vote');
+		return $mapper->find(array("id_user = ? && id_project = ?", $params['id_user'], $params['id_project']));
+	}
+
 	public function addVote ($params) {
 		$mapper = $this->getMapper('vote');
 		$mapper->copyFrom('POST');

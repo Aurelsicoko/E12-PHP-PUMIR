@@ -12,6 +12,17 @@ class AppController extends Controller {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
 		$projects = $this->model->getProjects(array('date' => $date));
+
+		/* Get firstname and lastname information */
+		for($i=0; $i<count($projects); $i++){
+			$id_user = $projects[$i]->id_user;
+
+			$user = $this->model->getUser(array('id' => $id_user));
+			$projects[$i]->firstname = $user[0]->firstname;
+			$projects[$i]->lastname = $user[0]->lastname;
+		}
+		/* - - - - - - - - - - - - - - - - - - -  */
+		
 		$date = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$lego = $this->model->getLego(array('date' => $date));
 		$f3->set('projects', $projects);
@@ -21,11 +32,18 @@ class AppController extends Controller {
 	// PROJECTS
 	public function singleProject ($f3) {
 		$project = $this->model->getProject(array('id' => $f3->get('PARAMS.id')));
+
+		/* Get firstname and lastname information */
+		$id_user = $project->id_user;
+		$user = $this->model->getUser(array('id' => $id_user));
+		$project->firstname = $user[0]->firstname;
+		$project->lastname = $user[0]->lastname;
+		/* - - - - - - - - - - - - - - - - - - -  */
+
 		$vote = $this->model->getVote(array('id_project' => $f3->get('PARAMS.id'), 'id_user' => $f3->get('SESSION.user')['id']));
 		$f3->set('project', $project);
 		$f3->set('vote', $vote);
 		if ($project->lego == 1) {
-			echo $project->lego;
 			$this->content = 'project/lego';
 		}else{
 			$this->content = 'project/single';

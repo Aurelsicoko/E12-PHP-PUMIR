@@ -4,19 +4,19 @@
 			<img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
 			<h5 class="titre-3 black center ">RATE THE PROJECT</h5>
 			<p class="center titre-5 padding-1 color1">Chose a number between 0 an 5 included (for example 3.6) to rate the differents criterias of this project. Your rate will be add to the average</p>
-			<form name="input" action="html_form_action.asp" method="get">
+			<form name="input" action="./project/vote/<?php echo $project->id; ?>" method="POST">
 				<div class="titre-4-bold center">
 				  <div>
 				    <label for="ORIGINALITY">ORIGINALITY</label>
-				    <input id="ORIGINALITY" type="text" pattern="[0-5]{1}" required/>
+				    <input id="ORIGINALITY" name="originality" type="text" pattern="[0-5]{1}" required/>
 				  </div>
 				  <div>
 				    <label for="DIFFICULTY">DIFFICULTY</label>
-				    <input id="DIFFICULTY" type="text"  pattern="[0-5]{1}" required/>
+				    <input id="DIFFICULTY" type="text" name="difficulty"  pattern="[0-5]{1}" required/>
 				  </div>
 				  <div>
 				    <label for="AESTHETIC">AESTHETIC</label>
-				    <input id="AESTHETIC" type="text"  pattern="[0-5]{1}" required/>
+				    <input id="AESTHETIC" type="text" name="style"  pattern="[0-5]{1}" required/>
 				  </div>
 				  <div>
 				  	<p class="color2 inline-block">AVERAGE</p>
@@ -42,6 +42,7 @@
 		$style = ($user_vote['style']+$admin_vote['style'])/2;
 		$style = str_replace(',','.',number_format($style/2, 2, ',', ''));
 		$date = Date('d/m/Y', $project->lastDay);
+
 	?>
 	<div class="container paddingSep">
 		<div class="row center titre_partie">
@@ -139,13 +140,19 @@
 				</div>
 				<div class="raters">
 					<p class="titre-4 underline"><?php echo $admin_vote["vote"]+$user_vote["vote"]; ?> RATERS</p>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
+					<?php
+
+					$tour = ($user_vote['vote'] < 7) ? $user_vote['vote'] : 7;
+
+
+					for($i=0; $i<$tour; $i++){
+
+					?>
 						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
+					<?php
+					}
+					?>	
+						
 					</div>
 				</div>
 			</div>
@@ -158,7 +165,7 @@
 						<a href="#" class="bgcolor2"><img src="public/images/google_plus.png" alt=""></a>
 					</div>
 					<div class="col-md-3" id="rate">
-						<a class="button-1 titre-5-white center openPop" id="rateit" href="/">RATE IT !</a>
+						<a class="button-1 titre-5-white center openPop" id="rateit" href="#">RATE IT !</a>
 					</div>
 				</div>
 			</div>
