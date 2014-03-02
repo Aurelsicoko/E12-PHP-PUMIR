@@ -49,9 +49,16 @@ class AuthAppController extends Controller {
 
 	// USERS
 	public function singleUser($f3) {
+
+		$id_user = $f3->get('SESSION.user')['id'];
+
+		if(!empty($f3->get('PARAMS.id'))){
+			$id_user = $f3->get('PARAMS.id');
+		}
+
 		$this->content = 'user/user';
-		$users = $this->model->getUser(array('id' => $f3->get('SESSION.user')['id']));
-		$projects = $this->model->getProjects(array('id' => $f3->get('SESSION.user')['id']));
+		$users = $this->model->getUser(array('id' => $id_user));
+		$projects = $this->model->getProjects(array('id' => $id_user));
 		$f3->set('projects', $projects);
 		$f3->set('users', $users);
 	}
