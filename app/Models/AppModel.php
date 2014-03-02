@@ -5,10 +5,10 @@ private $mapper;
   
 	public function __construct(){
 		parent::__construct();
-		$this->mapper=$this->getMapper('viewProject');
+		$this->mapper=$this->getMapper('projects');
 	}
 
-	public function getProjects ($params) {
+	public function getProjects($params) {
 		return $this->mapper->find(array("beginDay <= ? AND lastDay >= ? AND block = 0", $params["date"], $params["date"]));
 	}
 
@@ -16,15 +16,14 @@ private $mapper;
 		return $this->mapper->find(array("lego = 1"));
 	}
 
-	public function getProject ($params) {
-		return $this->mapper->load(array("id = ? AND block = 0", $params['id']));
+	public function getProject($params) {
+		return $this->mapper->find(array("id = ? AND block = 0", $params['id']));
 	}
 
 	public function getUser ($params) {
 		$mapper = $this->getMapper('users');
 		return $mapper->find(array("id = ? AND block = 0", $params['id']));
 	}
-
 
 	public function getLego ($params) {
 		return $this->mapper->load(array("lastDay = ? AND lego = 1", $params['date']));

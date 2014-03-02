@@ -13,6 +13,7 @@ class AppController extends Controller {
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
 		$projects = $this->model->getProjects(array('date' => $date));
 
+
 		/* Get firstname and lastname information */
 		for($i=0; $i<count($projects); $i++){
 			$id_user = $projects[$i]->id_user;

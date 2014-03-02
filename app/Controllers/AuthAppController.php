@@ -49,6 +49,8 @@ class AuthAppController extends Controller {
 			$this->model->addVote(array('id_user' => $f3->get('SESSION.user')['id'], 'id_project' => $f3->get('PARAMS.id')));
 		}
 
+
+		
 		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
 	}
 
