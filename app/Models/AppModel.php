@@ -20,6 +20,12 @@ private $mapper;
 		return $this->mapper->load(array("id = ? AND block = 0", $params['id']));
 	}
 
+	public function getUser ($params) {
+		$mapper = $this->getMapper('users');
+		return $mapper->find(array("id = ? AND block = 0", $params['id']));
+	}
+
+
 	public function getLego ($params) {
 		return $this->mapper->load(array("lastDay = ? AND lego = 1", $params['date']));
 	}

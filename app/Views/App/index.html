@@ -126,6 +126,7 @@
 		</div>			
 	</div>
 	<div class="row gallerieJ">
+
 		<?php foreach ($projects as $key => $project) : ?>
 		<?php $photos = unserialize($project->photos); ?>
 		<div class="col-md-4 col-sm-6">
@@ -135,7 +136,7 @@
 			</div>
 			<div class="descProjet">
 				<p class="titre-5-black-bold capitale"><a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
-				<h4 class="titre-5 color1 ">BY <a class="underline" href="/"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
+				<h4 class="titre-5 color1 ">BY <a class="underline" href="./user/<?php echo $project->id_user; ?>"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
 			</div>
 		</div>
 		<?php endforeach; ?>
