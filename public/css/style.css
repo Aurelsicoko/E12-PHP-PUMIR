@@ -606,6 +606,18 @@ body .partage p{
 /*==================================FORMULAIRE==============================*/
 
 .formPop>div{
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #F0F0F0),
+	color-stop(1, #CCCCCC)
+);
+background-image: -o-linear-gradient(bottom, #F0F0F0 0%, #CCCCCC 100%);
+background-image: -moz-linear-gradient(bottom, #F0F0F0 0%, #CCCCCC 100%);
+background-image: -webkit-linear-gradient(bottom, #F0F0F0 0%, #CCCCCC 100%);
+background-image: -ms-linear-gradient(bottom, #F0F0F0 0%, #CCCCCC 100%);
+background-image: linear-gradient(to bottom, #F0F0F0 0%, #CCCCCC 100%);
 	position: absolute;
 	top:70px;
 	left: 50%;
@@ -621,6 +633,7 @@ body .partage p{
 	height: 400px;
 	width: 350px;
 	margin-left: -175px;
+
 }
 #formProfil>div{
 	height: 470px;
@@ -632,7 +645,6 @@ body .partage p{
 .champs {
 	margin-top: 30px;
   	border-bottom: 1px solid $b;
-  	background: #eee;
 }
 
 .champs>div {
@@ -771,3 +783,44 @@ input[type="submit"]{
 	margin-left: 12px;
 	width: 274px;
 }
+html{
+	height : 100%;
+}
+#prehome{
+	color: #FFFFFF;
+	height: 100%;
+}
+
+#prehome>div{
+	background-color: #8d1313;
+	width: 50%;
+	height: 100%;
+	8d1313
+}
+
+#prehome>div:first-child{
+	background-color: #781515;
+}
+#prehome a{
+	width: 138px;
+}
+
+#prehomeG,#prehomeD{
+	position: absolute;
+	height: 270px;
+}
+
+#prehomeG{
+	left: 25%;
+	top:50%;
+	margin-top: -112px;
+	margin-left: -150px;
+}
+
+#prehomeD{
+	left: 75%;
+	top: 50%;
+	margin-top: -144px;
+	margin-left: -120px;
+}
+
