@@ -60,7 +60,7 @@ class AuthAppController extends Controller {
 
 		$id_user = $f3->get('SESSION.user')['id'];
 
-		if(!empty($f3->get('PARAMS.id'))){
+		if(count($f3->get('PARAMS.id')) != 0){
 			$id_user = $f3->get('PARAMS.id');
 		}
 
