@@ -48,7 +48,7 @@
 		<div class="row center titre_partie">
 			<div class="col-md-12">
 			<p class=" titre-2-black "><?php echo $project->title; ?></p>
-			<h4 class="titre-5 color1">BY <a class="underline" href="#"><?php echo $project->firstname.' '.$project->lastname; ?></a></h4>
+			<h4 class="titre-5 color1">BY <a class="underline" href="./user/<?php echo $users[$project->id]['id']; ?>"><?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
 			<img alt="" src="public/images/fleche_bas_noire.png" class="espacementVertical"/>
 			<p class="titre-5 lineHeightBase"><?php echo $project->description; ?></p>
 		</div>

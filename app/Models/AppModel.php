@@ -22,7 +22,7 @@ private $mapper;
 
 	public function getUser ($params) {
 		$mapper = $this->getMapper('users');
-		return $mapper->find(array("id = ? AND block = 0", $params['id']));
+		return $mapper->find(array("id = ?", $params['id']));
 	}
 
 	public function getLego ($params) {
