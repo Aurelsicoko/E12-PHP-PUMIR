@@ -46,6 +46,7 @@ function initialiser() {
     
 
     var box = $('.formPop');
+    var log = $('#formLog');
 
     $('.openPop').on('click', function (event) {
       event.preventDefault();
@@ -80,4 +81,21 @@ function initialiser() {
         $('#averageNoting>p').text('_')
       }
     });
+
+    $('#openLogin').on('click', function (event) {
+      event.preventDefault();
+      log.removeClass('hidden');
+      setTimeout(function () {
+        log.removeClass('visuallyhidden');
+      }, 20);
+    });
+
+    $('#formLog>div>img').on('click',function(){
+        log.addClass('visuallyhidden');        
+        log.one('transitionend', function(e) {
+          log.addClass('hidden');
+          });
+    });
+
+        
 }

@@ -279,6 +279,142 @@ html body [class*="bold"]
 	background-image: -ms-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
 	background-image: linear-gradient(to bottom, #1CE166 0%, #00DD1C 100%);
 }
+#formLog .button-1{
+	margin-top: 17px;
+	position: relative;
+	top: -2px;
+	height: 43px;
+	line-height: 40px;
+}
+#formLog .button-1>img{
+	float: left;
+	height: 25px;
+	margin-left: 10px;
+	margin-top: 8px;
+}
+#openRegister{
+	border-bottom: 4px solid #6E6E6E;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #818181),
+	color-stop(1, #818181)
+	);
+	background-image: -o-linear-gradient(bottom, #9D9D9D 0%, #818181 100%);
+	background-image: -moz-linear-gradient(bottom, #9D9D9D 0%, #818181 100%);
+	background-image: -webkit-linear-gradient(bottom, #9D9D9D 0%, #818181 100%);
+	background-image: -ms-linear-gradient(bottom, #9D9D9D 0%, #818181 100%);
+	background-image: linear-gradient(to bottom, #9D9D9D 0%, #818181 100%);
+}
+#openRegister:hover{
+	border-bottom: 4px solid #888888;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #949494),
+	color-stop(1, #949494)
+	);
+	background-image: -o-linear-gradient(bottom, #B2B2B2 0%, #949494 100%);
+	background-image: -moz-linear-gradient(bottom, #B2B2B2 0%, #949494 100%);
+	background-image: -webkit-linear-gradient(bottom, #B2B2B2 0%, #949494 100%);
+	background-image: -ms-linear-gradient(bottom, #B2B2B2 0%, #949494 100%);
+	background-image: linear-gradient(to bottom, #B2B2B2 0%, #949494 100%);
+}
+#cntfb{
+	border-bottom: 4px solid #153855;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #1A4568),
+	color-stop(1, #1A4568)
+	);
+	background-image: -o-ilinear-gradient(bottom, #215b89 0%, #1A4568 100%);
+	background-image: -moz-linear-gradient(bottom, #215b89 0%, #1A4568 100%);
+	background-image: -webkit-linear-gradient(bottom, #215b89 0%, #1A4568 100%);
+	background-image: -ms-linear-gradient(bottom, #215b89 0%, #1A4568 100%);
+	background-image: linear-gradient(to bottom, #215b89 0%, #1A4568 100%);
+}
+#cntfb:hover{
+	border-bottom: 4px solid #1D4D74;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #225986),
+	color-stop(1, #225986)
+	);
+	background-image: -o-ilinear-gradient(bottom, #2B75AC 0%, #225986 100%);
+	background-image: -moz-linear-gradient(bottom, #2B75AC 0%, #225986 100%);
+	background-image: -webkit-linear-gradient(bottom, #2B75AC 0%, #225986 100%);
+	background-image: -ms-linear-gradient(bottom, #2B75AC 0%, #225986 100%);
+	background-image: linear-gradient(to bottom, #2B75AC 0%, #225986 100%);
+}
+#cnttwt{
+	border-bottom: 4px solid #126592;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #1682BC),
+	color-stop(1, #1682BC)
+	);
+	background-image: -o-linear-gradient(bottom, #21a0e4 0%, #1682BC 100%);
+	background-image: -moz-linear-gradient(bottom, #21a0e4 0%, #1682BC 100%);
+	background-image: -webkit-linear-gradient(bottom, #21a0e4 0%, #1682BC 100%);
+	background-image: -ms-linear-gradient(bottom, #21a0e4 0%, #1682BC 100%);
+	background-image: linear-gradient(to bottom, #21a0e4 0%, #1682BC 100%);
+}
+#cnttwt:hover{
+	border-bottom: 4px solid #1579AE;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #1B9BE0),
+	color-stop(1, #1B9BE0)
+	);
+	background-image: -o-linear-gradient(bottom, #45AFE9 0%, #1B9BE0 100%);
+	background-image: -moz-linear-gradient(bottom, #45AFE9 0%, #1B9BE0 100%);
+	background-image: -webkit-linear-gradient(bottom, #45AFE9 0%, #1B9BE0 100%);
+	background-image: -ms-linear-gradient(bottom, #45AFE9 0%, #1B9BE0 100%);
+	background-image: linear-gradient(to bottom, #45AFE9 0%, #1B9BE0 100%);
+}
+#cntgp{
+	border-bottom: 4px solid #A73825;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #d55841),
+	color-stop(1, #d55841)
+	);
+	background-image: -o-linear-gradient(bottom, #C1412B 0%, #d55841 100%);
+	background-image: -moz-linear-gradient(bottom, #C1412B 0%, #d55841 100%);
+	background-image: -webkit-linear-gradient(bottom, #C1412B 0%, #d55841 100%);
+	background-image: -ms-linear-gradient(bottom, #C1412B 0%, #d55841 100%);
+	background-image: linear-gradient(to bottom, #C1412B 0%, #d55841 100%);
+}
+#cntgp:hover{
+	border-bottom: 4px solid #C1412B;
+	background-image: -webkit-gradient(
+	linear,
+	left top,
+	left bottom,
+	color-stop(0, #D8614B),
+	color-stop(1, #D8614B)
+	);
+	background-image: -o-linear-gradient(bottom, #D3533D 0%, #D8614B 100%);
+	background-image: -moz-linear-gradient(bottom, #D3533D 0%, #D8614B 100%);
+	background-image: -webkit-linear-gradient(bottom, #D3533D 0%, #D8614B 100%);
+	background-image: -ms-linear-gradient(bottom, #D3533D 0%, #D8614B 100%);
+	background-image: linear-gradient(to bottom, #D3533D 0%, #DC725F 100%);
+}
+
+
+
 /*=========================gallerieJ=======================*/
 
 .gallerieJ>div{
@@ -605,7 +741,7 @@ body .partage p{
 }
 /*==================================FORMULAIRE==============================*/
 
-.formPop>div{
+.form2column>div{
 	background-image: -webkit-gradient(
 	linear,
 	left top,
@@ -624,7 +760,7 @@ background-image: linear-gradient(to bottom, #F0F0F0 0%, #CCCCCC 100%);
 	z-index: 200;
 	background-color: #eee;
 }
-.formPop>div>img{
+body [class*="form"]>div>img{
 	position: relative;
 	top: -15px;
 	left: 15px;
@@ -633,11 +769,15 @@ background-image: linear-gradient(to bottom, #F0F0F0 0%, #CCCCCC 100%);
 	height: 400px;
 	width: 350px;
 	margin-left: -175px;
-
 }
 #formProfil>div{
 	height: 470px;
 	width: 800px;
+	margin-left: -400px;
+}
+#formLog>div{
+	height: 360px;
+	width: 770px;
 	margin-left: -400px;
 }
 
@@ -737,7 +877,7 @@ input[type="text"]:focus{
 .leftInput{
 	padding-left: 30px;
 }
-.formPop>div>h5{
+body [class*="form"]>div>h5{
 	margin-top: 35px;
 }
 
@@ -759,7 +899,7 @@ input[type="text"]:focus{
 	margin-left: 12px;
 }
 
-.formPop { 
+.form2column { 
 	transition: all 0.25s linear;
     background:rgba(0,0,0,0.8); 
     position:fixed; 
@@ -780,8 +920,8 @@ input[type="text"]:focus{
 }
 
 input[type="submit"]{
-	margin-left: 12px;
-	width: 274px;
+	margin-left: 11px;
+	width: 279px;
 }
 html{
 	height : 100%;
