@@ -933,34 +933,28 @@ html{
 
 #prehome>div{
 	background-color: #8d1313;
+	position: absolute;
 	width: 50%;
 	height: 100%;
-	8d1313
 }
-
-#prehome>div:first-child{
+#prehome>.float-left>img{
+	margin-left: 10px;
+	margin-top: 10px;
+}
+#prehome .float-left{
 	background-color: #781515;
+	left: 0px;
+}
+#prehome .float-right{
+	right: 0px;
 }
 #prehome a{
 	width: 138px;
 }
 
-#prehomeG,#prehomeD{
-	position: absolute;
-	height: 270px;
-}
-
 #prehomeG{
-	left: 25%;
-	top:50%;
-	margin-top: -112px;
-	margin-left: -150px;
+	margin-top: 130px;
 }
-
 #prehomeD{
-	left: 75%;
-	top: 50%;
-	margin-top: -144px;
-	margin-left: -120px;
+	margin-top: 100px;
 }
-
