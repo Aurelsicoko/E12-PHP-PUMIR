@@ -18,13 +18,15 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-2">
-        <a href="./"><img src="public/images/logo_header.png" id="logo"  alt="Logo Awwward"/></a>
+        <a href="./home"><img src="public/images/logo_header.png" id="logo"  alt="Logo Awwward"/></a>
       </div>
       <div class="titre-4-white col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-2 col-sm-2 col-sm-offset-3 center">
-        <a href="./submit">SUBMIT</a>
+        <?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
+        <a href="./profil">PROFILE</a>
+        <?php endif; ?></p> 
       </div>
       <div class="titre-4-white col-md-2 col-xs-3 col-sm-3 center">
-        <a href="#">OTHER PROJECT</a>
+        <a href="./submit">SUBMIT PROJECT</a>
       </div>
       <div class="titre-4-white col-md-2 col-xs-3 col-sm-2 " >
         <div id="login" class="center cursorP">
@@ -46,20 +48,20 @@
       <form name="input" action="html_form_action.asp" method="get">
         <div class="champs police2 center float-left leftInput titre-4">
           <div>
-            <a class="button-1 cursorP" id="cntfb" href"#" alt="connect facebook" >
+            <a class="button-1 cursorP" id="cntfb" href="./facebook" alt="connect facebook" >
               <img src="public/images/facebook_connect.png"/>CONNECT WITH FACEBOOK</a>
           </div>
           <div>
-            <a class="button-1 cursorP" id="cnttwt" href"#" alt="connect twitter" ><img src="public/images/twitter_connect.png"/>CONNECT WITH TWITTER</a>
+            <a class="button-1 cursorP" id="cnttwt" href="#" alt="connect twitter" ><img src="public/images/twitter_connect.png"/>CONNECT WITH TWITTER</a>
           </div>
           <div>
-            <a class="button-1 cursorP" id="cntgp"href"#" alt="cnnect google" ><img src="public/images/googleplus_connect.png"/>CONNECT WITH GOOGLE</a>
+            <a class="button-1 cursorP" id="cntgp" href="#" alt="cnnect google" ><img src="public/images/googleplus_connect.png"/>CONNECT WITH GOOGLE</a>
           </div>
-          <a class="button-1" id="openRegister" href"#" alt="register">REGISTER WITH E-MAIL</a>
+          <a class="button-1" id="openRegister" href="./signup" alt="register">REGISTER WITH E-MAIL</a>
         </div>
         <div class="champs police2 center float-right rightInput">
           <div>
-            <label for="FIRST">FIRST NAME</label>
+            <label for="FIRST">EMAIL</label>
             <input autocomplete="off" id="FIRST" type="text" pattern"[a-zA-Z]+" required/>
           </div>
           <div>

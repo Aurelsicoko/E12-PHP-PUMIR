@@ -8,6 +8,11 @@ class AppController extends Controller {
 	}
 
 	// INDEX
+	public function prehome ($f3){
+		$this->content = 'app/prehome';
+	}
+
+
 	public function home ($f3) {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
@@ -83,7 +88,7 @@ class AppController extends Controller {
 											'picture' => $user->picture 
 										)
 					);
-			$f3->reroute('/');
+			$f3->reroute('/home');
 		}else{
 			$f3->reroute('/login');
 		}
