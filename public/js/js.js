@@ -105,7 +105,7 @@ function initialiser() {
       }, 20);
     });
 
-    $('#formLog>div>img').on('click',function(){
+    $('#formProject>div>img').on('click',function(){
         sub.addClass('visuallyhidden');        
         sub.one('transitionend', function(e) {
           sub.addClass('hidden');
