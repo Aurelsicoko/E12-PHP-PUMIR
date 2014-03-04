@@ -46,7 +46,7 @@
   <div>
         <img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
         <h5 class="titre-3 black center ">LOGIN</h5>
-      <form name="input" action="html_form_action.asp" method="get">
+      <form name="input" action="./session/create" method="post">
         <div class="champs police2 center float-left leftInput titre-4">
           <div>
             <a class="button-1 cursorP" id="cntfb" href="./facebook" alt="connect facebook" >
@@ -63,11 +63,11 @@
         <div class="champs police2 center float-right rightInput">
           <div>
             <label for="FIRST">EMAIL</label>
-            <input autocomplete="off" id="FIRST" type="text" pattern"[a-zA-Z]+" required/>
+            <input autocomplete="off" id="FIRST" name="email" type="text" pattern"[a-zA-Z]+" required/>
           </div>
           <div>
             <label for="PASSWORD">PASSWORD</label>
-            <input autocomplete="off" id="PASSWORD" type="password" pattern"[a-zA-Z]+" required/> 
+            <input autocomplete="off" id="PASSWORD" name="password" type="password" pattern"[a-zA-Z]+" required/> 
           </div>
         <input class="button-1 titre-4" type="submit" value="SUBMIT">
         </div>

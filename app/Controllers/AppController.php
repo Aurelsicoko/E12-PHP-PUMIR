@@ -12,7 +12,6 @@ class AppController extends Controller {
 		$this->content = 'app/prehome';
 	}
 
-
 	public function home ($f3) {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
@@ -200,6 +199,22 @@ class AppController extends Controller {
 			$f3->reroute($facebook->getLoginUrl($params));
 		}
 
+	}
+
+	public function about ($f3){
+		$this->content = 'app/about';
+	}
+
+	public function legal ($f3){
+		$this->content = 'app/legal';
+	}
+
+	public function contact ($f3){
+		$this->content = 'app/contact';
+	}
+
+	public function help ($f3){
+		$this->content = 'app/help';
 	}
 
 }
