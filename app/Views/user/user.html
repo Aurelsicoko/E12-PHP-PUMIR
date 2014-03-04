@@ -441,9 +441,27 @@
 			</div>
 			<div class="bgcolor2 etatProjet titre">
 				<a alt="supprimer" href="#" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
+				<?php if ($project->block === 1) :?> 
 				<div class="infoProjet bgcolor3 float-right white">
 					BEING VALIDATED
 				</div>
+				<?php endif; if ($project->block === 10) :?>
+				<form action="payment" method="POST">
+			        <input type="hidden" name="projectId" value="<?php echo $project->id; ?>">
+			        <script
+			          src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+			          data-key="pk_test_K8Ipt5hlOkL0j2vqmzUK73EL"
+			          data-amount="2000"
+			          data-name="Demo Site"
+			          data-description="2 widgets ($20.00)"
+			          data-image="/128x128.png">
+			        </script>
+			    </form>
+				<?php endif; if ($project->block === 0) :?> 
+				<div class="infoProjet bgcolor5 float-right white">
+					VALIDATED
+				</div>
+				<?php endif; ?>
 				<p class="capitale bold"><?php echo $project->title; ?></p>
 				<p>-</p>
 				<p>Posted 12/09/2014</p>

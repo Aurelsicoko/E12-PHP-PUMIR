@@ -26,7 +26,8 @@ private $mapper;
 	}
 
 	public function getLego ($params) {
-		return $this->mapper->load(array("lastDay = ? AND lego = 1", $params['date']));
+		$mapper=$this->getMapper('viewproject');
+		return $mapper->load(array("lastDay = ? AND lego = 1", $params['date']));
 	}
 
 	public function getVote ($params){

@@ -79,24 +79,15 @@ class AuthAppController extends Controller {
 	}
 
 	public function payment ($f3){
-		Stripe::setApiKey("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ");
-
-		// Get the credit card details submitted by the form
-		$token = $_POST['stripeToken'];
-
-		// Create the charge on Stripe's servers - this will charge the user's card
-		try {
-		$charge = Stripe_Charge::create(array(
-		  "amount" => 2000, // amount in cents, again
-		  "currency" => "eur",
-		  "card" => $token,
-		  "description" => "payinguser@example.com")
-		);
-		$this->model->validationProject(array('id' => $f3->get('POST.projectId')));
-		$f3->reroute('/');
-		} catch(Stripe_CardError $e) {
-		  // The card has been declined
-		}
+		/**
+		* It's an personnal class in lib/stripe.php
+		* Usable for all personne who have a stripe account
+		**/
+		Payment::instance()->pay("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ", 2000, function ($err) use($f3) {
+			if ($err) $f3->reroute('/');
+			$this->model->validationProject(array('id' => $f3->get('POST.projectId')));
+			$f3->reroute('/');
+		});
 	}
 
 }

@@ -1,8 +1,5 @@
 <?php
 
-// Tested on PHP 5.2, 5.3
-
-// This snippet (and some of the curl code) due to the Facebook SDK.
 if (!function_exists('curl_init')) {
   throw new Exception('Stripe needs the CURL PHP extension.');
 }
@@ -53,3 +50,6 @@ require(dirname(__FILE__) . '/Stripe/Event.php');
 require(dirname(__FILE__) . '/Stripe/Transfer.php');
 require(dirname(__FILE__) . '/Stripe/Recipient.php');
 require(dirname(__FILE__) . '/Stripe/ApplicationFee.php');
+
+?>
+
