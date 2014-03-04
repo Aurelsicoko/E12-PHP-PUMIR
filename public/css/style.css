@@ -5,6 +5,17 @@
 body{
 	background-color: #26272c;
 }
+html, body {
+   height: 100%;
+}
+
+ #canevas {
+   min-height: 100%;
+   height: auto;
+  margin: 0 auto -43px;
+}
+
+  
 /*===========================header===========================*/
 header{
 	height: 55px;
@@ -37,12 +48,14 @@ body footer{
 	background-color: #3b3b45;
 	padding: 15px 20px;
 }
-footer a{
+footer a:nth-child(n+2){
 	margin-left: 20px;
 }
-footer>p{
-	float: right;
-	color: #fFF;
+footer p{
+	line-height: 0px;
+}
+footer, .push {
+  height: 43px;
 }
 footer a:link {color: #fff;}
 footer a:visited {color: #fff;}
