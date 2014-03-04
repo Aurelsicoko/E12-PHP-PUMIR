@@ -130,12 +130,13 @@
 		<?php $photos = unserialize($project->photos); ?>
 		<div class="col-md-4 col-sm-6">
 			<div class="imageT">
-				<img alt="" src="<?php echo $photos[0]; ?>" />
+				<a href="project/<?php echo $project->id; ?>">
+				<img alt="" src="<?php echo $photos[0]; ?>" /></a>
 				<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
 			</div>
 			<div class="descProjet">
-				<p class="titre-5-black-bold capitale"><a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
-				<h4 class="titre-5 color1 ">BY <a class="underline" href="./user/<?php echo $project->id_user; ?>">
+				<p class="titre-5-black-bold capitale"><a class="color1" href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
+				<h4 class="titre-5 color1 ">BY <a class="underline color1" href="./user/<?php echo $project->id_user; ?>">
 					<?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
 			</div>
 		</div>

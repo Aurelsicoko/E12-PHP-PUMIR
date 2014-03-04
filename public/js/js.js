@@ -47,6 +47,7 @@ function initialiser() {
 
     var box = $('.formPop');
     var log = $('#formLog');
+    var sub = $('#formProject');
 
     $('.openPop').on('click', function (event) {
       event.preventDefault();
@@ -96,6 +97,18 @@ function initialiser() {
           log.addClass('hidden');
           });
     });
+    $('#addProject').on('click', function (event) {
+      event.preventDefault();
+      sub.removeClass('hidden');
+      setTimeout(function () {
+        sub.removeClass('visuallyhidden');
+      }, 20);
+    });
 
-        
+    $('#formLog>div>img').on('click',function(){
+        sub.addClass('visuallyhidden');        
+        sub.one('transitionend', function(e) {
+          sub.addClass('hidden');
+          });
+    });        
 }

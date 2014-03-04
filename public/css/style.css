@@ -115,6 +115,7 @@ html body .note{
 #average{
 	background:none;
 	position: relative;
+	padding: 0;
 }
 #average>div:first-child{
 	height: 194px;
@@ -173,7 +174,7 @@ body h4{
 	display: block; 
 	margin: 0 auto; 
 }
-body .color1{
+html body .color1{
 	color:#666;
 }
 body .color2{
@@ -455,7 +456,7 @@ html body [class*="bold"]
 	margin-top: -8px;
 }
 
-.imageT>img:first-child{
+.imageT img:first-child{
 	-webkit-transition: all 0.5s ease;
         -moz-transition: all 0.5s ease;
          -ms-transition: all 0.5s ease;
@@ -783,6 +784,11 @@ body [class*="form"]>div>img{
 	width: 350px;
 	margin-left: -175px;
 }
+#formProject>div{
+	height: 560px;
+	width: 350px;
+	margin-left: -175px;
+}
 #formProfil>div{
 	height: 470px;
 	width: 800px;
@@ -792,6 +798,18 @@ body [class*="form"]>div>img{
 	height: 360px;
 	width: 770px;
 	margin-left: -400px;
+}
+
+#formProject input, #formProject input[type="submit"],#formProject textarea{
+	margin-top: 15px;
+}
+#formProject input[type="file"]{
+	margin-left: 10px;
+	margin-top: 8px;
+	width: 280px;
+}
+#formProject input[type="submit"]{
+	width: 276px;
 }
 
 
@@ -932,7 +950,7 @@ body [class*="form"]>div>h5{
   opacity: 0;
 }
 
-input[type="submit"]{
+#formLog input[type="submit"]{
 	margin-left: 11px;
 	width: 279px;
 }
