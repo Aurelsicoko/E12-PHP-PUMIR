@@ -16,6 +16,7 @@ protected $dir;
   public function afterroute($f3){
     
     $f3->set('content', 'app/Views/'.$this->content.'.html');
+    $f3->set('load', 'app/Views/loadJS.html');
     if($f3->get('AJAX')){
       echo View::instance()->render($this->tpl['async']);
     }else{

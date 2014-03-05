@@ -217,6 +217,10 @@ class AppController extends Controller {
 		$this->content = 'app/help';
 	}
 
+	public function rules ($f3){
+		$this->content = 'app/rules';
+	}
+
 }
 
 ?>

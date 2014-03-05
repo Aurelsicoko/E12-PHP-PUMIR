@@ -989,3 +989,11 @@ html{
 #prehomeD{
 	margin-top: 100px;
 }
+
+.list-style-yes{
+	list-style-type: square;
+}
+
+.list-style-yes li{
+	padding: .5em;
+}
