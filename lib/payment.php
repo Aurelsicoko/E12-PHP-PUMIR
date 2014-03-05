@@ -9,7 +9,7 @@
 * Use this basic form 
 **/
 /*
-<form action="" method="POST">
+<form action="yourRoute" method="POST">
     <script
       src="https://checkout.stripe.com/checkout.js" class="stripe-button"
       data-key="pk_test_K8Ipt5hlOkL0j2vqmzUK73EL"
