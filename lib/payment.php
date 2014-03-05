@@ -37,7 +37,7 @@ class Payment extends Prefab {
 		// Create the charge on Stripe's servers - this will charge the user's card
 		try {
 			$charge = Stripe_Charge::create(array(
-			  "amount" => $amont, // amount in cents, again
+			  "amount" => $amount, // amount in cents, again
 			  "currency" => "eur",
 			  "card" => $token,
 			  "description" => "An payment")
