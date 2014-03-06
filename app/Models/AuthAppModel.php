@@ -50,6 +50,7 @@ private $mapper;
   		$mapper->id_user = $params['id'];
   		$mapper->user_vote = $params['user_vote'];
   		$mapper->admin_vote = $params['admin_vote'];
+  		$mapper->beginDay = mktime (0,0,0, date("n"), date("j"), date("Y") );
 		$mapper->save();
 	}
 
@@ -60,6 +61,12 @@ private $mapper;
 		$mapper->beginDay = mktime (0,0,0, date("n"), date("j")+1, date("Y") );
 		$mapper->lastDay = mktime (0,0,0, date("n"), date("j")+7, date("Y") );
 		$mapper->update();
+	}
+
+	public function deleteProject ($params) {
+		$this->db->begin();
+		$this->db->exec(array('DELETE FROM projects WHERE id="'.$params['id'].'"'));
+		$this->db->commit();
 	}
 }
 ?>

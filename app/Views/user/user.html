@@ -3,19 +3,19 @@
 		<div>
 			<img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
 			<h5 class="titre-3 black center ">ADD A PROJECT</h5>
-			<form action="project/create" name="input" method="POST">
+			<form action="project/create" name="input" method="POST" enctype="multipart/form-data">
 				<div class="titre-4-bold center champs">
 				  <div class="marginAuto">
 				    <label for="NAME">NAME</label>
-				    <input id="NAME" name="originality" type="text" pattern="[a-zA-Z]+" required/>
+				    <input id="NAME" name="title" type="text" pattern="[a-zA-Z]+" required/>
 				  </div>
 				  <div class="marginAuto">
-				    <input id="IMAGE" name="IMAGE" type="file" required/>
-				    <input id="ORIGINALITY" name="originality" type="file"/>
-				    <input id="ORIGINALITY" name="originality" type="file"/>
-				    <input id="ORIGINALITY" name="originality" type="file"/>
+				    <input id="IMAGE" name="photo1" type="file" required/>
+				    <input id="ORIGINALITY" name="photo2" type="file"/>
+				    <input id="ORIGINALITY" name="photo3" type="file"/>
+				    <input id="ORIGINALITY" name="photo4" type="file"/>
 				  </div>
-					<textarea rows="11" cols="43" class="titre-5 marginAuto">Description of the project</textarea>
+					<textarea rows="11" cols="43" name="description" class="titre-5 marginAuto">Description of the project</textarea>
 					<input class="button-1 marginAuto" type="submit" value="Submit">
 				</div>
 			</form>
@@ -434,13 +434,13 @@
 	<div class="row">
 
 		<?php foreach ($projects as $key => $project) : ?>
-
+		<?php $photos = unserialize($project->photos); ?>
 		<div class="col-md-8 col-md-offset-2 projetUser">
 			<div class="roundedMiddle float-left imageProjet">
-				<img src="public/images/img_user.jpg" alt="" class="width100">
+				<img src="<?php echo $photos[0]; ?>" alt="" class="width100">
 			</div>
 			<div class="bgcolor2 etatProjet titre">
-				<a alt="supprimer" href="#" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
+				<a alt="supprimer" href="project/delete/<?php echo $project->id; ?>" class="suppr float-right"><img src="public/images/croix_suppr.png" alt=""></a>
 				<?php if ($project->block === 1) :?> 
 				<div class="infoProjet bgcolor3 float-right white">
 					BEING VALIDATED
@@ -464,7 +464,8 @@
 				<?php endif; ?>
 				<p class="capitale bold"><?php echo $project->title; ?></p>
 				<p>-</p>
-				<p>Posted 12/09/2014</p>
+				<?php $date = Date('d/m/Y', $project->beginDay-1); ?>
+				<p>Posted <?php echo $date; ?></p>
 			</div>
 		</div>
 
