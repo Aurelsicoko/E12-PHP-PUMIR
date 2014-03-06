@@ -4,11 +4,11 @@
 	<form action="user/create" method="POST" class="titre-4 champs color1">
 		<div >
 			<label for="NFirstname">FIRSTNAME</label>
-			<input id="NFirstname"type="text" name="firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
+			<input pattern="[a-zA-Z0-9]+" id="NFirstname"type="text" name="firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
 		</div>
 		<div>
 			<label for="NLastname">LASTNAME</label>
-			<input id="NLastname"type="text" name="lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
+			<input pattern="[a-zA-Z0-9]+" id="NLastname"type="text" name="lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
 		</div>
 		<div>
 			<label for="NCOUNTRY">COUNTRY</label> 
@@ -247,7 +247,7 @@
 		</div>
 		<div>
 			<label for="NCITY">CITY</label> 
-			<input id="NCITY" type="text" name="city" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>">
+			<input pattern="[a-zA-Z0-9]+" id="NCITY" type="text" name="city" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>">
 		</div>
 		<div>
 			<label for="NEMAIL">EMAIL</label> 
