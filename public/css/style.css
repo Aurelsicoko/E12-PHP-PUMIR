@@ -837,6 +837,27 @@ body [class*="form"]>div>img{
 	border: 2px solid #E1E2DE;
   transition: .1s all linear;
 }
+.inscription .champs>div input {
+	height: 45px;
+	width: 100%;
+	margin-top:15px; 
+	border: 2px solid #E1E2DE;
+  	transition: .1s all linear;
+}
+.inscription h3{
+	padding-top: 30px;
+}
+.inscription .champs>div{
+	width: 100%;
+}
+.inscription select{
+	margin-bottom: 0px;
+	margin-top: 14px;
+}
+.inscription input[type="submit"]{
+	width: 100%;
+	margin-bottom: 10px;
+}
 
 .champs>div label {
   position: absolute;
@@ -918,7 +939,9 @@ input[type="text"]:focus{
 body [class*="form"]>div>h5{
 	margin-top: 35px;
 }
-
+.marginTop{
+	margin-top:20px;
+}
 .pays {
 	margin-bottom: 10px;
 	position: relative;
