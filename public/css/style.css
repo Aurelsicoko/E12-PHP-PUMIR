@@ -601,6 +601,13 @@ select {
 	margin-top: 20px;
 	height: 130px;
 }
+.projetUser form[action="payment"] button{
+	position: relative;
+	float: right;
+	margin-right: 39px;
+	width: 272px;
+	top: 40px;
+}
 .imageProjet{
 	position: relative;
 	z-index: 3;
