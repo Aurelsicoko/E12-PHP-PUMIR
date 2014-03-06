@@ -201,6 +201,25 @@ class AppController extends Controller {
 
 	}
 
+	public function send ($f3){
+		$this->content = 'app/contact';
+
+		if(empty($f3->get('POST.name')) || empty($f3->get('POST.email')) || empty($f3->get('POST.message'))){
+			$f3->set('send', 2);
+		}
+		else{
+			$smtp = new SMTP('localhost', 25, 'tls', null, null);
+	        $smtp->set('From','aurelsicoko@gmail.com');
+	        $smtp->set('To', $f3->get('POST.name').' <'.$f3->get('POST.email').'>');
+	        $smtp->set('Subject','LEGO Awards');
+
+	        if($smtp->send($f3->get('POST.message')))  
+	        	$f3->set('send', 1);
+	        else
+	        	$f3->set('send', 0);
+		}
+	}
+
 	public function about ($f3){
 		$this->content = 'app/about';
 	}

@@ -1,0 +1,42 @@
+<div id="bgContent" >
+	<div class="container paddingSep">
+		<div class="row center titre_partie">
+			<p class="titre-2-black">CONTACT</p>
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+
+				<?php if(!isset($send)){ ?>
+				<form method="post" action="contact/send">
+					<p>
+						<input type="text" name="name" value="Lastname Firstname" />
+					</p>
+					<p>
+						<input type="email" name="email" value="your@email.com" />
+					</p>
+					<p>
+						<textarea name="message"></textarea>
+					</p>
+					<p>
+						<input type="submit" name="submit" value="Envoyer" />
+					</p>
+				</form>
+				<?php 
+				}else{
+					switch($send) {
+						case 1:
+							echo 'Envoyé';
+							break;
+						case 2:
+							echo "Un champs n'a pas été rempli";
+							break;
+						default:
+							echo 'Une erreur est survenue';
+							break;
+					}
+				}	
+				?> 
+			</div>
+		</div>
+	</div>
+</div>	
