@@ -12,8 +12,11 @@ private $dB;
   }
   
   function get($f3){
-    $mapper=new \DB\SQL\Mapper($this->dB, 'projects');
-    $f3->set('datas',$mapper->find());
+    $mapper = new \DB\SQL\Mapper($this->dB, 'projects');
+    $datas = $mapper->find();
+
+    $f3->set('datas', $datas);
+    
     $this->tpl='datas.json';
   }
   

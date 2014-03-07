@@ -57,6 +57,18 @@ private $mapper;
 		}
 	}
 
+	public function	updateUser ($params) {
+		$mapper = $this->getMapper('users');
+		$mapper->load(array("id = ?", $params['id']));
+		
+		$mapper->firstname = $params['firstname'];
+		$mapper->lastname = $params['lastname'];
+		$mapper->email = $params['email'];
+		$mapper->country = $params['country'];
+		$mapper->city = $params['city'];
+		$mapper->update();
+	}
+
 	public function validationAccount ($params) {
 		$mapper = $this->getMapper('users');
 		$mapper->load(array('id = ?', $params["id"]));
