@@ -9,7 +9,7 @@ class AppController extends Controller {
 
 	// INDEX
 	public function prehome ($f3){
-		$this->content = 'app/prehome';
+		$this->tpl=array('sync'=>'app/prehome.html');
 	}
 
 	public function timeline ($f3){
