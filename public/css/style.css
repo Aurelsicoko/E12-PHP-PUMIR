@@ -838,6 +838,7 @@ body [class*="form"]>div>img{
 }
 .inscription textarea{
 	margin-top: 10px;
+	width: 350px;
 }
 .inscription .champs>div input {
 	height: 45px;
