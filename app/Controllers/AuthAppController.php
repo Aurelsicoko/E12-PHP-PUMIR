@@ -32,7 +32,7 @@ class AuthAppController extends Controller {
 		$user_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
 		$admin_vote = serialize(array('originality' => 0, 'difficulty' => 0, 'style' => 0, 'vote' => 0));
 		$this->model->createProject(array('photos' => serialize($f3->get('photos')), 'id' => $f3->get('SESSION.user')['id'], 'user_vote' => $user_vote, 'admin_vote' => $admin_vote));
-		$f3->reroute('/');
+		$f3->reroute('/profil');
 	}
 
 	public function voteProject ($f3) {
@@ -91,7 +91,7 @@ class AuthAppController extends Controller {
 		Payment::instance()->pay("sk_test_AXDvxs10OzIjPEKjdWVF3WyZ", 2000, function ($err) use($f3) {
 			if ($err) $f3->reroute('/');
 			$this->model->validationProject(array('id' => $f3->get('POST.projectId')));
-			$f3->reroute('/');
+			$f3->reroute('/profil');
 		});
 	}
 
