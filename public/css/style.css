@@ -306,6 +306,9 @@ html body [class*="bold"]
 	margin-left: 10px;
 	margin-top: 8px;
 }
+#openLogin{
+	display: block;
+}
 #openRegister{
 	border-bottom: 4px solid #6E6E6E;
 	background-image: -webkit-gradient(
