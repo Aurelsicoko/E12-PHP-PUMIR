@@ -52,7 +52,7 @@ class AdminAppController extends Controller {
 		$admin_vote["originality"] = $f3->get('POST.originality');
 		$admin_vote["difficulty"] = $f3->get('POST.difficulty');
 		$admin_vote["style"] = $f3->get('POST.style');
-		$this->model->voteProject(array('id' => $f3->get('PARAMS.id'), 'admin_vote' => $admin_vote));
+		$this->model->voteProject(array('id' => $f3->get('PARAMS.id'), 'admin_vote' => $admin_vote, 'admin_id' => $f3->get('SESSION.user')['id']));
 		$f3->reroute('/admin/project/waitList');
 	}
 
