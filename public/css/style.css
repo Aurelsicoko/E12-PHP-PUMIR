@@ -587,7 +587,8 @@ select {
 .inline-block{
 	display: inline-block;
 }
-#addProject{
+
+.capd{
 	width: 230px;
 	height: 65px;
 	line-height: 65px;

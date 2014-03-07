@@ -11,10 +11,9 @@
 			<input pattern="[a-zA-Z]+" id="NLastname"type="text" name="lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
 		</div>
 		<div>
-			<label for="NCOUNTRY">COUNTRY</label> 
+			<label for="NCOUNTRY"></label> 
 			<select id="COUNTRY"name="country">
-				<option value=""></option>
-				<option value="FRANCE" <?php if (isset($_POST['country']) AND $_POST['country'] == "FRANCE") echo "selected"; ?>>FRANCE</option>
+				<option value="FRANCE" selected="<?php if (isset($_POST['country']) AND $_POST['country'] == "FRANCE") echo "selected"; ?>">FRANCE</option>
 				<option value="Afghanistan">Afghanistan </option>
 				<option value="Afrique_Centrale">Afrique_Centrale </option>
 				<option value="Afrique_du_sud">Afrique_du_Sud </option> 
@@ -247,7 +246,7 @@
 		</div>
 		<div>
 			<label for="NCITY">CITY</label> 
-			<input pattern="[a-zA-Z0-9]+" id="NCITY" type="text" name="city" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>">
+			<input pattern="[a-zA-Z]+" id="NCITY" type="text" name="city" value="<?php if (isset($_POST['city'])) echo $_POST['city']; ?>">
 		</div>
 		<div>
 			<label for="NEMAIL">EMAIL</label> 
@@ -255,11 +254,11 @@
 		</div>
 		<div>
 			<label for="NPASSWORD">PASSWORD</label> 
-			<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="NPASSWORD" autocomplete="off" type="password" name="password">
+			<input pattern="[a-zA-Z0-9_-]+" id="NPASSWORD" autocomplete="off" type="password" name="password">
 		</div>
 		<div>
 			<label for="NPASSWORDC">CONFIRM PASSWORD</label> 
-			<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="NPASSWORDC" autocomplete="off" type="password" name="password">
+			<input pattern="[a-zA-Z0-9_-]+" id="NPASSWORDC" autocomplete="off" type="password" name="password">
 		</div>
 			<input class="button-1 marginAuto" type="submit" value="SUBMIT">
 	</form>
