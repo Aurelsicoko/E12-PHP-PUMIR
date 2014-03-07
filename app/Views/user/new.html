@@ -4,11 +4,11 @@
 	<form action="user/create" method="POST" class="titre-4 champs color1">
 		<div >
 			<label for="NFirstname">FIRSTNAME</label>
-			<input pattern="[a-zA-Z0-9]+" id="NFirstname"type="text" name="firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
+			<input pattern="[a-zA-Z]+" id="NFirstname"type="text" name="firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
 		</div>
 		<div>
 			<label for="NLastname">LASTNAME</label>
-			<input pattern="[a-zA-Z0-9]+" id="NLastname"type="text" name="lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
+			<input pattern="[a-zA-Z]+" id="NLastname"type="text" name="lastname" value="<?php if (isset($_POST['lastname'])) echo $_POST['lastname']; ?>">
 		</div>
 		<div>
 			<label for="NCOUNTRY">COUNTRY</label> 
@@ -251,15 +251,15 @@
 		</div>
 		<div>
 			<label for="NEMAIL">EMAIL</label> 
-			<input id="NEMAIL" type="email" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
+			<input id="NEMAIL" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
 		</div>
 		<div>
 			<label for="NPASSWORD">PASSWORD</label> 
-			<input id="NPASSWORD" autocomplete="off" type="password" name="password">
+			<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="NPASSWORD" autocomplete="off" type="password" name="password">
 		</div>
 		<div>
 			<label for="NPASSWORDC">CONFIRM PASSWORD</label> 
-			<input id="NPASSWORDC" autocomplete="off" type="password" name="password">
+			<input pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" id="NPASSWORDC" autocomplete="off" type="password" name="password">
 		</div>
 			<input class="button-1 marginAuto" type="submit" value="SUBMIT">
 	</form>
