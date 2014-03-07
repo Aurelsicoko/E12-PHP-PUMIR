@@ -12,6 +12,10 @@ class AppController extends Controller {
 		$this->content = 'app/prehome';
 	}
 
+	public function timeline ($f3){
+		$this->tpl=array('sync'=>'timeline.html');
+	}
+
 	public function home ($f3) {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
