@@ -17,9 +17,9 @@ function initialiser() {
     $('select[name=choixIndex]').on('change', function(){
 
       var path = $(this).val();
-
+      $('.gallerieJ').hide();
       $('.gallerieJ').load(path, function(data){
-        console.log(data);
+        $('.gallerieJ').fadeIn();
       });
     });
 
