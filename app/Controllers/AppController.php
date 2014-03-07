@@ -223,7 +223,7 @@ class AppController extends Controller {
 	public function send ($f3){
 		$this->content = 'app/contact';
 
-		if(empty($f3->get('POST.name')) || empty($f3->get('POST.email')) || empty($f3->get('POST.message'))){
+		/*if(empty($f3->get('POST.name')) || empty($f3->get('POST.email')) || empty($f3->get('POST.message'))){
 			$f3->set('send', 2);
 		}
 		else{
@@ -236,7 +236,7 @@ class AppController extends Controller {
 	        	$f3->set('send', 1);
 	        else
 	        	$f3->set('send', 0);
-		}
+		}*/
 	}
 
 	public function about ($f3){

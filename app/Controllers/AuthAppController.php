@@ -54,6 +54,11 @@ class AuthAppController extends Controller {
 		$f3->reroute('/project/'.$f3->get('PARAMS.id'));
 	}
 
+	public function deleteProject ($f3) {
+		$result = $this->model->deleteProject(array('id' => $f3->get('PARAMS.id')));
+		$f3->reroute('/profil');
+	}
+
 
 	// USERS
 	public function singleUser($f3) {
@@ -77,6 +82,7 @@ class AuthAppController extends Controller {
     	$f3->reroute('/');
 	}
 
+	// PAYMENT
 	public function payment ($f3){
 		/**
 		* It's an personnal class in lib/stripe.php
