@@ -15,15 +15,15 @@
         <div class="row">
           <div class="col-lg-6">
             <h2>Project management</h2>
-            <form role="form">
+            <form action="admin/project/validation/<?php echo $project->id; ?>" method="POST">
 
               <div class="form-group">
                 <label>Name</label>
-                <input class="form-control" value="<?php echo $project->title; ?>">
+                <input class="form-control" name="title" value="<?php echo $project->title; ?>">
               </div>
               <div class="form-group">
                 <label>Description</label>
-                <textarea class="form-control" rows="3"><?php echo $project->description; ?></textarea>
+                <textarea class="form-control" name="description" rows="3"><?php echo $project->description; ?></textarea>
               </div>
               <div class="form-group">
                 <label>Photos</label>
@@ -34,14 +34,13 @@
 			  ?>
 			  	<img src="<?php echo $photo; ?>" width="200px">
 			  <?php endforeach; ?>
-            </form>
           </div>
           <div class="col-lg-6">
           	<form method="POST" action="admin/project/validation/<?php echo $project->id; ?>">
             <h2>Jury votes</h2>
             <div class="form-group">
               <label>Beauty</label>
-              <select class="form-control">
+              <select name="style" class="form-control">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -57,7 +56,7 @@
             </div>
             <div class="form-group">
               <label>Originality</label>
-              <select class="form-control">
+              <select name="originality" class="form-control">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -73,7 +72,7 @@
             </div>
             <div class="form-group">
               <label>Difficulty</label>
-              <select class="form-control">
+              <select name="difficulty" class="form-control">
                 <option>0</option>
                 <option>1</option>
                 <option>2</option>
@@ -87,9 +86,7 @@
                 <option>10</option>
               </select>
             </div>
-            <button type="submit" class="btn btn-info">Save the vote</button>
-            <a class="button" href="admin/project/refuse/<?php echo $project->id; ?>">Refuse this project</a>
-            <a class="button" href="admin/project/validation/<?php echo $project->id; ?>">Valide this project</a>
+            <input type="submit" class="btn btn-info" value="Valide your vote for accept">
           </div>
       	</form>
         </div><!-- /.row -->

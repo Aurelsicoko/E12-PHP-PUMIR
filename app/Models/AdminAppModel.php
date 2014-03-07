@@ -31,6 +31,8 @@ private $mapper;
 		$mapper = $this->getMapper('projects');
 		$mapper->load(array('id = ?', $params["id"]));
 		$mapper->block = 10;
+		$mapper->title = $params['title'];
+		$mapper->description = $params['description'];
 		$mapper->update();
 	}
 
@@ -39,8 +41,11 @@ private $mapper;
 	}
 
 	public function voteProject ($params) {
-		$mapper = $this->getMapper('vote');
-		return $mapper->find(array("id_project = ?", $params['id']));
+		$mapper = $this->getMapper('projects');
+		$mapper->load(array('id = ?', $params["id"]));
+		$admin_vote = serialize(array('originality' => $params['admin_vote']['originality'], 'difficulty' => $params['admin_vote']['difficulty'], 'style' => $params['admin_vote']['style'], 'vote' => 1));
+		$mapper->admin_vote = $admin_vote;
+		$mapper->update();
 	}
 
 	public function refuseProject ($params) {
