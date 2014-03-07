@@ -21,22 +21,22 @@
 						<input type="submit" name="submit" value="Envoyer" />
 					</p>
 				</form>
-				<?php 
+				<?php
 				}else{
 					switch($send) {
 						case 1:
-							echo 'Envoyé';
+							echo 'Sent!';
 							break;
 						case 2:
-							echo "Un champs n'a pas été rempli";
+							echo 'A required fill is missing...'';
 							break;
 						default:
-							echo 'Une erreur est survenue';
+							echo 'An error occuried.';
 							break;
 					}
-				}	
-				?> 
+				}
+				?>
 			</div>
 		</div>
 	</div>
-</div>	
+</div>

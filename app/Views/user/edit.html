@@ -5,12 +5,12 @@
 <div>
 	Delete account <a href="user/delete">[X]</a>  <br><br>
 <form action="user/update" method="POST">
-	Firstname: <input type="text" name="firstname" placeholder="Your firstname" value="<?php echo $user->firstname; ?>"><br>
+	First name: <input type="text" name="firstname" placeholder="Your firstname" value="<?php echo $user->firstname; ?>"><br>
 
-	Lastname: <input type="text" name="lastname" placeholder="Your lastname" value="<?php echo $user->lastname; ?>"><br>
+	Last name: <input type="text" name="lastname" placeholder="Your lastname" value="<?php echo $user->lastname; ?>"><br>
 
-	Email: <input type="email" name="email" placeholder="Your email" value="<?php echo $user->email; ?>"><br>
-	Country: 
+	Email address: <input type="email" name="email" placeholder="Your email" value="<?php echo $user->email; ?>"><br>
+	Country:
 	<select name="country">
 		<option value=""></option>
 		<option value="FRANCE" <?php if (isset($user->country) AND $user->country == "FRANCE") echo "selected"; ?>>FRANCE</option>
