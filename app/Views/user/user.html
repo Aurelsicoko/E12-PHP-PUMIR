@@ -297,7 +297,7 @@
 	<div class="container paddingSep">
 		<div class="row center titre_partie">
 			<div class="col-md-12">
-				<p class=" titre-2-black" id="urprofil">YOUR PROFILE <img src="public/images/edit_pic.png" alt="edit profil" class="cursorP openPop"></p>
+				<p class="titre-2-black cursorP m22" id="urprofil">YOUR PROFILE <img src="public/images/edit_pic.png" alt="edit profil" class="cursorP openPop visibilityhidden"></p>
 				<img alt="" src="public/images/fleche_bas_noire.png"/>
 				<div class="roundedBig marginAuto espacementVertical2" id="photoProfil">
 					<img src="public/images/img_user.jpg" alt="" class="width100">
@@ -306,7 +306,7 @@
 				<?php 
 					if(count($users) > 0){ 
 				?>
-				<h3 class="titre-2-bold-black"><?php echo $users[0]->firstname.' '.$users[0]->lastname; ?></h3>
+				<h3 class="titre-2-bold-black m22"><?php echo $users[0]->firstname.' '.$users[0]->lastname; ?> <img src="public/images/edit_pic.png" alt="edit profil" class="cursorP openPop visibilityhidden"></h3>
 				<p class="titre black"><?php echo $users[0]->city; ?> - <?php echo $users[0]->country; ?></p>
 				<?php 
 					}
@@ -316,6 +316,7 @@
 				<?php 
 				} 
 				?>
+				<p class="paddingSep"> Je suis passionné depuis tout petit par les legos je trouve que c'est vraiment génial. Je suis passionné depuis tout petit par les legos je trouve que c'est vraiment génial.</p>
 				<img alt="" src="public/images/mini_fleche_bas.png" class="espacementVertical"/>
 			</div>
 		</div>

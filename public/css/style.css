@@ -199,7 +199,7 @@ body .bgcolor4{
 	background-color: #c08d04;
 }
 body .bgcolor5{
-	background-color: #03884e;
+	background-color: #1C6B0E;
 }
 
 /*===========================curseur===========================*/
@@ -257,7 +257,7 @@ html body [class*="bold"]
 }
 /*========================bouttons==========================*/
 .button-1{
-	border-bottom: 4px solid #288312;
+	border-bottom: 4px solid #144209;
 	line-height: 16px;
 	height: 40px;
 	display: block;
@@ -268,30 +268,30 @@ html body [class*="bold"]
 	linear,
 	left top,
 	left bottom,
-	color-stop(0, #00B717),
-	color-stop(1, #00B717)
+	color-stop(0, #1C6B0E),
+	color-stop(1, #1C6B0E)
 	);
-	background-image: -o-linear-gradient(bottom, #18C057 0%, #00B717 100%);
-	background-image: -moz-linear-gradient(bottom, #18C057 0%, #00B717 100%);
-	background-image: -webkit-linear-gradient(bottom, #18C057 0%, #00B717 100%);
-	background-image: -ms-linear-gradient(bottom, #18C057 0%, #00B717 100%);
-	background-image: linear-gradient(to bottom, #18C057 0%, #00B717 100%);
+	background-image: -o-linear-gradient(bottom, #009B13 0%, #1C6B0E 100%);
+	background-image: -moz-linear-gradient(bottom, #009B13 0%, #1C6B0E 100%);
+	background-image: -webkit-linear-gradient(bottom, #009B13 0%, #1C6B0E 100%);
+	background-image: -ms-linear-gradient(bottom, #009B13 0%, #1C6B0E 100%);
+	background-image: linear-gradient(to bottom, #009B13 0%, #1C6B0E 100%);
 	vertical-align: bottom;
 }
 .button-1:hover{
-	border-bottom: 4px solid #32A316;
+	border-bottom: 4px solid #1F610E;
 	background-image: -webkit-gradient(
 	linear,
 	left top,
 	left bottom,
-	color-stop(0, #00DD1C),
-	color-stop(1, #00DD1C)
+	color-stop(0, #279614),
+	color-stop(1, #279614)
 	);
-	background-image: -o-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
-	background-image: -moz-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
-	background-image: -webkit-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
-	background-image: -ms-linear-gradient(bottom, #1CE166 0%, #00DD1C 100%);
-	background-image: linear-gradient(to bottom, #1CE166 0%, #00DD1C 100%);
+	background-image: -o-linear-gradient(bottom, #00C118 0%, #279614 100%);
+	background-image: -moz-linear-gradient(bottom, #00C118 0%, #279614 100%);
+	background-image: -webkit-linear-gradient(bottom, #00C118 0%, #279614 100%);
+	background-image: -ms-linear-gradient(bottom, #00C118 0%, #279614 100%);
+	background-image: linear-gradient(to bottom, #00C118 0%, #279614 100%);
 }
 #formLog .button-1{
 	margin-top: 17px;
@@ -464,7 +464,7 @@ html body [class*="bold"]
         -moz-transition: all 0.5s ease;
          -ms-transition: all 0.5s ease;
           -o-transition: all 0.5s ease;
-             transition: all 0.5s ease;all
+             transition: all 0.5s ease;
 	background-color: #000;
 	opacity: 1;
 	width: 100%;
@@ -518,8 +518,6 @@ html body [class*="bold"]
    -o-transform:rotate(3deg);
    transform:rotate(3deg);
  }
-
-
 
 select {
 	margin-bottom: 30px;
@@ -670,6 +668,7 @@ select {
 	position: relative;
 	top: -150px;
 }
+
 #photoProfil>p:hover{
 	opacity: 1;
 	height: 150px;
@@ -984,6 +983,9 @@ body [class*="form"]>div>h5{
 .visuallyhidden {
   opacity: 0;
 }
+.visibilityhidden{
+	visibility: hidden;
+}
 
 #formLog input[type="submit"], #formProfil input[type="submit"]{
 	margin-left: 11px;
@@ -1036,4 +1038,8 @@ html{
 
 .list-style-yes li{
 	padding: .5em;
+}
+
+.m22{
+	margin-left: 22px;
 }

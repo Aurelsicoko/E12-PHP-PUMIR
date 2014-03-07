@@ -2,17 +2,17 @@ $(document).ready(initialiser);
 
 function initialiser() {
 
-    d3.selectAll(".gradientElement")
-    .each(
-      function(){
-        var thiss = d3.select(this);
-        var note = parseFloat(thiss.attr("data-note"));
-        thiss
-        .attr('offset','100%')
-        .transition().ease("elastic").delay(500).duration(2000)
-        .attr('offset',(100-(note*20)+2)+"%");
-      }
-    );
+  d3.selectAll(".gradientElement")
+  .each(
+    function(){
+      var thiss = d3.select(this);
+      var note = parseFloat(thiss.attr("data-note"));
+      thiss
+      .attr('offset','100%')
+      .transition().ease("elastic").delay(500).duration(2000)
+      .attr('offset',(100-(note*20)+2)+"%");
+    }
+  );
 
    $(".partage>a").on('mouseover',function(){
     this.className = "";
@@ -107,5 +107,18 @@ function initialiser() {
         sub.one('transitionend', function(e) {
           sub.addClass('hidden');
           });
-    });        
+    });
+
+    $('#urprofil').on('mouseover',function(){
+      $('#urprofil img').removeClass('visibilityhidden');        
+    });
+    $('#urprofil').on('mouseout',function(){
+      $('#urprofil img').addClass('visibilityhidden');        
+    });
+    $('h3').on('mouseover',function(){
+      $('h3 img').removeClass('visibilityhidden');        
+    });
+    $('h3').on('mouseout',function(){
+      $('h3 img').addClass('visibilityhidden');        
+    });
 }
