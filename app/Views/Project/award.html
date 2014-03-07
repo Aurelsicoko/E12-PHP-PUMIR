@@ -1,15 +1,19 @@
-<?php foreach ($projects as $key => $project) : ?>
-	<?php $photos = unserialize($project->photos); ?>
-	<img src="<?php echo $photos[0]; ?>"><br>
-	<a href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a>
-	<br>
-	By: <?php echo $project->firstname.' '.$project->lastname; ?><br>
-	<?php
-		$user_vote = unserialize($project->user_vote);
-		$admin_vote = unserialize($project->admin_vote);
-		$originality = ($user_vote['originality']+$admin_vote['originality'])/2;
-		$difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
-		$style = ($user_vote['style']+$admin_vote['style'])/2;
-	?>
-	Average: <?php echo number_format(($originality+$difficulty+$style)/3, 2, ',', ''); ?><br><br>
-<?php endforeach; ?>
+<div class="paddingSep container">
+	<div class="row gallerieJ">
+		<?php foreach ($projects as $key => $project) : ?>
+		<?php $photos = unserialize($project->photos); ?>
+		<div class="col-md-4 col-sm-6">
+			<div class="imageT">
+				<a href="project/<?php echo $project->id; ?>">
+				<img alt="" src="<?php echo $photos[0]; ?>" /></a>
+				<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
+			</div>
+			<div class="descProjet">
+				<p class="titre-5-black-bold capitale"><a class="color1" href="project/<?php echo $project->id; ?>"><?php echo $project->title; ?></a></p>
+				<h4 class="titre-5 color1 ">BY <a class="underline color1" href="./user/<?php echo $project->id_user; ?>">
+					<?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
+			</div>
+		</div>
+		<?php endforeach; ?>
+	</div>
+</div>

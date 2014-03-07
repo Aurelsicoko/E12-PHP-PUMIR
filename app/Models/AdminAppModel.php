@@ -46,6 +46,14 @@ private $mapper;
 		$admin_vote = serialize(array('originality' => $params['admin_vote']['originality'], 'difficulty' => $params['admin_vote']['difficulty'], 'style' => $params['admin_vote']['style'], 'vote' => 1));
 		$mapper->admin_vote = $admin_vote;
 		$mapper->update();
+
+		$mapper = $this->getMapper('vote');
+		$mapper->id_user = $params["admin_id"];
+		$mapper->id_project = $params["id"];
+		$mapper->originality = $params['admin_vote']['originality'];
+		$mapper->difficulty = $params['admin_vote']['difficulty'];
+		$mapper->style = $params['admin_vote']['style'];
+		$mapper->save();
 	}
 
 	public function refuseProject ($params) {

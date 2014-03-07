@@ -69,7 +69,83 @@ class AppController extends Controller {
 	public function award ($f3) {
 		$this->content = 'project/award';
 		$projects = $this->model->getAward();
+
+		$users = array();
+
+		/* Get firstname and lastname information */
+		for($i=0; $i<count($projects); $i++){
+			$id_user = $projects[$i]->id_user;
+
+			$user = $this->model->getUser(array('id' => $id_user));
+			$users[$projects[$i]->id]['firstname'] = $user[0]->firstname;
+			$users[$projects[$i]->id]['lastname'] = $user[0]->lastname;
+		}
+		/* - - - - - - - - - - - - - - - - - - -  */
+
+		$f3->set('users', $users);
 		$f3->set('projects', $projects);
+	}
+
+	public function getRecentProjects ($f3) {
+		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
+		$projects = $this->model->getProjects(array('date' => $date));
+
+		$users = array();
+
+		/* Get firstname and lastname information */
+		for($i=0; $i<count($projects); $i++){
+			$id_user = $projects[$i]->id_user;
+
+			$user = $this->model->getUser(array('id' => $id_user));
+			$users[$projects[$i]->id]['firstname'] = $user[0]->firstname;
+			$users[$projects[$i]->id]['lastname'] = $user[0]->lastname;
+		}
+		/* - - - - - - - - - - - - - - - - - - -  */
+
+		$f3->set('users', $users);
+		$f3->set('projects', $projects);
+		$this->tpl = array('async'=>'project/award.html');
+	}
+
+	public function getAward ($f3) {
+		$projects = $this->model->getAward();
+
+		$users = array();
+
+		/* Get firstname and lastname information */
+		for($i=0; $i<count($projects); $i++){
+			$id_user = $projects[$i]->id_user;
+
+			$user = $this->model->getUser(array('id' => $id_user));
+			$users[$projects[$i]->id]['firstname'] = $user[0]->firstname;
+			$users[$projects[$i]->id]['lastname'] = $user[0]->lastname;
+		}
+		/* - - - - - - - - - - - - - - - - - - -  */
+
+		$f3->set('users', $users);
+		$f3->set('projects', $projects);
+		$this->tpl = array('async'=>'project/award.html');
+	}
+
+	public function getLastProjects ($f3){
+		$date = mktime (0,0,0, date("n"), date("j")+1, date("Y"));
+		$projects = $this->model->getLastProjects(array('date' => $date));
+
+		$users = array();
+
+		/* Get firstname and lastname information */
+		for($i=0; $i<count($projects); $i++){
+			$id_user = $projects[$i]->id_user;
+
+			$user = $this->model->getUser(array('id' => $id_user));
+			$users[$projects[$i]->id]['firstname'] = $user[0]->firstname;
+			$users[$projects[$i]->id]['lastname'] = $user[0]->lastname;
+		}
+		/* - - - - - - - - - - - - - - - - - - -  */
+
+		$f3->set('users', $users);
+		$f3->set('projects', $projects);
+		$this->tpl = array('async'=>'project/award.html');
 	}
 
 	// SESSION

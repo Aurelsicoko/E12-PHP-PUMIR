@@ -322,6 +322,7 @@
 		</div>
 	</div>
 </div>
+<?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
 <div class="paddingSep container padding-2">
 	<div class="row center titre_partie">
 		<p class="titre-2-white">MY PROJECTS</p>
@@ -355,9 +356,11 @@
 			        </script>
 			    </form>
 				<?php endif; if ($project->block === 0) :?> 
-				<div class="infoProjet bgcolor5 float-right white">
-					VALIDATED
-				</div>
+				<a href="./project/<?php echo $project->id; ?>">
+					<div class="infoProjet bgcolor5 float-right white">
+						VALIDATED
+					</div>
+				</a>
 				<?php endif; ?>
 				<p class="capitale bold"><?php echo $project->title; ?></p>
 				<p>-</p>
@@ -401,4 +404,5 @@
 			</div>
 		</div>
 	</div> -->
-</div>	
+</div>
+<?php endif; ?>	

@@ -9,7 +9,11 @@ private $mapper;
 	}
 
 	public function getProjects($params) {
-		return $this->mapper->find(array("beginDay <= ? AND lastDay >= ? AND block = 0", $params["date"], $params["date"]));
+		return $this->mapper->find(array("beginDay <= ? AND lastDay >= ? AND block = 0 AND lego = 0", $params["date"], $params["date"]));
+	}
+
+	public function getLastProjects($params) {
+		return $this->mapper->find(array("lastDay < ? AND block = 0", $params["date"]));
 	}
 
 	public function getAward () {
