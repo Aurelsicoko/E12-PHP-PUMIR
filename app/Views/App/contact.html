@@ -1,42 +1,37 @@
-<div id="bgContent" >
-	<div class="container paddingSep">
-		<div class="row center titre_partie">
-			<p class="titre-2-black">CONTACT</p>
+<div class="container">
+	<h3 class="white center titre34 marginTop">CONTACT</h3>
+	<div class="inscription col-md-4 col-md-offset-4">
+	<?php if(!isset($send)){ ?>
+	<form action="user/create" method="POST" class="titre-4 champs color1">
+		<div >
+			<label for="NFirstname">FIRSTNAME</label>
+			<input pattern="[a-zA-Z]+" id="NFirstname"type="text" name="firstname" value="<?php if (isset($_POST['firstname'])) echo $_POST['firstname']; ?>">
 		</div>
-		<div class="row">
-			<div class="col-md-10 col-md-offset-1">
-
-				<?php if(!isset($send)){ ?>
-				<form method="post" action="contact/send">
-					<p>
-						<input type="text" name="name" value="Lastname Firstname" />
-					</p>
-					<p>
-						<input type="email" name="email" value="your@email.com" />
-					</p>
-					<p>
-						<textarea name="message"></textarea>
-					</p>
-					<p>
-						<input type="submit" name="submit" value="Envoyer" />
-					</p>
-				</form>
-				<?php
-				}else{
-					switch($send) {
-						case 1:
-							echo 'Sent!';
-							break;
-						case 2:
-							echo 'A required fill is missing...';
-							break;
-						default:
-							echo 'An error occuried.';
-							break;
-					}
-				}
-				?>
-			</div>
+		<div>
+			<label for="NEMAIL">EMAIL</label> 
+			<input id="NEMAIL" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
 		</div>
-	</div>
+		<div>
+			<label for="NPASSWORD">PASSWORD</label> 
+			<input pattern="[a-zA-Z0-9_-]+" id="NPASSWORD" autocomplete="off" type="password" name="password">
+		</div>
+		<input class="button-1 marginAuto" type="submit" value="SUBMIT">
+	</form>
+	<?php
+	}else{
+		switch($send) {
+			case 1:
+				echo 'Sent!';
+				break;
+			case 2:
+				echo 'A required fill is missing...';
+				break;
+			default:
+				echo 'An error occuried.';
+				break;
+		}
+	}
+	?>
 </div>
+
+
