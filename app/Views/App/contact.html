@@ -11,10 +11,7 @@
 			<label for="NEMAIL">EMAIL</label> 
 			<input id="NEMAIL" type="text" pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" name="email" value="<?php if (isset($_POST['email'])) echo $_POST['email']; ?>">
 		</div>
-		<div>
-			<label for="NPASSWORD">PASSWORD</label> 
-			<input pattern="[a-zA-Z0-9_-]+" id="NPASSWORD" autocomplete="off" type="password" name="password">
-		</div>
+		<textarea rows="10" cols="42" class="titre-3" placeholder="Get in touch !"></textarea>
 		<input class="button-1 marginAuto" type="submit" value="SUBMIT">
 	</form>
 	<?php
@@ -32,6 +29,7 @@
 		}
 	}
 	?>
+	</div>
 </div>
 
 

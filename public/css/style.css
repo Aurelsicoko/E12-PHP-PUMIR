@@ -12,7 +12,7 @@ html, body {
  #canevas {
    min-height: 100%;
    height: auto;
-  margin: 0 auto -43px;
+   margin: 0 auto -43px;
 }
 
   
@@ -587,7 +587,6 @@ select {
 .inline-block{
 	display: inline-block;
 }
-
 .capd{
 	width: 230px;
 	height: 65px;
@@ -833,6 +832,9 @@ body [class*="form"]>div>img{
 	margin-top:15px; 
 	border: 2px solid #E1E2DE;
   transition: .1s all linear;
+}
+.inscription textarea{
+	margin-top: 10px;
 }
 .inscription .champs>div input {
 	height: 45px;
