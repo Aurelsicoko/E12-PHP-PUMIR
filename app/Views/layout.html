@@ -28,6 +28,9 @@
       </div>
       <div class="titre-4-white col-md-2 col-xs-3 col-sm-3 center">
         <a href="./submit" id="addProject">SUBMIT PROJECT</a>
+        <?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
+        <a href="./submit" id="addProject">SUBMIT PROJECT</a>
+        <?php endif; ?></p> 
       </div>
       <div class="titre-4-white col-md-2 col-xs-3 col-sm-2 " >
         <div id="login" class="center cursorP">

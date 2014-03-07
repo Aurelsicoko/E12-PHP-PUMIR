@@ -12,6 +12,10 @@ class AppController extends Controller {
 		$this->content = 'app/prehome';
 	}
 
+	public function timeline ($f3){
+		$this->tpl=array('sync'=>'timeline.html');
+	}
+
 	public function home ($f3) {
 		$this->content = 'app/index';
 		$date = mktime (date("H"), date("i"), date("s"), date("n"), date("j")+1, date("Y") );
@@ -74,8 +78,8 @@ class AppController extends Controller {
 	}
 
 	public function createSession ($f3) {
-		$user = $this->model->login(array('email' => $f3->get('POST.email'), 'password' => $f3->get('POST.password')));
-		if ($user) {
+		$user = $this->model->login(array('email' => $f3->get('POST.email'), 'password' => md5($f3->get('POST.password'))));
+		if(count($user) > 0 && $user != null){
 			$f3->set('SESSION.authenticated', true);
 			$f3->set('SESSION.user', array(	'id' => $user->id, 
 											'firstname' => $user->firstname, 
@@ -85,8 +89,7 @@ class AppController extends Controller {
 											'country' => $user->country,
 											'city' => $user->city,
 											'picture' => $user->picture 
-										)
-					);
+										));
 			$f3->reroute('/home');
 		}else{
 			$f3->reroute('/login');
@@ -100,14 +103,34 @@ class AppController extends Controller {
 
 	public function createUser ($f3){
 		if ($f3->get('POST.password') == $f3->get('POST.confirm')) {
+			$f3->set('POST.password', md5($f3->get('POST.password'))); 
 			$date = new DateTime();
 	    	$code = md5($date->getTimestamp().$f3->get('POST.email'));
 			$user = $this->model->createUser(array('code' => $code, 'email' => $f3->get('POST.email')));
 
 			$this->content = 'user/success';
 		}
+		else{
+			$this->content = 'Mot de passe invalide';
+		}
+	}
 
-		$this->content = 'Mot de passe invalide';
+	public function editUser ($f3){
+		$firstname = $f3->get('POST.firstname');
+		$lastname = $f3->get('POST.lastname');
+		$email = $f3->get('POST.email');
+		$city = $f3->get('POST.city');
+		$country = $f3->get('POST.country');
+		$password = $f3->get('POST.password');
+		$confirm = $f3->get('POST.confirm');
+
+		$user = $this->model->getUser(array('id' => $f3->get('SESSION.user')['id']));
+
+		if($password == $confirm && $user[0]->password == md5($password)){
+			$this->model->updateUser(array('id' => $user[0]->id, 'firstname' => $firstname, 'lastname' => $lastname, 'email' => $email, 'city' => $city, 'country' => $country));
+		}
+
+		$f3->reroute('/profil');
 	}
 
 	public function confirmation ($f3) {
