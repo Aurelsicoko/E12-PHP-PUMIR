@@ -473,13 +473,19 @@ html body [class*="bold"]
 	height: 219px;
 	overflow: hidden;
 }
+.controleTaille2{
+	height: 190px;
+	overflow: hidden;
+}
+
 .altPicPr>img:first-child:hover{
 	background-color: #000;
 	opacity: 0.5;
 	width: 100%;
 }
 
-.drop-shadow {
+body .drop-shadow {
+	height: 295px;
    position:relative;
    width:100%;
   background :#e3e3e3;

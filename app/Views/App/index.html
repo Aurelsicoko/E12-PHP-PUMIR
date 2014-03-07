@@ -8,7 +8,7 @@
 		</div>
 		<div class="row">
 			<div class="col-md-6">
-				<div class="drop-shadow">
+				<div class="drop-shadow controleTaille">
 					<img id="prev" alt="prev" src="public/images/fleche_prev.png" />
 					<img id="next" alt="next" src="public/images/fleche_next.png" />
 					<img  id="test" class="width100" src="<?php echo $photos[0]; ?>"/>
@@ -128,7 +128,7 @@
 		<?php foreach ($projects as $key => $project) : ?>
 		<?php $photos = unserialize($project->photos); ?>
 		<div class="col-md-4 col-sm-6">
-			<div class="imageT">
+			<div class="imageT controleTaille2">
 				<a href="project/<?php echo $project->id; ?>">
 				<img alt="" src="<?php echo $photos[0]; ?>" /></a>
 				<img class="marginAuto fleche_desc" src="public/images/fleche_haut_projet.png" alt="fleche haut projet">
