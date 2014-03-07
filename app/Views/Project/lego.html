@@ -3,20 +3,20 @@
 		<div>
 			<img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
 			<h5 class="titre-3 black center ">RATE THE PROJECT</h5>
-			<p class="center titre-5 padding-1 color1">Chose a number between 0 and 5 included (for example 3.6) to rate the different criterias of this project. Your rate will be added to the average.</p>
+			<p class="center titre-5 padding-1 color1">Chose a number between 0 an 10 included (for example 3.6) to rate the differents criterias of this project. Your rate will be add to the average</p>
 			<form name="input" action="./project/vote/<?php echo $project->id; ?>" method="POST">
 				<div class="titre-4-bold center">
 				  <div>
 				    <label for="ORIGINALITY">ORIGINALITY</label>
-				    <input id="ORIGINALITY" name="originality" type="text" pattern="[0-5]{1}" required/>
+				    <input id="ORIGINALITY" name="originality" type="text" pattern="([0-9]||10){1}" required/>
 				  </div>
 				  <div>
 				    <label for="DIFFICULTY">DIFFICULTY</label>
-				    <input id="DIFFICULTY" type="text" name="difficulty"  pattern="[0-5]{1}" required/>
+				    <input id="DIFFICULTY" type="text" name="difficulty"  pattern="([0-9]||10){1}" required/>
 				  </div>
 				  <div>
 				    <label for="AESTHETIC">AESTHETIC</label>
-				    <input id="AESTHETIC" type="text" name="style"  pattern="[0-5]{1}" required/>
+				    <input id="AESTHETIC" type="text" name="style"  pattern="([0-9]||10){1}" required/>
 				  </div>
 				  <div>
 				  	<p class="color2 inline-block">AVERAGE</p>
@@ -48,7 +48,7 @@
 		<div class="row center titre_partie">
 			<div class="col-md-12">
 			<p class=" titre-2-black "><?php echo $project->title; ?></p>
-			<h4 class="titre-5 color1">BY <a class="underline" href="./user/<?php echo $users[$project->id]['id']; ?>"><?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
+			<h4 class="titre-5 color1">BY <a class="underline color1" href="./user/<?php echo $users[$project->id]['id']; ?>"><?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
 			<img alt="" src="public/images/fleche_bas_noire.png" class="espacementVertical"/>
 			<p class="titre-5 lineHeightBase"><?php echo $project->description; ?></p>
 		</div>

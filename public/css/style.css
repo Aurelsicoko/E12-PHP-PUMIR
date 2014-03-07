@@ -472,13 +472,9 @@ html body [class*="bold"]
 	width: 100%;
 }
 
-
-
-
-
-
-
 .drop-shadow {
+	height: 219px;
+	overflow: hidden;
    position:relative;
    width:100%;
   background :#e3e3e3;
@@ -908,13 +904,13 @@ input[type='text'],#averageNoting {
 	width: 55px;
 	height: 35px;
 }
-input[type="text"]:valid{
+html body input[type="text"]:valid,html body input[type="password"]:valid{
 	border: 2px solid #26C422;
 }
-input[type="text"]:invalid{
+html body input[type="text"]:invalid,html body input[type="password"]:invalid{
 	border: 2px solid #CF1616;
 }
-input[type="text"]:focus{
+html body input[type="text"]:focus,html body input[type="password"]:focus{
 	border: 2px solid #CBCCC4;
 }
 #formRate input[type="submit"]{
