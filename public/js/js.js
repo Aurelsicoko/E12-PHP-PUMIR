@@ -14,6 +14,15 @@ function initialiser() {
       }
     );
 
+    $('select[name=choixIndex]').on('change', function(){
+
+      var path = $(this).val();
+
+      $('.gallerieJ').load(path, function(data){
+        console.log(data);
+      });
+    });
+
    $(".partage>a").on('mouseover',function(){
     this.className = "";
     this.className= "bgcolor0";
@@ -94,7 +103,7 @@ function initialiser() {
           log.addClass('hidden');
           });
     });
-    $('#addProject').on('click', function (event) {
+    $('.addProject').on('click', function (event) {
       event.preventDefault();
       sub.removeClass('hidden');
       setTimeout(function () {

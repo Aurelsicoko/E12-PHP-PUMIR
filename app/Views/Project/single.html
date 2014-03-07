@@ -1,54 +1,35 @@
-<?php if (!$vote AND isset($_SESSION['authenticated']) AND $_SESSION['authenticated']) : ?>
-<!-- 	<form method="POST" action="project/vote/<?php echo $project->id ?>">
-	Originality :
-	<select name="originality">
-		<option value="0" >0</option>
-		<option value="1" >1</option>
-		<option value="2" >2</option>
-		<option value="3" >3</option>
-		<option value="4" >4</option>
-		<option value="5" >5</option>
-		<option value="6" >6</option>
-		<option value="7" >7</option>
-		<option value="8" >8</option>
-		<option value="9" >9</option>
-		<option value="10" >10</option>
-	</select>
-	<br>
-	Difficulty :
-	<select name="difficulty">
-		<option value="0" >0</option>
-		<option value="1" >1</option>
-		<option value="2" >2</option>
-		<option value="3" >3</option>
-		<option value="4" >4</option>
-		<option value="5" >5</option>
-		<option value="6" >6</option>
-		<option value="7" >7</option>
-		<option value="8" >8</option>
-		<option value="9" >9</option>
-		<option value="10" >10</option>
-	</select>
-	<br>
-	Style :
-	<select name="style">
-		<option value="0" >0</option>
-		<option value="1" >1</option>
-		<option value="2" >2</option>
-		<option value="3" >3</option>
-		<option value="4" >4</option>
-		<option value="5" >5</option>
-		<option value="6" >6</option>
-		<option value="7" >7</option>
-		<option value="8" >8</option>
-		<option value="9" >9</option>
-		<option value="10" >10</option>
-	</select>
-	<br>
-	<input type="submit" value="vote">
-</form> -->
-<?php endif; ?>
-
+<div class="container">
+	<div id="formRate" class="hidden visuallyhidden form2column formPop">
+		<div>
+			<img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
+			<h5 class="titre-3 black center ">RATE THE PROJECT</h5>
+			<p class="center titre-5 padding-1 color1">Chose a number between 0 an 10 included (for example 3.6) to rate the differents criterias of this project. Your rate will be add to the average</p>
+			<form name="input" action="./project/vote/<?php echo $project->id; ?>" method="POST">
+				<div class="titre-4-bold center">
+				  <div>
+				    <label for="ORIGINALITY">ORIGINALITY</label>
+				    <input id="ORIGINALITY" name="originality" type="text" pattern="([0-9]||10){1}" required/>
+				  </div>
+				  <div>
+				    <label for="DIFFICULTY">DIFFICULTY</label>
+				    <input id="DIFFICULTY" type="text" name="difficulty"  pattern="([0-9]||10){1}" required/>
+				  </div>
+				  <div>
+				    <label for="AESTHETIC">AESTHETIC</label>
+				    <input id="AESTHETIC" type="text" name="style"  pattern="([0-9]||10){1}" required/>
+				  </div>
+				  <div>
+				  	<p class="color2 inline-block">AVERAGE</p>
+				  	<div id="averageNoting" class="inline-block">
+				  		<p>_</p>
+				  	</div>
+				  </div>
+					<input class="button-1" type="submit" value="Submit">
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 <div id="bgContent" >
 	<?php $photos = unserialize($project->photos); ?>
 	<?php
@@ -159,14 +140,18 @@
 					</div>
 				</div>
 				<div class="raters">
-					<p class="titre-4 underline"><?php echo $admin_vote["vote"]+$user_vote["vote"]; ?> RATERS</p>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
-					<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
+					<?php
+
+					$tour = ($user_vote['vote'] < 7) ? $user_vote['vote'] : 7;
+
+
+					for($i=0; $i<$tour; $i++){
+
+					?>
+						<a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
+					<?php
+					}
+					?>
 				</div>
 			</div>
 		</div>
@@ -180,10 +165,9 @@
 				</div>
 				<div class="col-md-3" id="rate">
 					<?php
-					print_r($vote);
-					if(count($vote) == 0){
+					if($vote == ""){
 					?>
-					<a class=" button-1 titre-5-white center" href="/">RATE IT!</a>
+					<a class=" button-1 titre-5-white center openPop" id="rateit" href="/">RATE IT!</a>
 					<?php } ?>
 				</div>
 			</div>
