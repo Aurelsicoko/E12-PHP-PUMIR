@@ -1007,14 +1007,19 @@ html{
 	right: 0px;
 }
 #prehome a{
-	width: 138px;
+	width: 100%;
+	text-align: center;
+}
+
+#prehomeG a:last-of-type{
+	margin-top: 30px;
 }
 
 #prehomeG{
-	margin-top: 130px;
+	margin-top: 35%;
 }
 #prehomeD{
-	margin-top: 100px;
+	margin-top: 35%;
 }
 
 .list-style-yes{
