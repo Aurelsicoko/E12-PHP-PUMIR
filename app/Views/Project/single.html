@@ -179,7 +179,12 @@
 					<a href="#" class="bgcolor2"><img src="public/images/google_plus.png" alt=""></a>
 				</div>
 				<div class="col-md-3" id="rate">
+					<?php
+					print_r($vote);
+					if(count($vote) == 0){
+					?>
 					<a class=" button-1 titre-5-white center" href="/">RATE IT!</a>
+					<?php } ?>
 				</div>
 			</div>
 		</div>

@@ -44,13 +44,15 @@ class AdminAppController extends Controller {
 	public function adminPreview ($f3) {
 		$this->content = 'admin/preview';
 		$project = $this->model->adminPreview(array('id' => $f3->get('PARAMS.id')));
-		$votes = $this->model->voteProject(array('id' => $f3->get('PARAMS.id')));
 		$f3->set('project', $project);
-		$f3->set('votes', $votes);
 	}
 
 	public function validationProject ($f3) {
-		$this->model->validationProject(array('id' => $f3->get('PARAMS.id')));
+		$this->model->validationProject(array('id' => $f3->get('PARAMS.id'), 'title' => $f3->get('POST.title'), 'description' => $f3->get('POST.description')));
+		$admin_vote["originality"] = $f3->get('POST.originality');
+		$admin_vote["difficulty"] = $f3->get('POST.difficulty');
+		$admin_vote["style"] = $f3->get('POST.style');
+		$this->model->voteProject(array('id' => $f3->get('PARAMS.id'), 'admin_vote' => $admin_vote));
 		$f3->reroute('/admin/project/waitList');
 	}
 

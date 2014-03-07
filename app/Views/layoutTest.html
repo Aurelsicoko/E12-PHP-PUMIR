@@ -1,0 +1,227 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <base href="<?php echo $BASE; ?>/">
+  <title>LEGO</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="public/css/grid.css">
+  <link rel="stylesheet" href="public/css/style.css">
+  <link rel="stylesheet" href="public/css/reset.css">
+  
+
+  <!--[if lt IE 9]>
+  <script src="../../public/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+<div id="canevas">
+<header class="border-bottom">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2">
+        <a href="./home"><img src="public/images/logo_header.png" id="logo"  alt="Logo Awwward"/></a>
+      </div>
+      <div class="titre-4-white col-md-1 col-md-offset-5 col-xs-2 col-xs-offset-2 col-sm-2 col-sm-offset-3 center">
+        <?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
+        <a href="./profil">PROFILE</a>
+        <?php endif; ?></p> 
+      </div>
+      <div class="titre-4-white col-md-2 col-xs-3 col-sm-3 center">
+        <?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
+        <a href="./submit">SUBMIT PROJECT</a>
+        <?php endif; ?></p> 
+      </div>
+      <div class="titre-4-white col-md-2 col-xs-3 col-sm-2 " >
+        <div id="login" class="center cursorP">
+          <p class="capitale">
+            <?php if (isset($_SESSION['authenticated']) AND $_SESSION['authenticated'])  : ?>
+            <a href="logout">LOGOUT</a>
+          <?php else : ?>
+            <a href="login" id="openLogin">LOGIN/REGISTER</a> 
+          <?php endif; ?></p> 
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+<div id="formLog" class="hidden visuallyhidden form2column">
+  <div>
+        <img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
+        <h5 class="titre-3 black center ">LOGIN</h5>
+      <form name="input" action="./session/create" method="post">
+        <div class="champs police2 center float-left leftInput titre-4">
+          <div>
+            <a class="button-1 cursorP" id="cntfb" href="./facebook" alt="connect facebook" >
+              <img src="public/images/facebook_connect.png"/>CONNECT WITH FACEBOOK</a>
+          </div>
+          <div>
+            <a class="button-1 cursorP" id="cnttwt" href="#" alt="connect twitter" ><img src="public/images/twitter_connect.png"/>CONNECT WITH TWITTER</a>
+          </div>
+          <div>
+            <a class="button-1 cursorP" id="cntgp" href="#" alt="cnnect google" ><img src="public/images/googleplus_connect.png"/>CONNECT WITH GOOGLE</a>
+          </div>
+          <a class="button-1" id="openRegister" href="./signup" alt="register">REGISTER WITH E-MAIL</a>
+        </div>
+        <div class="champs police2 center float-right rightInput">
+          <div>
+            <label for="FIRST">EMAIL</label>
+            <input autocomplete="off" id="FIRST" name="email" type="text" pattern"[a-zA-Z]+" required/>
+          </div>
+          <div>
+            <label for="PASSWORD">PASSWORD</label>
+            <input autocomplete="off" id="PASSWORD" name="password" type="password" pattern"[a-zA-Z]+" required/> 
+          </div>
+        <input class="button-1 titre-4" type="submit" value="SUBMIT">
+        </div>
+      </form>
+    </div>
+</div>
+    <div class="container">
+  <div id="formRate" class="hidden visuallyhidden form2column formPop">
+    <div>
+      <img src="public/images/croix_popup.png" alt="close" class="float-right cursorP">
+      <h5 class="titre-3 black center ">RATE THE PROJECT</h5>
+      <p class="center titre-5 padding-1 color1">Chose a number between 0 an 10 included (for example 3.6) to rate the differents criterias of this project. Your rate will be add to the average</p>
+      <form name="input" action="./project/vote/<?php echo $project->id; ?>" method="POST">
+        <div class="titre-4-bold center">
+          <div>
+            <label for="ORIGINALITY">ORIGINALITY</label>
+            <input id="ORIGINALITY" name="originality" type="text" pattern="([0-9]||10){1}" required/>
+          </div>
+          <div>
+            <label for="DIFFICULTY">DIFFICULTY</label>
+            <input id="DIFFICULTY" type="text" name="difficulty"  pattern="([0-9]||10){1}" required/>
+          </div>
+          <div>
+            <label for="AESTHETIC">AESTHETIC</label>
+            <input id="AESTHETIC" type="text" name="style"  pattern="([0-9]||10){1}" required/>
+          </div>
+          <div>
+            <p class="color2 inline-block">AVERAGE</p>
+            <div id="averageNoting" class="inline-block">
+              <p>_</p>
+            </div>
+          </div>
+          <input class="button-1" type="submit" value="Submit">
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+<div id="bgContent" >
+  <?php $photos = unserialize($project->photos); ?>
+  <?php
+    $user_vote = unserialize($project->user_vote);
+    $admin_vote = unserialize($project->admin_vote);
+    $originality = ($user_vote['originality']+$admin_vote['originality'])/2;
+    $originality = str_replace(',','.',number_format($originality/2, 2, ',', ''));
+    $difficulty = ($user_vote['difficulty']+$admin_vote['difficulty'])/2;
+    $difficulty = str_replace(',','.',number_format($difficulty/2, 2, ',', ''));
+    $style = ($user_vote['style']+$admin_vote['style'])/2;
+    $style = str_replace(',','.',number_format($style/2, 2, ',', ''));
+    $date = Date('d/m/Y', $project->lastDay);
+
+  ?>
+  <div class="container paddingSep">
+    <div class="row center titre_partie">
+      <div class="col-md-12">
+      <p class=" titre-2-black "><?php echo $project->title; ?></p>
+      <h4 class="titre-5 color1">BY <a class="underline color1" href="./user/<?php echo $users[$project->id]['id']; ?>"><?php echo $users[$project->id]['firstname'].' '.$users[$project->id]['lastname']; ?></a></h4>
+      <img alt="" src="public/images/fleche_bas_noire.png" class="espacementVertical"/>
+      <p class="titre-5 lineHeightBase"><?php echo $project->description; ?></p>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="drop-shadow">
+          <img class="width100" alt="" src="<?php echo $photos[0]; ?>"/>
+        </div>
+      </div>
+      
+        <div class="raters">
+          <p class="titre-4 underline"><?php echo $admin_vote["vote"]+$user_vote["vote"]; ?> RATERS</p>
+          <?php
+
+          $tour = ($user_vote['vote'] < 7) ? $user_vote['vote'] : 7;
+
+
+          for($i=0; $i<$tour; $i++){
+
+          ?>
+            <a href="#" data-tooltip="Aurélien Georget (4.8)" data-placement="top"><img src="public/images/img_user.jpg" alt="" class="rounded"/></a>
+          <?php
+          }
+          ?>
+
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <?php
+          if(count($vote) == 0){
+        ?>
+        <div class="col-md-6 col-md-offset-6">
+          <div class="col-md-5 col-md-offset-4 partage white center">
+            <p class="bgcolor2 titre-4">SHARE</p>
+            <a href="#" class="bgcolor2"><img src="public/images/fb.png" alt=""></a>
+            <a href="#" class="bgcolor2"><img src="public/images/twitter.png" alt=""></a>
+            <a href="#" class="bgcolor2"><img src="public/images/google_plus.png" alt=""></a>
+          </div>
+          <div class="col-md-3" id="rate">
+            <a class="button-1 titre-5-white center openPop" id="rateit" href="#">RATE IT !</a>
+          </div>
+        </div>
+        <?php 
+          }else{
+        ?>
+        <div class="col-md-6 col-md-offset-6">
+          <div class="col-md-5 col-md-offset-7 partage white center">
+            <p class="bgcolor2 titre-4">SHARE</p>
+            <a href="#" class="bgcolor2"><img src="public/images/fb.png" alt=""></a>
+            <a href="#" class="bgcolor2"><img src="public/images/twitter.png" alt=""></a>
+            <a href="#" class="bgcolor2"><img src="public/images/google_plus.png" alt=""></a>
+          </div>
+        </div>
+        <?php } ?>
+      </div>
+    </div>
+  </div>
+<?php if (count($photos) > 1) :?>
+<div class="paddingSep container">
+  <div class="row center titre_partie">
+    <p class="titre-2-white">PHOTOS</p>
+    <img alt="" src="public/images/fleche_bas.png" />
+  </div>
+  <div class="row gallerieJ">
+    <?php for ($i = 1 ; $i < count($photos) ; $i++) : ?>
+    <div class="col-md-4 col-sm-6">
+      <div class="imageT">
+        <img alt="" src="<?php echo $photos[$i] ?>" />
+      </div>
+    </div>
+    <?php endfor; ?>
+  </div>
+</div>
+<?php endif; ?>
+
+    <div class="push"></div>
+</div>
+  <footer class="titre-4-bold-white color1">
+    <div class="container">
+      <a href="./about">ABOUT</a>
+      <a href="./legal">LEGAL TERMS</a>
+      <a href="./contact">CONTACT</a>
+      <a href="./rules">RULES</a>
+      <p class="float-right white">2014 Copyright LEGO AWARDS - HETIC PROJECT</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <?php
+      require($load);
+  ?>
+
+</body>
+</html>

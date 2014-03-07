@@ -13,7 +13,7 @@ class AppController extends Controller {
 	}
 
 	public function timeline ($f3){
-		$this->tpl=array('sync'=>'timeline.html');
+		$this->tpl=array('sync'=>'ti.html');
 	}
 
 	public function home ($f3) {
