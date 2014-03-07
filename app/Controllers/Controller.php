@@ -14,14 +14,14 @@ protected $dir;
   }
   
   public function afterroute($f3){
-    
     $f3->set('content', 'app/Views/'.$this->content.'.html');
     $f3->set('load', 'app/Views/loadJS.html');
-    if($f3->get('AJAX')){
-      echo View::instance()->render($this->tpl['async']);
-    }else{
-      echo View::instance()->render($this->tpl['sync']);
-    } 
+
+    $mimeTypes=array('html'=>'text/html','json'=>'application/json');
+    $tpl=$f3->get('AJAX')?$this->tpl['async']:$this->tpl['sync'];
+    $ext=substr($tpl,strrpos($tpl,'.')+1);
+    $mime=$mimeTypes[$ext];
+    echo View::instance()->render($tpl,$mime);
   }
 }
 ?>
